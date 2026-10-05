@@ -1,0 +1,434 @@
+writing log to C:\Users\leehs\Desktop\search_pipeline\data\artifacts\logs\run_20260517_220148.log
+
+
+========== RAW DATASET VERIFICATION ==========
+
+[1] DataSet shapes
+Examples shape:  (2621288, 9)
+Products shape:  (1814924, 7)
+Sources shape:  (130652, 2)
+
+[2] Locale distribution in examples
+product_locale
+us    1818825
+jp     446053
+es     356410
+Name: count, dtype: int64
+
+[3] Locale distribution in products
+product_locale
+us    1215854
+jp     339059
+es     260011
+Name: count, dtype: int64
+
+[4] Split distribution
+split
+train    1983272
+test      638016
+Name: count, dtype: int64
+
+[5] ESCI label distribution overall
+                  n   pct
+esci_label               
+E           1708158  65.2
+S            574313  21.9
+I            263165  10.0
+C             75652   2.9
+
+[6] Unique query counts
+All unique queries: 130652
+Small version unique queries: 48300
+Large version unique queries: 130652
+
+[7] Judgements by version, locale, and split
+  product_locale  split  judgements  unique_queries  avg_depth
+0             es   test       93347            3844  24.283819
+1             es  train      263063           11336  23.205981
+2             jp   test      118907            4667  25.478252
+3             jp  train      327146           13460  24.305052
+4             us   test      425762           22458  18.958144
+5             us  train     1393063           74888  18.601952
+
+[8] ESCI label distribution on US small-version test split
+esci_label
+E    79708
+S    63563
+I    30331
+C     8099
+Name: count, dtype: int64
+
+[9] Walk through a single query
+Sample query_id=1, query='!awnmower tires without rims'
+esci_label product_id                                                                                           title
+         E B08L3B9B9P MaxAuto 2-Pack 13x5.00-6 2PLY Turf Mower Tractor Tire with Yellow Rim, (3" Centered Hub, 3/4" B
+         E B07C1WZG12                              (Set of 2) 15x6.00-6 Husqvarna/Poulan Tire Wheel Assy .75" Bearing
+         E B077QMNXTS              MaxAuto 2 Pcs 16x6.50-8 Lawn Mower Tire for Garden Tractors Ridings, 4PR, Tubeless
+         E B06XX6BM2R        MARASTAR 21446-2PK 15x6.00-6" Front Tire Assembly Replacement-Craftsman Mower, Pack of 2
+         E B0089RNSNM                 Honda 42710-VE2-M02ZE (Replaces 42710-VE2-M01ZE) Lawn Mower Rear Wheel Set of 2
+         E B005O5Y3QI                                               Carlisle Turf Saver Lawn & Garden Tire - 15X6-6 A
+         E B0018TWDOI                                             Oregon 72-107 Universal Wheel 7X150 Diamond Plastic
+         S B07P4CF3DP                2PK 13x5.00-6 13x5.00x6 13x5x6 13x5-6 2PLY Turf Mower Tractor Tire with Gray Rim
+         S B01DBGLLUC 15x6.00-6" Front Tire Assembly Replacement for 100 and 300 Series John Deere Riding Mowers - 2 
+         S B0089RA0HY                                                    Honda 44710-VG3-010 Front Wheels, (Set of 2)
+         C B01M3SJ699 Dr.Roc Tire Spoon Lever Dirt Bike Lawn Mower Motorcycle Tire Changing Tools with Durable Bag 3 
+         I B075SCHMPY RamPro 10" All Purpose Utility Air Tires/Wheels with a 5/8" Diameter Hole with Double Sealed Be
+         I B082K7V2GZ NEIKO 20601A 14.5 inch Steel Tire Spoon Lever Iron Tool Kit | Professional Tire Changing Tool f
+         I B00N16T5D8                           Honda HRR Wheel Kit (2 Front 44710-VL0-L02ZB, 2 Back 42710-VE2-M02ZE)
+         I B00004RA3F                   American Lawn Mower Company 1204-14 14-Inch 4-Blade Push Reel Lawn Mower, Red
+         I B01H3KC5U2                                        Craftsman 532403111 Mower Front Drive Wheels (Pack of 2)
+
+[10] Query length distribution on US small-version test split
+count    8956.000000
+mean        3.886891
+std         1.826489
+min         1.000000
+25%         3.000000
+50%         4.000000
+75%         5.000000
+max        29.000000
+Name: query, dtype: float64
+
+Token count -> number of queries (top 15):
+query
+1      295
+2     1460
+3     2357
+4     2225
+5     1374
+6      679
+7      302
+8      137
+9       66
+10      25
+11       8
+12       5
+14       1
+16       3
+17       2
+Name: count, dtype: int64
+
+[11] Missing value rates in product text fields (all locales)
+product_description     0.483656
+product_color           0.380733
+product_bullet_point    0.167564
+product_brand           0.078657
+product_title           0.000000
+dtype: float64
+
+[12] Product field completeness (US locale)
+                       filled    total  pct_filled
+product_title         1215854  1215854       100.0
+product_description    646062  1215854        53.1
+product_bullet_point  1037078  1215854        85.3
+product_brand         1143519  1215854        94.1
+product_color          809750  1215854        66.6
+
+[15] Train/test split is stratified by query (sanity check)
+Queries appearing in both splits: 0
+
+[16] Available positive (query, product) pairs for supervised training
+positive_pairs:     181819
+unique_queries:     20888
+unique_products:    167850
+
+ Korean query: 
+     query  product_id                                      product_title esci_label
+0  자전거트레일러  B08QMZ4TGF  Hieha Car Stereo Compatible with Apple Carplay...          I
+1  자전거트레일러  B085NMRZC3  Osmo - Little Genius Starter Kit for Fire Tabl...          I
+2  자전거트레일러  B07ZFJJZLF  LivTee 5 pcs Auto Trim Removal Tool Kit, Inter...          E
+3  자전거트레일러  B07G5VLMN1  MAXXHAUL 50025 Hitch Mounted 2-Bike Rack-100 l...          E
+4  자전거트레일러  B06XTZYJL3  Nilight - ZH003 20Inch 126W Spot Flood Combo L...          I
+5  자전거트레일러  B010LLGWL8  Burley Honey Bee, 2 Seat Kids Bike Trailer & S...          E
+6  자전거트레일러  B010LLGWKE  BURLEY Design Bee, 2 Seat, Lightweight, Kids B...          E
+7  자전거트레일러  B003CUBPUY  Bell 20-Inch Universal Inner Tube, Width Fit R...          I
+8  자전거트레일러  B002KV1MJU  Marcy Recumbent Exercise Bike with Resistance ...          E
+
+========== END DATASET VERIFICATION ==========
+
+loading cached bm25 index from C:\Users\leehs\Desktop\search_pipeline\data\artifacts\bm25_us_v2 ...
+  index has 1,215,854 products
+
+top-10 for: 'rose gold iphone case'
+   1. score=9.692  B07FK5FJPF
+   2. score=8.957  B00Z7RUKG0
+   3. score=8.912  B07GL12JJR
+   4. score=8.795  B07THXQXPL
+   5. score=8.707  B07GJ8CZ5M
+   6. score=8.649  B07HB167NL
+   7. score=8.649  B013TKNNGK
+   8. score=8.562  B07GFSZFFH
+   9. score=8.550  B078MX4GB2
+  10. score=8.502  B01M8PPRBM
+
+top-10 for: 'storage bin 52qt with lid'
+   1. score=9.603  B08K2XQLDV
+   2. score=9.373  B000I1BU6E
+   3. score=9.202  B08GK7TFCT
+   4. score=8.952  B001HTGD36
+   5. score=8.909  B07PVF6JH7
+   6. score=8.824  B094KSK96L
+   7. score=8.746  B0837K2QSM
+   8. score=8.715  B07SRJWTW8
+   9. score=8.715  B08DXKQCPB
+  10. score=8.715  B07STLHLCZ
+
+top-10 for: 'wheelbarrow'
+   1. score=6.523  B08DK39QVL
+   2. score=6.296  B00JKQK10O
+   3. score=6.085  B0742N9C2X
+   4. score=5.887  B00N0I9SX4
+   5. score=5.887  B00N0I9S5W
+   6. score=5.887  B000GL19QC
+   7. score=5.887  B0009WG6MA
+   8. score=5.702  B001QROPV6
+   9. score=5.702  B007OXF37Q
+  10. score=5.702  B00U6OG2HK
+
+top-10 for: 'champion sweatshirt women'
+   1. score=8.127  B07SSH8236
+   2. score=8.006  B07G7L9CXB
+   3. score=7.660  B074G8625V
+   4. score=7.446  B07K55JSRX
+   5. score=7.034  B07Q43SNCG
+   6. score=7.034  B07XZTT27N
+   7. score=6.820  B01HIUT4C4
+   8. score=6.820  B01HIUT1B8
+   9. score=6.820  B01HIUT1JA
+  10. score=6.820  B01ATPE7DG
+
+top-10 for: 'car charger'
+   1. score=6.162  B07Z48DB2H
+   2. score=6.095  B07Z3BHSRM
+   3. score=5.899  B00ISGFY54
+   4. score=5.792  B01DW5MQ8S
+   5. score=5.782  B0716VDMVM
+   6. score=5.780  B08218PYX1
+   7. score=5.762  B01HMF7M38
+   8. score=5.753  B07HXZDVDH
+   9. score=5.729  B07TW1QDR2
+  10. score=5.728  B08JTWPLC4
+
+top-10 for: 'aeropress'
+   1. score=7.769  B00JVTQHVC
+   2. score=7.196  B07NP4LCGW
+   3. score=6.781  B000LTOCSG
+   4. score=6.233  B08GP6WSPK
+   5. score=6.134  B08NPKTW9D
+   6. score=6.064  B0759M546H
+   7. score=5.879  B01EKWLF7K
+   8. score=5.854  B078QPKDNP
+   9. score=5.767  B079YY5MPG
+  10. score=5.705  B07FSQ2LHW
+
+evaluating on US small-version test split ...
+eval took 134.2s
+  ran on 8,955 queries
+
+BM25 strict (E)            Hits@1=0.2959  Hits@5=0.5026  Hits@10=0.5820  MRR@10=0.3848   (GT=E, n=8,955)
+BM25 lenient (E or S)      Hits@1=0.3653  Hits@5=0.5747  Hits@10=0.6544  MRR@10=0.4557   (GT=E or S, n=8,956)
+device: cuda
+model:  all-MiniLM-L6-v2
+loading cached dense embeddings from C:\Users\leehs\Desktop\search_pipeline\data\artifacts\dense_emb_us.npy ...
+  index has 1,215,854 products
+
+top-10 for: 'rose gold iphone case'
+   1. score=0.330  B08DPJN46W
+   2. score=0.319  B078XGMFFR
+   3. score=0.319  B07FFPHXFK
+   4. score=0.316  B07YYMM88F
+   5. score=0.315  B08DYX98CZ
+   6. score=0.315  B075S6HSV8
+   7. score=0.315  B07RQZL894
+   8. score=0.314  B07FK5FJPF
+   9. score=0.313  B07YZ5WZJ2
+  10. score=0.312  B07MJFRDWT
+
+top-10 for: 'storage bin 52qt with lid'
+   1. score=0.201  B078S3SNPK
+   2. score=0.196  B0757299HQ
+   3. score=0.192  B001HTGD36
+   4. score=0.188  B0894PH2Q5
+   5. score=0.186  B01GUA82QM
+   6. score=0.184  B085ZBCX7D
+   7. score=0.183  B083ZNJSCD
+   8. score=0.183  B098QKMHHS
+   9. score=0.183  B084VH5GCK
+  10. score=0.182  B07WF62GMK
+
+top-10 for: 'wheelbarrow'
+   1. score=0.314  B008ZT5V3O
+   2. score=0.308  B08HSGN76X
+   3. score=0.306  B08FR1Q7VV
+   4. score=0.306  B07R1Y6KLJ
+   5. score=0.305  B01MAYAQXC
+   6. score=0.303  B00AEFB6Q8
+   7. score=0.302  B07TDHR9HG
+   8. score=0.302  B00PUSDQ9E
+   9. score=0.301  B07XY5QCW6
+  10. score=0.300  B081Q45XD8
+
+top-10 for: 'champion sweatshirt women'
+   1. score=0.389  B088PJC8HB
+   2. score=0.385  B07KSD1RWW
+   3. score=0.382  B07Q8DZ78N
+   4. score=0.382  B07MTFF1MQ
+   5. score=0.382  B07MTFH9V8
+   6. score=0.378  B07K21YHGZ
+   7. score=0.378  B0825MN5GK
+   8. score=0.377  B097N6XHBL
+   9. score=0.377  B08S76QZFD
+  10. score=0.376  B085KZKZB7
+
+top-10 for: 'car charger'
+   1. score=0.357  B081DVZMY2
+   2. score=0.348  B0756MDZ1F
+   3. score=0.345  B0779G5XYT
+   4. score=0.344  B07B6R8P52
+   5. score=0.342  B078NRLSKL
+   6. score=0.340  B07JQ1PD3H
+   7. score=0.340  B0756PV96N
+   8. score=0.340  B00DGW6ODG
+   9. score=0.339  B0756QKZPF
+  10. score=0.339  B07QPSNZPP
+
+top-10 for: 'aeropress'
+   1. score=0.352  B01NAW5CYK
+   2. score=0.339  B07SRDQBY2
+   3. score=0.332  B07X51Y3B5
+   4. score=0.329  B00B3YB1CI
+   5. score=0.326  B01N5S8PV6
+   6. score=0.320  B07BHWT57W
+   7. score=0.320  B004SQUGH4
+   8. score=0.320  B08XXZNKRV
+   9. score=0.320  B07PYZBYPV
+  10. score=0.317  B07DL64LFJ
+
+evaluating on US small-version test split ...
+eval took 155.7s
+  ran on 8,955 queries
+
+dense strict (E)           Hits@1=0.0489  Hits@5=0.1171  Hits@10=0.1590  MRR@10=0.0782   (GT=E, n=8,955)
+dense lenient (E or S)     Hits@1=0.0668  Hits@5=0.1521  Hits@10=0.2066  MRR@10=0.1037   (GT=E or S, n=8,956)
+loading cached bm25 index from C:\Users\leehs\Desktop\search_pipeline\data\artifacts\bm25_us_v2 ...
+loading cached dense embeddings from C:\Users\leehs\Desktop\search_pipeline\data\artifacts\dense_emb_us.npy ...
+dense model:    all-MiniLM-L6-v2
+reranker model: cross-encoder/ms-marco-MiniLM-L-6-v2
+building pid -> title map from parquet ...
+  1,215,854 titles
+
+hybrid top-10 for: 'rose gold iphone case'
+   1. B076P9FS7V  uCOLOR Rose Gold Marble Matt Case Compatible with iPhone 8 Compatible with iPhone 7/6S/6 C
+   2. B00Z7RUKG0  OtterBox SYMMETRY SERIES Case for iPhone 8 PLUS & iPhone 7 PLUS (ONLY) - Retail Packaging 
+   3. B07THXQXPL  SURITCH iPhone Xs Case/iPhone X Case, [Built-in Screen Protector] Rose Gold Marble Full-Bo
+   4. B07VCNZXY4  Caseology Skyfall for Apple iPhone 11 Pro Max Case (2019) - Rose Gold
+   5. B00Z7RTF98  OTTERBOX SYMMETRY SERIES Case for iPhone SE (2nd gen - 2020) and iPhone 8/7 (NOT PLUS) - R
+   6. B07L5MY5SC  Lonlif Battery Case for iPhone 7/8, 4000mAh Portable Protective Charging Case Compatible w
+   7. B078MX4GB2  iPhone X Case, iPhone 10 Case, MIRACASE Shockproof Glitter Bling Hard Cover Soft Bumper Pr
+   8. B07HB167NL  Pelican Ambassador iPhone XR Case (Clear/White with Rose Gold Button)
+   9. B013TKNNGK  Spigen Tough Armor Designed for iPhone 6S Case (2015) - Rose Gold
+  10. B07SZJJ7YD  Spigen Slim Armor CS Designed for iPhone 11 Case (2019) - Rose Gold
+
+hybrid top-10 for: 'storage bin 52qt with lid'
+   1. B082VWYN2W  HOMZ Snaplock Clear Storage Bin with Lid, X Large-56 Quart (Set of 2), Grey, 2 Count
+   2. B07STLHLCZ  HOMZ Snaplock Clear Storage Bin with Lid, Medium-28 Quart, White, 2 Count
+   3. B07SRJWTW8  Homz Snaplock Clear Storage Bin with Lid, Large-41 Quart, White, 2 Pack
+   4. B01EZASDDG  Homz Plastic Wicker Storage Bin with Lid, 16.7" x 8.7" x 11.6", Blue
+   5. B000I1BU6E  Rubbermaid ActionPacker️ 35 Gal Lockable Storage Bin, Industrial, Rugged Storage Container
+   6. B07SSJNTLQ  Homz Snaplock Clear Storage Bin with Lid, Large-41 Quart, Blue, 2 Pack
+   7. B082VWP51J  HOMZ Snaplock Clear Storage Bin with Lid, Small Latching-15 Quart, Grey, 4 Count
+   8. B094KSK96L  Superio Clear Storage Bin with Lid Stackable Plastic Storage Latch Box with Snap Lock Clos
+   9. B08BXF9TP6  Doryh 5 L Plastic Storage Bin with Lid, Clear Transparent Box With Black Handles Set of 6
+  10. B07282G29L  StorageWorks 65L Storage Bin Decorative Closet Storage Box with Double-Open Lid, Mixing of
+
+hybrid top-10 for: 'wheelbarrow'
+   1. B001QROPV6  Wheelbarrow, Steel, 6 Cu. Ft, Flat Free
+   2. B007OXF37Q  Wheelbarrow, Steel, 6 Cu. Ft, Flat Free
+   3. B000M2YUDO  Jackson M6T22 M6T22KB Wheelbarrow, 6-Cubic Foot Capacity, Blue
+   4. B008KDWH0A  Wheelbarrow Mixer, 3.5 cu ft, 115V, 3/4HP
+   5. B073NHYKLN  Green Thumb 70008 2 Wheel Poly Wheelbarrow
+   6. B08DK39QVL  6CUFT Pro Wheelbarrow
+   7. B00CTC50FC  Wheelbarrow Mixer, 6 cu ft, 115V, 3/4HP
+   8. B01G7FFNOE  Marathon 5 Cubic Feet Green Poly Wheelbarrow
+   9. B006WG44OY  THE AMES COMPANIES 00075016 75016 Wheelbarrow Part, 5 cu-ft
+  10. B01GG2O4MU  Union Tools 4-Cubic Foot Steel Wheelbarrow - S4U30
+
+hybrid top-10 for: 'champion sweatshirt women'
+   1. B07SSH8236  Champion Women's Powerblend Crewneck Sweatshirt, black, 2X
+   2. B07K55JSRX  Champion Women's Heritage Crew Sweatshirt with Taping, Athletic Navy, Small
+   3. B074G8625V  Champion Women's Fleece Boyfriend Crew Sweatshirt, Granite Heather, Medium
+   4. B07G7L9CXB  Champion Sweatshirt Mens Big And Tall Logo Sweater Champion Crewneck Sweatshirt Black
+   5. B07T261WKR  Champion Unisex Heritage Boy and Girls Fleece Pullover Champion Scipt Sweatshirt (Medium, 
+   6. B01ATPE3YY  Champion Men's Reverse Weave Sweatshirt, Silver/Gray, Large
+   7. B0746SSVHH  Champion Men's Reverse Weave Sweatshirt, C Gold, LARGE
+   8. B07T24V8LM  Champion Unisex Heritage Boy and Girls Fleece Pullover Champion Scipt Sweatshirt (Medium, 
+   9. B01HIUT9Q0  Champion Men's Powerblend Pullover Sweatshirt, Dark Green, Medium
+  10. B08F8KCKP8  Champion Unisex Heritage Boy and Girls Fleece Pullover Champion Scipt Sweatshirt (Medium, 
+
+hybrid top-10 for: 'car charger'
+   1. B071LND34Q  Car Charger Adapter with 3A 3.3FT USB C Cable, 48W 6A Fast USB Car Phone Charger, Dual QC3
+   2. B081DVZMY2  Enhanced Edition Car Battery Charger 12V/8A 24V/4A Compatible Automotive Smart Portable Ba
+   3. B07Z3BHSRM  USB C Car Charger, Total 36W Dual Type C PD Car Charger with 18W PD & QC 3.0 Fast Car Char
+   4. B08B8SLCXS  Wireless Car Charger, 10W/7.5W/5W Qi Fast Wireless Car Charger Mount, Infrared Induction A
+   5. B016S7NHWQ  Battery Tender 3 Amp Car Battery Charger Automotive and Maintainer: Switchable 6/12 V, Ful
+   6. B092LD142F  DC Car Charger Cable 4ft - 12-24V DC Car Charger Auto Power Supply Cord Cigarette Lighter 
+   7. B0716VDMVM  Car Power Inverter Car Charger 150W DC 12V to 110v AC Car Inverter with 3.1A Dual USB Char
+   8. B083XK5ZT6  iPhone Car Charger (5v 4.8A),Cabepow Dual Port USB Car Charger Adapter with Apple Certifie
+   9. B08JTWPLC4  5 Multi Ports Car Charger, Car Charger Adapter, USB Car Charger for Smart Phone, 5V-9V 1.5
+  10. B07Z48DB2H  Car Charger for OnePlus 7T Pro McLaren Edition (Car Charger by BoxWave) - Car Charger Plus
+
+hybrid top-10 for: 'aeropress'
+   1. B01DCGO8YM  AeroPress Micro-Filters, Value Pack of 700 with Bonus Red Cap & Straws
+   2. B0759M546H  Aerobie AeroPress Replacement Coffee Filters, 1400 Count
+   3. B07NP4LCGW  AeroPress Movie
+   4. B01N6F0TBM  Premium Stainless Steel Mesh Washable & Reusable Micro-Filters for use in the AeroPress Co
+   5. B08K66ZTCG  Proper | Press Coffee Companion - Organizer, Holder & Display Stand for AeroPress Coffee M
+   6. B00JVTQHVC  The MESH: Reusable AeroPress Compatible Metal Filter - AeroPress Filter Replacement for Ae
+   7. B079YBT2LJ  Fellow Prismo Attachment for AeroPress Coffee Maker - Enhance Your Manual Coffee Maker to 
+   8. B07VQZPVPL  HEXNUB – Organizer, Compatible with AeroPress, Caddy Station, Holds AeroPress Coffee Maker
+   9. B00E58P7ME  Able DISK (Standard) for Aeropress: The Original Reusable Stainless Steel Coffee Filter - 
+  10. B000LTOCSG  AeroPress Replacement Filter Pack - Microfilters For The AeroPress Coffee And Espresso Mak
+
+evaluating hybrid stages on US small-version test split ...
+[stage 1a] dense top-50 ...
+  done in 127.9s
+[stage 1b] BM25 top-50 ...
+  done in 111.9s
+[stage 2] RRF fuse -> top-50 ...
+[stage 3] cross-encoder rerank top-50 -> top-10 ...
+    500/8,956
+    1,000/8,956
+    1,500/8,956
+    2,000/8,956
+    2,500/8,956
+    3,000/8,956
+    3,500/8,956
+    4,000/8,956
+    4,500/8,956
+    5,000/8,956
+    5,500/8,956
+    6,000/8,956
+    6,500/8,956
+    7,000/8,956
+    7,500/8,956
+    8,000/8,956
+    8,500/8,956
+  done in 243s
+eval took 511s
+
+--- dense alone ---
+  strict (E)               Hits@1=0.0491  Hits@5=0.1170  Hits@10=0.1591  MRR@10=0.0783   (GT=E, n=8,955)
+  lenient (E or S)         Hits@1=0.0670  Hits@5=0.1520  Hits@10=0.2066  MRR@10=0.1038   (GT=E or S, n=8,956)
+
+--- BM25 alone ---
+  strict (E)               Hits@1=0.2967  Hits@5=0.5018  Hits@10=0.5810  MRR@10=0.3854   (GT=E, n=8,955)
+  lenient (E or S)         Hits@1=0.3669  Hits@5=0.5740  Hits@10=0.6536  MRR@10=0.4566   (GT=E or S, n=8,956)
+
+--- RRF(dense, BM25) ---
+  strict (E)               Hits@1=0.1461  Hits@5=0.4291  Hits@10=0.5330  MRR@10=0.2719   (GT=E, n=8,955)
+  lenient (E or S)         Hits@1=0.1851  Hits@5=0.5092  Hits@10=0.6122  MRR@10=0.3292   (GT=E or S, n=8,956)
+
+--- RRF + rerank top-50 ---
+  strict (E)               Hits@1=0.3572  Hits@5=0.5726  Hits@10=0.6323  MRR@10=0.4486   (GT=E, n=8,955)
+  lenient (E or S)         Hits@1=0.4316  Hits@5=0.6475  Hits@10=0.7048  MRR@10=0.5229   (GT=E or S, n=8,956)
+

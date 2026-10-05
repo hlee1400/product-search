@@ -1,0 +1,24 @@
+# Local datasets (too large for GitHub, not redistributable)
+/data/
+search_pipeline/esci-data/
+
+# Generated indexes and caches
+search_app/artifacts/
+search_pipeline/data/artifacts/bm25_us/
+search_pipeline/data/artifacts/*.npy
+search_pipeline/data/processed/
+*.npy
+*.index
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+.DS_Store

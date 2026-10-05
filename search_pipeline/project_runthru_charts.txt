@@ -1,0 +1,421 @@
+
+
+
+		##Locale distribution in examples
+		
+			product		locale
+			
+			us    		1818825
+			jp     		446053
+			es     		356410
+		
+		
+		##Locale distribution in products
+		
+			product		locale
+			
+			us    		1215854
+			jp     		339059
+			es     		260011
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+		##Query length distribution on US small-version test split
+		
+			count    8956.000000
+			mean        3.886891
+			std         1.826489
+			min         1.000000
+			25%         3.000000
+			50%         4.000000
+			75%         5.000000
+			max        29.000000
+			
+		
+		##Token count -> number of queries (top 15):
+		
+			1      			 295
+			2     			1460
+			3     			2357
+			4     			2225
+			5     			1374
+			6     			 679
+			7     			 302
+			8     			 137
+			9     			  66
+			10    			  25
+			11    			   8
+			12    			   5
+			14    			   1
+			16    			   3
+			17    			   2
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+		##ESCI label distribution overall
+		
+			esci_label				n   			pct
+						
+			E (Exact)           	1708158  		65.2
+			
+			S (Substitude)         	574313  		21.9
+			
+			I (Irrelevant)         	263165  		10.0
+			
+			C (Complementary)       75652  		 	 2.9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+		##Product field completeness (US locale)
+		
+									filled         total        	 pct_filled
+									
+			product_title       	  1215854 		 1215854      	 100.0
+			
+			product_description 	   646062 		 1215854      	  53.1
+			
+			product_bullet_point	  1037078 		 1215854      	  85.3
+			
+			product_brand       	  1143519 		 1215854      	  94.1
+			
+			product_color       	   809750 		 1215854      	  66.6
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+##BM25 search retrieval examples:
+
+	top-10 for: 'rose gold iphone case'
+	
+	1. score=9.692  B07FK5FJPF  Case-Mate - iPhone XS Max Case - BRILLIANCE - iPhone 6.5 - Rose Gold
+	
+	2. score=8.957  B00Z7RUKG0  OtterBox SYMMETRY SERIES Case for iPhone 8 PLUS & iPhone 7 PLUS (ONLY) - Retail Packaging 
+	
+	3. score=8.912  B07GL12JJR  Speck Products Presidio Show iPhone SE 2020 Case/iPhone 8 - Clear/Rose Gold
+	
+	4. score=8.795  B07THXQXPL  SURITCH iPhone Xs Case/iPhone X Case, [Built-in Screen Protector] Rose Gold Marble Full-Bo
+	
+	5. score=8.707  B07GJ8CZ5M  JETech Case for iPhone Xs and iPhone X, Shock-Absorption Bumper Cover (Rose Gold)
+	
+	6. score=8.649  B07HB167NL  Pelican Ambassador iPhone XR Case (Clear/White with Rose Gold Button)
+	
+	7. score=8.649  B013TKNNGK  Spigen Tough Armor Designed for iPhone 6S Case (2015) - Rose Gold
+	
+	8. score=8.562  B07GFSZFFH  Spigen Slim Armor CS Designed for iPhone Xs Case (2018) / Designed for iPhone X Case (2017
+	
+	9. score=8.550  B078MX4GB2  iPhone X Case, iPhone 10 Case, MIRACASE Shockproof Glitter Bling Hard Cover Soft Bumper Pr
+	
+	10. score=8.502  B01M8PPRBM  TORRAS Slim Fit for iPhone SE 2020 Case/iPhone 7 Case/iPhone 8 Case, Full Protective Anti-
+  
+  
+  
+  
+  
+  
+  
+----------------------------------------------------------------------------------------------------------------------
+
+
+		## Evaluation metrics
+		
+		## Evaluation metrics
+
+		| Metric 	| Focus 			 | Why useful 					 | Limit 					|
+		|---		|---				 |---							 |---						|
+		
+		| Hits@1 	| Top result 		 | First-click quality 			 | Rank 1 only 				|
+		
+		| Hits@5 	| Any hit in top 5 	 | Above-the-fold check 		 | No ordering within top 5 |
+		
+		| Hits@10 	| Any hit in top 10  | First-page recall 			 | No full-list quality 	|
+		
+		| MRR@10 	| First hit position | Reflects user experience 	 | Ignores later hits 		|
+
+		
+		
+		
+		
+		
+
+
+
+
+
+
+		
+		
+		
+		
+		
+----------------------------------------------------------------------------------------------------------------------
+
+
+		##dense model comparison
+		
+		BAAI improved retrieval consistency over MiniLM
+		--------------------------------------------------------
+		| Model                    | Hits@1 | Hits@5 | Hits@10 |
+		| ------------------------ | -----: | -----: | ------: |
+		| `all-MiniLM-L6-v2`       |  0.249 |  0.462 |   0.560 |
+		| `BAAI/bge-small-en-v1.5` |  0.286 |  0.498 |   0.594 |
+		--------------------------------------------------------
+		
+		miniLM search exmaples:
+		
+		top-10 for: 'storage bin 52qt with lid'
+		
+		1. score=0.667  B07SSJNTLQ  Homz Snaplock Clear Storage Bin with Lid, Large-41 Quart, Blue, 2 Pack
+		2. score=0.654  B07SRJWTW8  Homz Snaplock Clear Storage Bin with Lid, Large-41 Quart, White, 2 Pack
+		3. score=0.637  B082VWYN2W  HOMZ Snaplock Clear Storage Bin with Lid, X Large-56 Quart (Set of 2), Grey, 2 Count
+		4. score=0.636  B07STLHLCZ  HOMZ Snaplock Clear Storage Bin with Lid, Medium-28 Quart, White, 2 Count
+		5. score=0.624  B000I1BU6E  Rubbermaid ActionPacker️ 35 Gal Lockable Storage Bin, Industrial, Rugged Storage Container
+		6. score=0.609  B082VWSMCB  HOMZ Snaplock Clear Storage Bin with Lid, X Large Latching-64 Quart (Set of 2), Grey, 2 Se
+		7. score=0.608  B081ZR2BCC  HOMZ Snaplock Clear Storage Bin with Lid, X Large Latching-64 Quart (Set of 2), Blue, 2 Pa
+		8. score=0.605  B082VWP51J  HOMZ Snaplock Clear Storage Bin with Lid, Small Latching-15 Quart, Grey, 4 Count
+		9. score=0.604  B07MVJNXL9  Cambro RFS6PP190 Camwear 6-Quart Round Food Storage Container with Lid
+		10. score=0.597  B00H49B72K  52-qt. Storage Container [Set of 4]
+		
+		
+		top-10 for: 'car charger'
+		
+		1. score=0.829  B08517S72H  Charger
+		2. score=0.776  B076HHPHD1  Dodge Charger
+		3. score=0.726  B079YHZB5S  ThinkGeek Star Wars R2-D2 Car Charger
+		4. score=0.705  B07YB5HYFJ  Portable Charger
+		5. score=0.703  B07XM9GQPJ  Crave Metal Car Charger [24W 4.8A 2 Port Dual USB] Zinc Alloy Universal Compact 12 Volt Ch
+		6. score=0.699  B014KIMC62  Micro USB Car Charger, Rapid Dual Car Charger Adapter 24W/4.8A with Coiled USB Cable+ Buil
+		7. score=0.693  B087LZ4GQR  Charger Cable
+		8. score=0.683  B013BZFLZE  Touch Charger
+		9. score=0.672  B07ZC4FGDV  Bling USB Car Charger 5V/2.1A Pink Crystal Decoration Dual Port Fast Adapter with 3.9ft Ny
+		10. score=0.669  B075CJMJYJ  Bralon USB Car Charger[2-Pack],24W/4.8A Rapid Car Charger Compatible with Phone 12(Pro Max
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+	##BM25 alone & Dense alone vs Hybrid
+
+	BM25 alone:
+	top-10 for: 'champion sweatshirt women'
+	1. score=8.127  B07SSH8236  Champion Women's Powerblend Crewneck Sweatshirt, black, 2X
+	2. score=8.006  B07G7L9CXB  Champion Sweatshirt Mens Big And Tall Logo Sweater Champion Crewneck Sweatshirt Black
+	3. score=7.660  B074G8625V  Champion Women's Fleece Boyfriend Crew Sweatshirt, Granite Heather, Medium
+	4. score=7.446  B07K55JSRX  Champion Women's Heritage Crew Sweatshirt with Taping, Athletic Navy, Small
+	5. score=7.034  B07Q43SNCG  Inuyasha Anime Unisex Champion Crewneck Sweatshirt Grey
+	6. score=7.034  B07XZTT27N  Freddie Mercury Official Live Homage Champion Sweatshirt
+	7. score=6.820  B01HIUT4C4  Champion Men's Powerblend Pullover Sweatshirt, White, Small
+	8. score=6.820  B01HIUT1B8  Champion Men's Powerblend Pullover Sweatshirt, Black, Medium
+	9. score=6.820  B01HIUT1JA  Champion Men's Powerblend Pullover Sweatshirt, Black, Large
+	10. score=6.820  B01ATPE7DG  Champion Men's Reverse Weave Sweatshirt, Navy, Large
+	
+	miniLM alone:
+	top-10 for: 'champion sweatshirt women'
+	1. score=0.767  B07K55JSRX  Champion Women's Heritage Crew Sweatshirt with Taping, Athletic Navy, Small
+	2. score=0.756  B07SSH8236  Champion Women's Powerblend Crewneck Sweatshirt, black, 2X
+	3. score=0.741  B07SBGNX56  Champion Women's Authentic Legging, Black, Large
+	4. score=0.741  B07G7L9CXB  Champion Sweatshirt Mens Big And Tall Logo Sweater Champion Crewneck Sweatshirt Black
+	5. score=0.738  B07DG3N943  Champion Women's Track Jacket, Black/White, Small
+	6. score=0.734  B07Z98BLJM  SLEITY Women Easy Tiger Sweatshirt Tiger Face Graphic Casual Fashion Pullover Sweatshirt T
+	7. score=0.732  B07DFVY2DF  Champion Women's Track Jacket, Black/White, Medium
+	8. score=0.730  B071PBGQLV  Champion Women's Absolute Legging, Black, X-Small
+	9. score=0.723  B07KT4JFGL  adidas Originals Women's Trefoil Hooded Sweatshirt, Collegiate Purple, Medium
+	10. score=0.721  B07JJN57RM  Game Day Sweatshirt Women - Football Pullover Novelty Graphic Sweatshirts Sweater Women (2
+	
+	reranked (RRF -> cross-encoder)
+	top-10 for: 'champion sweatshirt women'
+	1. B07SSH8236  Champion Women's Powerblend Crewneck Sweatshirt, black, 2X
+	2. B07K55JSRX  Champion Women's Heritage Crew Sweatshirt with Taping, Athletic Navy, Small
+	3. B074G8625V  Champion Women's Fleece Boyfriend Crew Sweatshirt, Granite Heather, Medium
+	4. B07DG3N943  Champion Women's Track Jacket, Black/White, Small
+	5. B07DFVY2DF  Champion Women's Track Jacket, Black/White, Medium
+	6. B07DG7XN9F  Champion Women's Heritage Woven Coaches Jacket, White, Small
+	7. B0781YW13K  Champion Women's Fleece Pullover Hoodie, Nurture Green, Medium
+	8. B07KKZS6PG  Champion Women's Powerblend Fleece Hoodie, Black, Medium
+	9. B071XB36Y3  Champion Womens Fleece Full Zip Hoodie White
+	10. B06ZYG4B71  Champion Womens Fleece Full Zip Hoodie White
+	
+	
+	
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+	##example product titles that contain unique symbols:
+	
+		B0882QYW7H  USB Car Charger,Bralon 24W/4.8A 3-Port Fast Car Charger Smart Phone Car Charger 
+		
+		B07H6VYC8G  Car Charger Adapter Dual QC 3.0 [2Pack], 48W 6A Fast USB Car Phone Charger, 2-Po
+		
+		B006MZ3V30  CAR Charger for Panasonic Toughbook: Cf-19 31 52 52g 53 74 C1 F9 S10 H1 H2 U1 Ul
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+		##Metrics comparison
+		
+		
+			| Metric | Main Focus                                             | Limitation                     |
+			| ------ | ------------------------------------------------------ | ------------------------------ |
+			
+			| Hits@K | Did we retrieve at least one relevant result?          | Ignores ordering quality       |
+			|
+			| MRR    | How early is the first relevant result?                | Ignores later relevant results |
+			|
+			| MAP    | Are relevant results consistently ranked near the top? | Usually binary relevance       |
+			|
+			| NDCG   | How well is the entire list ordered by relevance?      | More complex to interpret      |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+		##strict and lenient metrics 
+		
+			--- dense alone ---
+			strict (E)               Hits@1=0.2861  Hits@5=0.5056  Hits@10=0.5939  MRR@10=0.3805   (GT=E, n=8,955)
+			lenient (E or S)         Hits@1=0.3426  Hits@5=0.5754  Hits@10=0.6669  MRR@10=0.4424   (GT=E or S, n=8,956)
+			
+			
+			--- BM25 alone ---
+			strict (E)               Hits@1=0.2967  Hits@5=0.5018  Hits@10=0.5810  MRR@10=0.3854   (GT=E, n=8,955)
+			lenient (E or S)         Hits@1=0.3669  Hits@5=0.5740  Hits@10=0.6536  MRR@10=0.4566   (GT=E or S, n=8,956)
+			
+			
+			--- RRF(dense, BM25) ---
+			strict (E)               Hits@1=0.3151  Hits@5=0.5420  Hits@10=0.6299  MRR@10=0.4125   (GT=E, n=8,955)
+			lenient (E or S)         Hits@1=0.3819  Hits@5=0.6158  Hits@10=0.7023  MRR@10=0.4811   (GT=E or S, n=8,956)
+			
+			
+			--- RRF + rerank top-50 ---
+			strict (E)               Hits@1=0.3735  Hits@5=0.6096  Hits@10=0.6838  MRR@10=0.4740   (GT=E, n=8,955)
+			lenient (E or S)         Hits@1=0.4480  Hits@5=0.6811  Hits@10=0.7506  MRR@10=0.5473   (GT=E or S, n=8,956)
+		
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+
