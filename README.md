@@ -35,6 +35,14 @@ Warm queries take about 110 ms end to end on a laptop GPU (RTX 5050).
 - **Pipeline trace:** the detail panel shows the product's rank at every stage.
 - Per-stage latency, store filters, dark mode, and a responsive layout.
 
+## Image search
+
+[`image_search/`](image_search/README.md) adds search by text or photo over the 23.8k
+products with images. It compares one shared image-text model (CLIP, SigLIP, SigLIP 2)
+with separate models per modality (DINOv2 for images, MiniLM for text) across six search types.
+SigLIP is far ahead of CLIP B/32 for text → image (MRR@10 0.71 vs 0.28), and fusing MiniLM
+titles with SigLIP photos gives the best text search (R@10 0.91).
+
 ## Repo layout
 
 ```
@@ -46,6 +54,7 @@ search_app/                    web UI over a product catalog, built on the pipel
   build_index.py               builds BM25 + dense indexes from the catalog CSVs
   app.py                       Flask API server
   static/index.html            search page
+image_search/                  text + photo search with CLIP / SigLIP / DINOv2, and their evaluation
 ```
 
 ## Running it

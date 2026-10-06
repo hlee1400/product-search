@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f6f4; --surface: #ffffff; --surface-2: #f0efec; --border: #e4e2dd;
+    --text: #1b1b19; --muted: #6d6b65; --accent: #2f5bea; --accent-soft: #e8eefd;
+    --img: #2b7a5b; --img-soft: #e3f3ec;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.05);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121211; --surface: #1c1c1a; --surface-2: #262623; --border: #33322f;
+      --text: #ecebe7; --muted: #9b9991; --accent: #7c9cff; --accent-soft: #232b45;
+      --img: #4cc38a; --img-soft: #1b3229;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.3);
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, -apple-system, Segoe UI, sans-serif; }
+  a { color: inherit; }
+  button, select { font: inherit; color: inherit; }
+
+  header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .bar { max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .brand { font-weight: 700; letter-spacing: -.02em; font-size: 18px; white-space: nowrap; }
+  .brand span { color: var(--img); }
+
+  form.search { flex: 1 1 420px; display: flex; align-items: center; gap: 8px; position: relative;
+    padding: 5px 5px 5px 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); transition: border-color .15s, box-shadow .15s; }
+  form.search:focus-within, form.search.drag { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  form.search input[type=text] { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 16px; color: var(--text); padding: 6px 0; }
+  .qimg { display: none; align-items: center; gap: 6px; background: var(--img-soft); color: var(--img); border-radius: 999px; padding: 3px 4px 3px 3px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+  .qimg img { width: 30px; height: 30px; object-fit: cover; border-radius: 50%; background: #fff; }
+  .qimg button { border: 0; background: transparent; cursor: pointer; color: inherit; font-size: 16px; line-height: 1; padding: 0 6px; }
+  form.search.has-img .qimg { display: inline-flex; }
+  form.search.has-img input[type=text] { display: none; }
+  .iconbtn { border: 0; background: transparent; cursor: pointer; color: var(--muted); width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; flex: none; }
+  .iconbtn:hover { background: var(--surface-2); color: var(--text); }
+  .go { border: 0; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 600; cursor: pointer; padding: 8px 18px; flex: none; }
+
+  select { border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
+  label.ctl { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+
+  main { max-width: 1240px; margin: 0 auto; padding: 18px 20px 40px; }
+
+  .types { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 16px; align-items: flex-end; }
+  .group { display: flex; flex-direction: column; gap: 6px; }
+  .group .gl { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { border: 1px solid var(--border); background: var(--surface); padding: 5px 12px; border-radius: 999px; font-size: 13px; cursor: pointer; white-space: nowrap; }
+  .chip:hover { border-color: var(--accent); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chip small { opacity: .7; margin-left: 4px; }
+  .chip.compare[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
+
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 14px; min-height: 22px; }
+  .meta b { color: var(--text); font-weight: 600; }
+  .qprod { display: flex; gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; margin-bottom: 16px; }
+  .qprod img { width: 64px; height: 64px; object-fit: contain; background: #fff; border-radius: 8px; }
+  .qprod div { min-width: 0; font-size: 14px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(190px, 100%), 1fr)); gap: 14px; }
+  .card { min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .15s, box-shadow .15s; }
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .card .img { aspect-ratio: 1; background: #fff; position: relative; overflow: hidden; }
+  .card .img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+  .card .rank { position: absolute; top: 8px; left: 8px; background: rgba(20,20,20,.75); color: #fff; font-size: 11px; font-weight: 600; border-radius: 6px; padding: 1px 7px; }
+  .card .sim { position: absolute; bottom: 8px; right: 8px; border: 0; background: rgba(20,20,20,.75); color: #fff; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 3px 10px; cursor: pointer; opacity: 0; transition: opacity .15s; }
+  .card:hover .sim, .card .sim:focus { opacity: 1; }
+  @media (hover: none) { .card .sim { opacity: 1; } }
+  .card .body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 4px; flex: 1; border-top: 1px solid var(--border); }
+  .card .merchant { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .card .title { font-size: 13.5px; font-weight: 500; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-decoration: none; }
+  .card .title:hover { text-decoration: underline; }
+  .card .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: end; gap: 6px; padding-top: 4px; }
+  .price { font-weight: 700; }
+  .score { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; gap: 3px; align-items: center; }
+  .tag { font-size: 10px; font-weight: 600; padding: 1px 5px; border-radius: 4px; }
+  .tag.text { background: var(--accent-soft); color: var(--accent); }
+  .tag.image { background: var(--img-soft); color: var(--img); }
+
+  .row { margin-bottom: 26px; }
+  .row h3 { font-size: 14px; margin: 0 0 8px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+  .row h3 small { color: var(--muted); font-weight: 400; }
+  .row .grid { grid-template-columns: repeat(auto-fill, minmax(min(140px, 100%), 1fr)); gap: 10px; }
+  .row .card .body { padding: 8px 10px; }
+  .row .card .title { -webkit-line-clamp: 2; font-size: 12.5px; }
+
+  .empty { text-align: center; padding: 60px 20px; color: var(--muted); }
+  .empty h2 { color: var(--text); font-size: 26px; letter-spacing: -.02em; margin: 0 0 8px; }
+  .empty .chips { justify-content: center; margin-top: 20px; }
+  .error { color: #c4352b; }
+  @media (max-width: 640px) { .bar { padding: 10px 16px; } main { padding: 14px 16px 30px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand">Image<span>Search</span></div>
+    <form class="search" id="form" autocomplete="off">
+      <span class="qimg" id="qimg"><img id="qimgThumb" alt=""><span id="qimgName">image</span><button type="button" id="clearImg" aria-label="Clear image">×</button></span>
+      <input type="text" id="q" placeholder="Describe a product, or drop / paste a photo…" aria-label="Search">
+      <button type="button" class="iconbtn" id="pick" title="Search with a photo" aria-label="Search with a photo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      </button>
+      <input type="file" id="file" accept="image/*" hidden>
+      <button class="go" type="submit">Search</button>
+    </form>
+    <label class="ctl">Shared model <select id="model"></select></label>
+  </div>
+</header>
+
+<main>
+  <div class="types" id="types"></div>
+  <div id="qprod"></div>
+  <div class="meta" id="meta"></div>
+  <div id="out"></div>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+const state = { status: null, kind: "text", type: "t2i", compare: false, file: null, pid: null };
+const DEFAULT = { text: "t2i", image: "i2i" };
+
+async function init() {
+  state.status = await (await fetch("/api/status")).json();
+  $("#model").innerHTML = state.status.shared_models.map(m => `<option value="${m.key}">${esc(m.label)}</option>`).join("");
+  $("#model").value = state.status.default_model;
+  const url = new URLSearchParams(location.search);
+  if (url.get("model")) $("#model").value = url.get("model");
+  if (isTextType(url.get("type"))) state.type = url.get("type");
+  state.compare = url.get("compare") === "1";
+  renderTypes();
+  if (url.get("q")) { $("#q").value = url.get("q"); run(); } else renderEmpty();
+}
+const isTextType = type => state.status.search_types[type]?.query === "text";
+
+function typesFor(kind) {
+  return Object.entries(state.status.search_types).filter(([, t]) => t.query === kind);
+}
+
+function renderTypes() {
+  const st = state.status, groups = { shared: [], text: [], image: [], fused: [] };
+  for (const [key, t] of typesFor(state.kind)) groups[t.family].push([key, t]);
+  const chip = ([key, t], note) =>
+    `<button class="chip" data-type="${key}" aria-pressed="${!state.compare && state.type === key}">${esc(t.label)}${note ? `<small>${esc(note)}</small>` : ""}</button>`;
+  const sep = [...groups.text.map(x => chip(x, st.text_model)), ...groups.image.map(x => chip(x, st.image_model))];
+  $("#types").innerHTML = `
+    <div class="group"><span class="gl">Same model</span><div class="chips">${groups.shared.map(x => chip(x)).join("")}</div></div>
+    ${sep.length ? `<div class="group"><span class="gl">Separate models</span><div class="chips">${sep.join("")}</div></div>` : ""}
+    ${groups.fused.length ? `<div class="group"><span class="gl">Fused</span><div class="chips">${groups.fused.map(x => chip(x, st.text_model + " + shared")).join("")}</div></div>` : ""}
+    <div class="group"><span class="gl">&nbsp;</span><div class="chips"><button class="chip compare" id="cmp" aria-pressed="${state.compare}">Compare all</button></div></div>`;
+}
+
+$("#types").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.id === "cmp") state.compare = !state.compare;
+  else { state.type = b.dataset.type; state.compare = false; }
+  renderTypes(); run();
+});
+$("#model").addEventListener("change", run);
+
+function setImageQuery(file, pid, thumb, name) {
+  state.file = file; state.pid = pid; state.kind = "image";
+  if (!typesFor("image").some(([k]) => k === state.type)) state.type = DEFAULT.image;
+  $("#qimgThumb").src = thumb; $("#qimgName").textContent = name;
+  $("#form").classList.add("has-img");
+  renderTypes(); run();
+}
+function clearImage() {
+  state.file = null; state.pid = null; state.kind = "text";
+  if (!typesFor("text").some(([k]) => k === state.type)) state.type = DEFAULT.text;
+  $("#form").classList.remove("has-img"); $("#qprod").innerHTML = "";
+  renderTypes(); $("#q").focus();
+  if ($("#q").value.trim()) run(); else renderEmpty();
+}
+function useFile(f) {
+  if (!f || !f.type.startsWith("image/")) return;
+  setImageQuery(f, null, URL.createObjectURL(f), f.name.length > 18 ? f.name.slice(0, 16) + "…" : f.name);
+}
+
+$("#pick").onclick = () => $("#file").click();
+$("#file").onchange = e => { useFile(e.target.files[0]); e.target.value = ""; };
+$("#clearImg").onclick = clearImage;
+$("#form").addEventListener("submit", e => { e.preventDefault(); if (state.kind === "image" || $("#q").value.trim()) run(); });
+$("#q").addEventListener("input", () => { if (state.kind !== "text") clearImage(); });
+document.addEventListener("paste", e => { const f = [...(e.clipboardData?.files || [])].find(f => f.type.startsWith("image/")); if (f) { e.preventDefault(); useFile(f); } });
+for (const ev of ["dragover", "dragleave", "drop"]) document.addEventListener(ev, e => {
+  e.preventDefault(); $("#form").classList.toggle("drag", ev === "dragover");
+  if (ev === "drop") useFile(e.dataTransfer.files[0]);
+});
+
+async function query(type) {
+  const fd = new FormData();
+  fd.append("type", type); fd.append("model", $("#model").value);
+  if (state.kind === "text") fd.append("q", $("#q").value.trim());
+  else if (state.pid) fd.append("pid", state.pid);
+  else fd.append("image", state.file);
+  const r = await fetch("/api/search", { method: "POST", body: fd });
+  if (!r.ok) throw new Error((await r.text()).replace(/<[^>]+>/g, " ").trim().slice(0, 200));
+  return r.json();
+}
+
+let seq = 0;
+async function run() {
+  if (state.kind === "text" && !$("#q").value.trim()) return;
+  const my = ++seq;
+  $("#meta").textContent = "Searching…";
+  try {
+    if (state.compare) {
+      const types = typesFor(state.kind);
+      const res = await Promise.all(types.map(([k]) => query(k)));
+      if (my !== seq) return;
+      showQueryProduct(res[0].query_product);
+      $("#meta").innerHTML = `Comparing <b>${types.length}</b> search types · top 8 each`;
+      $("#out").innerHTML = res.map((d, i) => `
+        <section class="row"><h3>${esc(types[i][1].label)} <small>${esc(d.model)} · ${d.ms} ms</small></h3>
+        <div class="grid">${d.results.slice(0, 8).map((p, j) => card(p, j)).join("")}</div></section>`).join("");
+    } else {
+      const d = await query(state.type);
+      if (my !== seq) return;
+      showQueryProduct(d.query_product);
+      const t = state.status.search_types[state.type];
+      $("#meta").innerHTML = `<b>${esc(t.label)}</b> with <b>${esc(d.model)}</b> · ${d.results.length} results · ${d.ms} ms`;
+      $("#out").innerHTML = `<div class="grid">${d.results.map((p, j) => card(p, j)).join("")}</div>`;
+    }
+  } catch (err) {
+    if (my === seq) { $("#meta").innerHTML = `<span class="error">${esc(err.message)}</span>`; $("#out").innerHTML = ""; }
+  }
+}
+
+function showQueryProduct(p) {
+  $("#qprod").innerHTML = p ? `<div class="qprod"><img src="${esc(p.image)}" alt=""><div><div class="merchant" style="font-size:11px;color:var(--muted);text-transform:uppercase;font-weight:600">More like · ${esc(p.merchant)}</div>${esc(p.title)}</div></div>` : "";
+}
+
+function card(p, i) {
+  const price = p.price != null ? `$${Number(p.price).toFixed(2)}` : "";
+  const right = p.sources ? p.sources.map(s => `<span class="tag ${s}">${s === "text" ? "TXT" : "IMG"}</span>`).join("") : p.score.toFixed(3);
+  return `<article class="card">
+    <div class="img"><img loading="lazy" src="${esc(p.image)}" alt=""><span class="rank">${i + 1}</span>
+      <button class="sim" data-pid="${esc(p.id)}" data-img="${esc(p.image)}">More like this</button></div>
+    <div class="body"><div class="merchant">${esc(p.merchant)}</div>
+      <a class="title" href="${esc(p.url)}" target="_blank" rel="noopener" title="${esc(p.ai_description)}">${esc(p.title)}</a>
+      <div class="foot"><span class="price">${price}</span><span class="score">${right}</span></div></div>
+  </article>`;
+}
+
+$("#out").addEventListener("click", e => {
+  const b = e.target.closest(".sim"); if (!b) return;
+  $("#q").value = "";
+  setImageQuery(null, b.dataset.pid, b.dataset.img, "product");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+function renderEmpty() {
+  const ex = ["red floral summer dress", "mid-century walnut side table", "chunky knit cream sweater", "gold hoop earrings", "kids dinosaur pajamas"];
+  $("#meta").textContent = "";
+  $("#out").innerHTML = `<div class="empty"><h2>Search ${state.status.products.toLocaleString()} products by text or photo</h2>
+    Type a description, drop or paste a photo, or hit "More like this" on any result.
+    <div class="chips">${ex.map(x => `<button class="chip ex">${esc(x)}</button>`).join("")}</div></div>`;
+  for (const b of document.querySelectorAll(".ex")) b.onclick = () => { $("#q").value = b.textContent; run(); };
+}
+
+init();
+</script>
+</body>
+</html>

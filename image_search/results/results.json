@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "gallery": 23807,
+    "queries": 2000,
+    "seed": 0
+  },
+  "results": [
+    {
+      "type": "text -> image",
+      "family": "same model",
+      "model": "clip-b32",
+      "label": "CLIP ViT-B/32",
+      "R@1": 0.204,
+      "R@10": 0.464,
+      "MRR@10": 0.2784884920634921
+    },
+    {
+      "type": "image -> text",
+      "family": "same model",
+      "model": "clip-b32",
+      "label": "CLIP ViT-B/32",
+      "R@1": 0.1485,
+      "R@10": 0.356,
+      "MRR@10": 0.204875
+    },
+    {
+      "type": "text -> text",
+      "family": "same model",
+      "model": "clip-b32",
+      "label": "CLIP ViT-B/32",
+      "R@1": 0.538,
+      "R@10": 0.714,
+      "MRR@10": 0.5954593253968253
+    },
+    {
+      "type": "image -> image",
+      "family": "same model",
+      "model": "clip-b32",
+      "label": "CLIP ViT-B/32",
+      "R@1": 0.788,
+      "R@10": 0.925,
+      "MRR@10": 0.8351767857142857
+    },
+    {
+      "type": "text -> image",
+      "family": "same model",
+      "model": "siglip-b16",
+      "label": "SigLIP B/16",
+      "R@1": 0.6215,
+      "R@10": 0.8805,
+      "MRR@10": 0.7081664682539682
+    },
+    {
+      "type": "image -> text",
+      "family": "same model",
+      "model": "siglip-b16",
+      "label": "SigLIP B/16",
+      "R@1": 0.5185,
+      "R@10": 0.807,
+      "MRR@10": 0.6114807539682541
+    },
+    {
+      "type": "text -> text",
+      "family": "same model",
+      "model": "siglip-b16",
+      "label": "SigLIP B/16",
+      "R@1": 0.622,
+      "R@10": 0.813,
+      "MRR@10": 0.6841392857142857
+    },
+    {
+      "type": "image -> image",
+      "family": "same model",
+      "model": "siglip-b16",
+      "label": "SigLIP B/16",
+      "R@1": 0.8955,
+      "R@10": 0.967,
+      "MRR@10": 0.9210769841269841
+    },
+    {
+      "type": "text -> image",
+      "family": "same model",
+      "model": "siglip2-b16",
+      "label": "SigLIP 2 B/16",
+      "R@1": 0.608,
+      "R@10": 0.8815,
+      "MRR@10": 0.7004559523809524
+    },
+    {
+      "type": "image -> text",
+      "family": "same model",
+      "model": "siglip2-b16",
+      "label": "SigLIP 2 B/16",
+      "R@1": 0.5445,
+      "R@10": 0.8145,
+      "MRR@10": 0.635095238095238
+    },
+    {
+      "type": "text -> text",
+      "family": "same model",
+      "model": "siglip2-b16",
+      "label": "SigLIP 2 B/16",
+      "R@1": 0.618,
+      "R@10": 0.8065,
+      "MRR@10": 0.6796394841269842
+    },
+    {
+      "type": "image -> image",
+      "family": "same model",
+      "model": "siglip2-b16",
+      "label": "SigLIP 2 B/16",
+      "R@1": 0.933,
+      "R@10": 0.988,
+      "MRR@10": 0.9546742063492063
+    },
+    {
+      "type": "image -> image",
+      "family": "separate models",
+      "model": "dinov2-b",
+      "label": "DINOv2 B/14",
+      "R@1": 0.9855,
+      "R@10": 0.997,
+      "MRR@10": 0.9901130952380952
+    },
+    {
+      "type": "text -> text",
+      "family": "separate models",
+      "model": "minilm",
+      "label": "MiniLM-L6",
+      "R@1": 0.6455,
+      "R@10": 0.7975,
+      "MRR@10": 0.6960625
+    },
+    {
+      "type": "text -> product (RRF)",
+      "family": "fused",
+      "model": "minilm + clip-b32",
+      "label": "MiniLM-L6 + CLIP ViT-B/32",
+      "R@1": 0.422,
+      "R@10": 0.803,
+      "MRR@10": 0.539094246031746
+    },
+    {
+      "type": "text -> product (RRF)",
+      "family": "fused",
+      "model": "minilm + siglip-b16",
+      "label": "MiniLM-L6 + SigLIP B/16",
+      "R@1": 0.6865,
+      "R@10": 0.905,
+      "MRR@10": 0.7556464285714286
+    },
+    {
+      "type": "text -> product (RRF)",
+      "family": "fused",
+      "model": "minilm + siglip2-b16",
+      "label": "MiniLM-L6 + SigLIP 2 B/16",
+      "R@1": 0.686,
+      "R@10": 0.9075,
+      "MRR@10": 0.7537795634920635
+    }
+  ]
+}
