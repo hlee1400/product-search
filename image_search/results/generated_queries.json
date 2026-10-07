@@ -90,6 +90,39 @@
   {
     "type": "text -> text",
     "model": "CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.45288326300984527,
+    "R@10": 0.6385372714486639,
+    "MRR@10": 0.5138526108990245
+  },
+  {
+    "type": "text -> text",
+    "model": "CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.28851540616246496,
+    "R@10": 0.48739495798319327,
+    "MRR@10": 0.3521530834556045
+  },
+  {
+    "type": "text -> text",
+    "model": "CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.6186440677966102,
+    "R@10": 0.7909604519774012,
+    "MRR@10": 0.6769224733207785
+  },
+  {
+    "type": "text -> text",
+    "model": "CLIP ViT-B/32",
     "generator": "gemma4:e4b",
     "source": "text",
     "style": "all",
@@ -262,6 +295,39 @@
     "R@1": 0.13827655310621242,
     "R@10": 0.4228456913827655,
     "MRR@10": 0.22229777014346153
+  },
+  {
+    "type": "text -> image",
+    "model": "CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.09985935302390998,
+    "R@10": 0.28973277074542897,
+    "MRR@10": 0.1517485991114683
+  },
+  {
+    "type": "text -> image",
+    "model": "CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.07282913165266107,
+    "R@10": 0.2689075630252101,
+    "MRR@10": 0.12499444222133298
+  },
+  {
+    "type": "text -> image",
+    "model": "CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.1271186440677966,
+    "R@10": 0.3107344632768362,
+    "MRR@10": 0.17872948614474038
   },
   {
     "type": "text -> image",
@@ -442,6 +508,39 @@
   {
     "type": "text -> text",
     "model": "SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.5921237693389592,
+    "R@10": 0.7791842475386779,
+    "MRR@10": 0.6585911861228316
+  },
+  {
+    "type": "text -> text",
+    "model": "SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.4117647058823529,
+    "R@10": 0.6442577030812325,
+    "MRR@10": 0.4936441243163932
+  },
+  {
+    "type": "text -> text",
+    "model": "SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.7740112994350282,
+    "R@10": 0.9152542372881356,
+    "MRR@10": 0.8249361043852569
+  },
+  {
+    "type": "text -> text",
+    "model": "SigLIP B/16",
     "generator": "gemma4:e4b",
     "source": "text",
     "style": "all",
@@ -614,6 +713,39 @@
     "R@1": 0.3226452905811623,
     "R@10": 0.627254509018036,
     "MRR@10": 0.4156726150714127
+  },
+  {
+    "type": "text -> image",
+    "model": "SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.45569620253164556,
+    "R@10": 0.8059071729957806,
+    "MRR@10": 0.5637259169959592
+  },
+  {
+    "type": "text -> image",
+    "model": "SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.4061624649859944,
+    "R@10": 0.7787114845938375,
+    "MRR@10": 0.5169078742608154
+  },
+  {
+    "type": "text -> image",
+    "model": "SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.5056497175141242,
+    "R@10": 0.8333333333333334,
+    "MRR@10": 0.6109407228051296
   },
   {
     "type": "text -> image",
@@ -794,6 +926,39 @@
   {
     "type": "text -> text",
     "model": "SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.6258790436005626,
+    "R@10": 0.8284106891701828,
+    "MRR@10": 0.6943769115710045
+  },
+  {
+    "type": "text -> text",
+    "model": "SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.47619047619047616,
+    "R@10": 0.7478991596638656,
+    "MRR@10": 0.5653227957849807
+  },
+  {
+    "type": "text -> text",
+    "model": "SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.7768361581920904,
+    "R@10": 0.9096045197740112,
+    "MRR@10": 0.8245247063043672
+  },
+  {
+    "type": "text -> text",
+    "model": "SigLIP 2 B/16",
     "generator": "gemma4:e4b",
     "source": "text",
     "style": "all",
@@ -966,6 +1131,39 @@
     "R@1": 0.3527054108216433,
     "R@10": 0.6633266533066132,
     "MRR@10": 0.44852403219136683
+  },
+  {
+    "type": "text -> image",
+    "model": "SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.46554149085794655,
+    "R@10": 0.8030942334739803,
+    "MRR@10": 0.5810020538923493
+  },
+  {
+    "type": "text -> image",
+    "model": "SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.40336134453781514,
+    "R@10": 0.773109243697479,
+    "MRR@10": 0.5255257658619004
+  },
+  {
+    "type": "text -> image",
+    "model": "SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.5282485875706214,
+    "R@10": 0.8333333333333334,
+    "MRR@10": 0.6369484799569546
   },
   {
     "type": "text -> image",
@@ -1146,6 +1344,39 @@
   {
     "type": "text -> text",
     "model": "MiniLM-L6",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.720112517580872,
+    "R@10": 0.9071729957805907,
+    "MRR@10": 0.7819821177416113
+  },
+  {
+    "type": "text -> text",
+    "model": "MiniLM-L6",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.5798319327731093,
+    "R@10": 0.8711484593837535,
+    "MRR@10": 0.6717153528077898
+  },
+  {
+    "type": "text -> text",
+    "model": "MiniLM-L6",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.8615819209039548,
+    "R@10": 0.943502824858757,
+    "MRR@10": 0.8931833467850417
+  },
+  {
+    "type": "text -> text",
+    "model": "MiniLM-L6",
     "generator": "gemma4:e4b",
     "source": "text",
     "style": "all",
@@ -1318,6 +1549,39 @@
     "R@1": 0.1282565130260521,
     "R@10": 0.37675350701402804,
     "MRR@10": 0.1943657155581003
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.34458509142053445,
+    "R@10": 0.8255977496483825,
+    "MRR@10": 0.4848798919474025
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.28851540616246496,
+    "R@10": 0.7675070028011205,
+    "MRR@10": 0.4256913876661776
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + CLIP ViT-B/32",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.4011299435028249,
+    "R@10": 0.884180790960452,
+    "MRR@10": 0.5445699937225361
   },
   {
     "type": "text -> product (RRF)",
@@ -1498,6 +1762,39 @@
   {
     "type": "text -> product (RRF)",
     "model": "MiniLM-L6 + SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.6919831223628692,
+    "R@10": 0.9338959212376934,
+    "MRR@10": 0.774090259638783
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.5938375350140056,
+    "R@10": 0.8991596638655462,
+    "MRR@10": 0.7028522520119158
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + SigLIP B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.7909604519774012,
+    "R@10": 0.9689265536723164,
+    "MRR@10": 0.8459319791946911
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + SigLIP B/16",
     "generator": "gemma4:e4b",
     "source": "text",
     "style": "all",
@@ -1670,6 +1967,39 @@
     "R@1": 0.1623246492985972,
     "R@10": 0.48096192384769537,
     "MRR@10": 0.23701848140725898
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "all",
+    "n": 711,
+    "R@1": 0.7032348804500703,
+    "R@10": 0.9423347398030942,
+    "MRR@10": 0.7800967785145
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "brand",
+    "n": 357,
+    "R@1": 0.6078431372549019,
+    "R@10": 0.9103641456582633,
+    "MRR@10": 0.7091781156907208
+  },
+  {
+    "type": "text -> product (RRF)",
+    "model": "MiniLM-L6 + SigLIP 2 B/16",
+    "generator": "deepseek-4.1-flash",
+    "source": "brand",
+    "style": "exact",
+    "n": 354,
+    "R@1": 0.7994350282485876,
+    "R@10": 0.9745762711864406,
+    "MRR@10": 0.85161644695543
   },
   {
     "type": "text -> product (RRF)",

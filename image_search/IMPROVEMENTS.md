@@ -20,7 +20,7 @@ This branch works on all three:
 
 | # | Change | Status |
 | --- | --- | --- |
-| 1 | Tune a **weighted** combination of title search and photo search | Done: a score blend at w = 0.8 beats the app's equal-weight RRF |
+| 1 | Tune a **weighted** combination of title search and photo search | Done: the app now uses a score blend at w = 0.7 |
 | 2 | Have **one model write both halves** of the benchmark | Done: `deepseek-4.1-flash` wrote both (Qwen isn't on LunaRoute) |
 | 3 | Move query generation **off the laptop**, through LunaRoute | Done: 1,000 requests in 2 min 10 s, versus over an hour locally |
 
@@ -160,8 +160,45 @@ Conclusions:
   default because these queries leave out brands and model numbers by design, and that's
   exactly where title search is strongest in real traffic.
 
-**Next:** switch the app's fused search to the score blend, and add a brand / model-number
-query set so the title side's real value is measured too.
+**Next (done below):** switch the app's fused search to the score blend, and add a brand /
+model-number query set so the title side's real value is measured too.
+
+## Brand queries and the final weight
+
+Every query above left out brands and model numbers on purpose, and those are exactly where
+title search should be strongest. The blend's small edge over photo search alone (0.536 vs
+0.528) might just reflect that bias. So `generate_queries.py --sources brand` adds two
+queries per product whose listing shows a brand: brand + product type, and brand + model or
+product line. That came to 711 queries for 357 products, via LunaRoute in 50 s.
+
+Held-out products, all three query types, MRR@10 [R@10]
+([results/fusion_deepseek-4.1-flash.md](results/fusion_deepseek-4.1-flash.md)):
+
+| Method | from brand | from image | from text | mean |
+| --- | --- | --- | --- | --- |
+| title only (MiniLM) | 0.772 [0.88] | 0.162 [0.29] | 0.438 [0.60] | 0.457 |
+| photo only (SigLIP 2) | 0.594 [0.79] | 0.599 [0.79] | 0.457 [0.69] | 0.550 |
+| equal-weight RRF (old app) | 0.759 [0.91] | 0.310 [0.52] | 0.511 [0.70] | 0.527 |
+| weighted RRF, best w = 0.9 | 0.678 [0.85] | 0.499 [0.79] | 0.508 [0.71] | 0.562 |
+| **score blend, w = 0.7** | **0.822 [0.96]** | 0.495 [0.70] | **0.554 [0.74]** | **0.624** |
+| score blend, w = 0.8 | 0.781 [0.94] | 0.536 [0.75] | 0.536 [0.73] | 0.618 |
+
+- **Title search matters on brand queries** (0.772 vs 0.594 for photos), which confirms the
+  reason for keeping it.
+- **The blend beats both sides on brand queries.** Photos help rank among a brand's many
+  similar products.
+- **With brand queries in the mix, the tuned weight moves to 0.7.** On held-out products,
+  0.7 and 0.8 are nearly tied (0.624 vs 0.618): 0.7 favors brand searches, 0.8 photo-like
+  ones. **The app uses 0.7** (`fusion.PHOTO_WEIGHT`), the weight chosen with all three query
+  types. Real query logs would settle the exact value.
+- **Small leak:** two of the prompt's examples (an Alex and Ani bangle, Golden Goose sneakers)
+  happen to be products in the sample. That's 2 of 357 products, too few to move the results.
+
+**App change.** The app's `text → product (fused)` search now blends full-gallery scores
+through `fusion.blend` instead of fusing two top-100 lists with RRF. `TXT` / `IMG` tags show
+which side alone would have ranked a result in its top 100. Checked in the UI: for "white
+star sneakers with green accents", the sneaker with the green heel ranks #1, even though its
+title says nothing about green.
 
 ## Log
 
@@ -176,3 +213,7 @@ query set so the title side's real value is measured too.
   - Listed its models. No Qwen, so `deepseek-4.1-flash` became the single writer.
   - Made LunaRoute the default for `--backend api`, generated 2,993 queries in 2 min 10 s,
     and re-ran the benchmark and fusion tuning (results above).
+- **2026-10-07:** Added a brand / model-number query set (`--sources brand`, 711 queries).
+  - Re-tuned on all three query types; the best weight moved to 0.7.
+  - Moved the blend into `fusion.py` and switched the app's fused search from RRF to it.
+  - Rewrote the README as a step-by-step account of how the design changed.

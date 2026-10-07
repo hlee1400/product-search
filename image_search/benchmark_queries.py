@@ -29,7 +29,7 @@ import torch
 
 from encoders import MODELS, SHARED_MODELS, TEXT_MODELS, Encoder
 from evaluate import metrics, ranks_of_targets, rrf_ranks, topk
-from generate_queries import QUERIES_DIR, STYLES
+from generate_queries import QUERIES_DIR
 from settings import GALLERY_PARQUET, RESULTS_DIR, emb_path
 
 
@@ -88,7 +88,7 @@ def main() -> None:
         for (gen, src), mask in groups:
             results.append({"type": stype, "model": label, "generator": gen, "source": src,
                             "style": "all", "n": int(mask.sum()), **metrics(r[mask.to_numpy()])})
-            for style in STYLES:
+            for style in q.loc[mask, "style"].unique():
                 m = (mask & (q["style"] == style)).to_numpy()
                 if m.any():
                     results.append({"type": stype, "model": label, "generator": gen, "source": src,

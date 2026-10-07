@@ -6,10 +6,12 @@ queries a shopper might type to find each one. It does this twice per product:
   source=image  the model sees only the product photo
 
 Each request asks for three queries in different styles (short, specific,
-need). The AI descriptions are left out of the text prompt because they were
-probably written from the photo.
+need). A third source, brand (--sources brand), writes brand + product type
+and brand + model queries from the listing text. The AI descriptions are
+left out of the text prompts because they were probably written from the
+photo.
 
-Two backends:
+Backends:
   claude  Claude via the Message Batches API (50% price, usually < 1 hour).
           Needs ANTHROPIC_API_KEY (or an `ant auth login` profile).
   ollama  a local vision model through Ollama (free, slower).
@@ -46,6 +48,7 @@ from settings import GALLERY_PARQUET, IMAGE_SEARCH_DIR, IMAGES_DIR, SOURCE_CORPU
 
 QUERIES_DIR = IMAGE_SEARCH_DIR / "queries"
 STYLES = ("short", "specific", "need")
+BRAND_STYLES = ("brand", "exact")
 MAX_IMAGE_SIDE = 768
 
 INSTRUCTIONS = """You are helping build a benchmark for an online shopping search engine.
@@ -75,12 +78,36 @@ IMAGE_PROMPT = INSTRUCTIONS + """
 
 You're given the product photo only (no listing text)."""
 
-SCHEMA = {
-    "type": "object",
-    "properties": {s: {"type": "string"} for s in STYLES},
-    "required": list(STYLES),
-    "additionalProperties": False,
-}
+# A shopper who already knows what they want: the one kind of query the
+# text/image prompts above rule out, and where title search should matter most.
+BRAND_PROMPT = """You are helping build a benchmark for an online shopping search engine.
+
+Write the search queries a shopper who already knows exactly which product they want might type into a store's search box. Write exactly two:
+- brand: the brand name plus the kind of product, 2 to 5 words (e.g. "alex and ani charm bangle")
+- exact: the brand plus the specific product line, model name or model number, if the listing has one (e.g. "golden goose super-star sneakers"); otherwise the brand plus the product's most distinctive feature
+
+Rules:
+- The brand is whoever makes the product, not the store selling it (unless the store sells its own brand).
+- Don't copy the whole title. Write how a shopper would phrase it, lowercase is fine.
+- If the listing doesn't show a brand, return empty strings for both.
+
+Title: {title}
+Store: {merchant}
+Store description: {description}"""
+
+
+def schema_for(styles: tuple[str, ...]) -> dict:
+    return {
+        "type": "object",
+        "properties": {s: {"type": "string"} for s in styles},
+        "required": list(styles),
+        "additionalProperties": False,
+    }
+
+
+SCHEMA = schema_for(STYLES)
+BRAND_SCHEMA = schema_for(BRAND_STYLES)
+STYLES_BY_SOURCE = {"text": STYLES, "image": STYLES, "brand": BRAND_STYLES}
 
 
 def sample_products(n: int, seed: int) -> pd.DataFrame:
@@ -112,7 +139,7 @@ def jpeg_b64(name: str) -> str:
 def rows_for(pid: str, source: str, data: dict, generator: str) -> list[dict]:
     return [
         {"product_id": pid, "source": source, "style": s, "query": data[s].strip(), "generator": generator}
-        for s in STYLES if data.get(s, "").strip()
+        for s in STYLES_BY_SOURCE[source] if data.get(s, "").strip()
     ]
 
 
@@ -133,7 +160,10 @@ def run_claude(products: pd.DataFrame, out: Path, model: str, batch_id: str | No
                                              "data": jpeg_b64(row["local_image"])}},
                 {"type": "text", "text": IMAGE_PROMPT},
             ]
-            for source, content in (("text", text_content), ("image", image_content)):
+            brand_content = BRAND_PROMPT.format(
+                title=row["title"], merchant=row["merchant"], description=description_for(row))
+            for source, content in (("text", text_content), ("image", image_content),
+                                    ("brand", brand_content)):
                 if source not in sources:
                     continue
                 requests.append({
@@ -143,7 +173,8 @@ def run_claude(products: pd.DataFrame, out: Path, model: str, batch_id: str | No
                         "max_tokens": 4000,
                         # A short, well-specified writing task: low effort is plenty.
                         "output_config": {"effort": "low",
-                                          "format": {"type": "json_schema", "schema": SCHEMA}},
+                                          "format": {"type": "json_schema", "schema":
+                                                     BRAND_SCHEMA if source == "brand" else SCHEMA}},
                         "messages": [{"role": "user", "content": content}],
                     },
                 })
@@ -264,6 +295,10 @@ def run_requests(products: pd.DataFrame, out: Path, generator: str, call, source
     print(f"{len(done)} requests already done, {len(todo)} to go with {generator} ({workers} at a time)")
 
     def one(row, source):
+        if source == "brand":
+            prompt = BRAND_PROMPT.format(title=row["title"], merchant=row["merchant"],
+                                         description=description_for(row))
+            return call(prompt, None, schema=BRAND_SCHEMA)
         if source == "text":
             prompt = TEXT_PROMPT.format(title=row["title"], merchant=row["merchant"],
                                         description=description_for(row))
@@ -308,7 +343,8 @@ def main() -> None:
                     help="environment variable holding the API key, if the endpoint needs one")
     ap.add_argument("--workers", type=int, default=None,
                     help="parallel requests (default: 1 for ollama, 8 for api)")
-    ap.add_argument("--sources", nargs="+", choices=("text", "image"), default=["text", "image"])
+    ap.add_argument("--sources", nargs="+", choices=("text", "image", "brand"), default=["text", "image"],
+                    help="brand: queries naming the brand / model, written from the listing text")
     ap.add_argument("--batch-id", help="resume polling an already-submitted Claude batch")
     args = ap.parse_args()
 

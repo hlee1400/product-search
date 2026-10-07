@@ -2991,3 +2991,714 @@
 {"product_id": "279542037", "source": "image", "style": "short", "query": "purple charm bracelet", "generator": "deepseek-4.1-flash"}
 {"product_id": "279542037", "source": "image", "style": "specific", "query": "gold expandable wire bangle with purple take it sleazy charm", "generator": "deepseek-4.1-flash"}
 {"product_id": "279542037", "source": "image", "style": "need", "query": "gold bangle with a purple take it sleazy charm", "generator": "deepseek-4.1-flash"}
+{"product_id": "282282191", "source": "brand", "style": "brand", "query": "cerave pm moisturizing lotion", "generator": "deepseek-4.1-flash"}
+{"product_id": "282282191", "source": "brand", "style": "exact", "query": "cerave pm facial moisturizing lotion", "generator": "deepseek-4.1-flash"}
+{"product_id": "282020160", "source": "brand", "style": "brand", "query": "s suchek basketball holder", "generator": "deepseek-4.1-flash"}
+{"product_id": "282020160", "source": "brand", "style": "exact", "query": "s suchek ball holder wall mount", "generator": "deepseek-4.1-flash"}
+{"product_id": "281739916", "source": "brand", "style": "brand", "query": "disney minnie mouse headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "281739916", "source": "brand", "style": "exact", "query": "disney minnie mouse wreath ears headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "282059747", "source": "brand", "style": "brand", "query": "levis superlow boot jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "282059747", "source": "brand", "style": "exact", "query": "levis superlow boot jeans black worn in", "generator": "deepseek-4.1-flash"}
+{"product_id": "282279373", "source": "brand", "style": "brand", "query": "rr round rich design kids jewelry box", "generator": "deepseek-4.1-flash"}
+{"product_id": "282279373", "source": "brand", "style": "exact", "query": "rr round rich design mysterious unicorn jewelry box", "generator": "deepseek-4.1-flash"}
+{"product_id": "282170533", "source": "brand", "style": "brand", "query": "karat home loveseat", "generator": "deepseek-4.1-flash"}
+{"product_id": "282170533", "source": "brand", "style": "exact", "query": "karat home savier loveseat", "generator": "deepseek-4.1-flash"}
+{"product_id": "282337156", "source": "brand", "style": "brand", "query": "anrabess sweater set", "generator": "deepseek-4.1-flash"}
+{"product_id": "282337156", "source": "brand", "style": "exact", "query": "anrabess chunky knit fuzzy two piece", "generator": "deepseek-4.1-flash"}
+{"product_id": "281579914", "source": "brand", "style": "brand", "query": "tomcat jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "281579914", "source": "brand", "style": "exact", "query": "tomcat ankle fray jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "281558431", "source": "brand", "style": "brand", "query": "gerber baby sherpa jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281558431", "source": "brand", "style": "exact", "query": "gerber black moose sherpa jacket jogger set", "generator": "deepseek-4.1-flash"}
+{"product_id": "282040472", "source": "brand", "style": "brand", "query": "owala kids water bottle", "generator": "deepseek-4.1-flash"}
+{"product_id": "282040472", "source": "brand", "style": "exact", "query": "owala free sip 16oz blue machine", "generator": "deepseek-4.1-flash"}
+{"product_id": "282158195", "source": "brand", "style": "brand", "query": "majorelle mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282158195", "source": "brand", "style": "exact", "query": "majorelle alayna mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282146573", "source": "brand", "style": "brand", "query": "oqq bodysuits", "generator": "deepseek-4.1-flash"}
+{"product_id": "282146573", "source": "brand", "style": "exact", "query": "oqq ribbed square neck bodysuit", "generator": "deepseek-4.1-flash"}
+{"product_id": "281880482", "source": "brand", "style": "brand", "query": "oxo pop food storage containers", "generator": "deepseek-4.1-flash"}
+{"product_id": "281880482", "source": "brand", "style": "exact", "query": "oxo pop 5-piece starter set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281656403", "source": "brand", "style": "brand", "query": "sullivans christmas garland", "generator": "deepseek-4.1-flash"}
+{"product_id": "281656403", "source": "brand", "style": "exact", "query": "sullivans lush cypress & berry garland", "generator": "deepseek-4.1-flash"}
+{"product_id": "281831243", "source": "brand", "style": "brand", "query": "simplee santa claus sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281831243", "source": "brand", "style": "exact", "query": "simplee drop shoulder santa sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281452504", "source": "brand", "style": "brand", "query": "the elf on the shelf throw blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281452504", "source": "brand", "style": "exact", "query": "the elf on the shelf green striped throw blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281711761", "source": "brand", "style": "brand", "query": "lake jane sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281711761", "source": "brand", "style": "exact", "query": "lake jane sweater ivory", "generator": "deepseek-4.1-flash"}
+{"product_id": "281531043", "source": "brand", "style": "brand", "query": "hill house home nap dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281531043", "source": "brand", "style": "exact", "query": "hill house home vivi nap dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281434538", "source": "brand", "style": "brand", "query": "supergoop unseen sunscreen", "generator": "deepseek-4.1-flash"}
+{"product_id": "281434538", "source": "brand", "style": "exact", "query": "supergoop unseen sunscreen spf 40", "generator": "deepseek-4.1-flash"}
+{"product_id": "281672303", "source": "brand", "style": "brand", "query": "off-white sneakers", "generator": "deepseek-4.1-flash"}
+{"product_id": "281672303", "source": "brand", "style": "exact", "query": "off-white out of office mid-top sneakers", "generator": "deepseek-4.1-flash"}
+{"product_id": "281625681", "source": "brand", "style": "brand", "query": "quinn banded short robe", "generator": "deepseek-4.1-flash"}
+{"product_id": "281625681", "source": "brand", "style": "exact", "query": "quinn banded short robe poppy", "generator": "deepseek-4.1-flash"}
+{"product_id": "281754085", "source": "brand", "style": "brand", "query": "dyson airwrap multi-styler", "generator": "deepseek-4.1-flash"}
+{"product_id": "281754085", "source": "brand", "style": "exact", "query": "dyson airwrap complete long prussian blue", "generator": "deepseek-4.1-flash"}
+{"product_id": "282368731", "source": "brand", "style": "brand", "query": "karen millen pencil dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282368731", "source": "brand", "style": "exact", "query": "the founder signatures midi pencil dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282003222", "source": "brand", "style": "brand", "query": "lane bryant satin midi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282003222", "source": "brand", "style": "exact", "query": "lane bryant surplice knot-front midi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282067449", "source": "brand", "style": "brand", "query": "wilfred free sail shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282067449", "source": "brand", "style": "exact", "query": "wilfred free sail button-up shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282040873", "source": "brand", "style": "brand", "query": "artdly black tissue paper", "generator": "deepseek-4.1-flash"}
+{"product_id": "282040873", "source": "brand", "style": "exact", "query": "artdly 14 x 20 black tissue paper", "generator": "deepseek-4.1-flash"}
+{"product_id": "281879132", "source": "brand", "style": "brand", "query": "calvin klein t-shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281879132", "source": "brand", "style": "exact", "query": "ck sport crewneck t-shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281932350", "source": "brand", "style": "brand", "query": "risantry wide belt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281932350", "source": "brand", "style": "exact", "query": "risantry faux leather belt gold buckle", "generator": "deepseek-4.1-flash"}
+{"product_id": "281777782", "source": "brand", "style": "brand", "query": "tens towels bath towels", "generator": "deepseek-4.1-flash"}
+{"product_id": "281777782", "source": "brand", "style": "exact", "query": "tens towels large bath towels", "generator": "deepseek-4.1-flash"}
+{"product_id": "282324960", "source": "brand", "style": "brand", "query": "breyer unicorn stable playset", "generator": "deepseek-4.1-flash"}
+{"product_id": "282324960", "source": "brand", "style": "exact", "query": "breyer unicorn magic wooden stable 59218", "generator": "deepseek-4.1-flash"}
+{"product_id": "281981741", "source": "brand", "style": "brand", "query": "fmchico lounge set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281981741", "source": "brand", "style": "exact", "query": "fmchico ribbed bodycon two piece lounge set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281561810", "source": "brand", "style": "brand", "query": "talula bralette", "generator": "deepseek-4.1-flash"}
+{"product_id": "281561810", "source": "brand", "style": "exact", "query": "talula renfrew bralette", "generator": "deepseek-4.1-flash"}
+{"product_id": "282267192", "source": "brand", "style": "brand", "query": "tersus planner 2024", "generator": "deepseek-4.1-flash"}
+{"product_id": "282267192", "source": "brand", "style": "exact", "query": "tersus weekly monthly planner 2024", "generator": "deepseek-4.1-flash"}
+{"product_id": "281619474", "source": "brand", "style": "brand", "query": "slant collections headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "281619474", "source": "brand", "style": "exact", "query": "slant collections maid of honor headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "282070603", "source": "brand", "style": "brand", "query": "saloni cherie velvet dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282070603", "source": "brand", "style": "exact", "query": "saloni cherie dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282005523", "source": "brand", "style": "brand", "query": "aritzia cornelie cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281914957", "source": "brand", "style": "brand", "query": "smiley phone case", "generator": "deepseek-4.1-flash"}
+{"product_id": "281914957", "source": "brand", "style": "exact", "query": "smiley eau transparent case", "generator": "deepseek-4.1-flash"}
+{"product_id": "281471522", "source": "brand", "style": "brand", "query": "l.l.bean wool throw", "generator": "deepseek-4.1-flash"}
+{"product_id": "281471522", "source": "brand", "style": "exact", "query": "l.l.bean washable wool throw plaid", "generator": "deepseek-4.1-flash"}
+{"product_id": "281716318", "source": "brand", "style": "brand", "query": "city studios fit and flare dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281716318", "source": "brand", "style": "exact", "query": "city studios button-trim fit and flare dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281996290", "source": "brand", "style": "brand", "query": "ariat classic fit shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281996290", "source": "brand", "style": "exact", "query": "ariat beau classic fit shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281515586", "source": "brand", "style": "brand", "query": "hello kitty cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281515586", "source": "brand", "style": "exact", "query": "hello kitty iconic cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "282016664", "source": "brand", "style": "brand", "query": "wolford tights", "generator": "deepseek-4.1-flash"}
+{"product_id": "282016664", "source": "brand", "style": "exact", "query": "wolford pure 10 tights", "generator": "deepseek-4.1-flash"}
+{"product_id": "282288004", "source": "brand", "style": "brand", "query": "cb2 perimeter sofa", "generator": "deepseek-4.1-flash"}
+{"product_id": "282288004", "source": "brand", "style": "exact", "query": "cb2 perimeter camel faux mohair sofa", "generator": "deepseek-4.1-flash"}
+{"product_id": "281734701", "source": "brand", "style": "brand", "query": "kissyan beaded choker necklace", "generator": "deepseek-4.1-flash"}
+{"product_id": "281734701", "source": "brand", "style": "exact", "query": "kissyan boho gemstone freshwater pearl necklace", "generator": "deepseek-4.1-flash"}
+{"product_id": "281429229", "source": "brand", "style": "brand", "query": "fernvia toddler skirt set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281429229", "source": "brand", "style": "exact", "query": "fernvia turtleneck plaid skirt set", "generator": "deepseek-4.1-flash"}
+{"product_id": "282175948", "source": "brand", "style": "brand", "query": "crz yoga workout tops", "generator": "deepseek-4.1-flash"}
+{"product_id": "282175948", "source": "brand", "style": "exact", "query": "crz yoga seamless short sleeve", "generator": "deepseek-4.1-flash"}
+{"product_id": "282070431", "source": "brand", "style": "brand", "query": "afrm heston pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "282070431", "source": "brand", "style": "exact", "query": "afrm heston straight leg pant noir", "generator": "deepseek-4.1-flash"}
+{"product_id": "281476132", "source": "brand", "style": "brand", "query": "farm rio mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281476132", "source": "brand", "style": "exact", "query": "farm rio vivid garden mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282048816", "source": "brand", "style": "brand", "query": "spanx funnel top", "generator": "deepseek-4.1-flash"}
+{"product_id": "282048816", "source": "brand", "style": "exact", "query": "spanx the perfect funnel top", "generator": "deepseek-4.1-flash"}
+{"product_id": "281808238", "source": "brand", "style": "brand", "query": "rixo dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281808238", "source": "brand", "style": "exact", "query": "rixo gabrielle dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282057157", "source": "brand", "style": "brand", "query": "shein bizwear sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "282057157", "source": "brand", "style": "exact", "query": "shein bizwear slit hem ribbed knit sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281518187", "source": "brand", "style": "brand", "query": "shein prive wide leg shorts", "generator": "deepseek-4.1-flash"}
+{"product_id": "281518187", "source": "brand", "style": "exact", "query": "shein prive slant pocket shorts", "generator": "deepseek-4.1-flash"}
+{"product_id": "282132801", "source": "brand", "style": "brand", "query": "motf premium sweater set", "generator": "deepseek-4.1-flash"}
+{"product_id": "282132801", "source": "brand", "style": "exact", "query": "motf premium wool-mix relaxed fit sweater set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281431161", "source": "brand", "style": "brand", "query": "mango velour v-neck t-shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281431161", "source": "brand", "style": "exact", "query": "mango velour v-neck t-shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281561850", "source": "brand", "style": "brand", "query": "asics gel sneakers", "generator": "deepseek-4.1-flash"}
+{"product_id": "281561850", "source": "brand", "style": "exact", "query": "asics gel-1130", "generator": "deepseek-4.1-flash"}
+{"product_id": "282254212", "source": "brand", "style": "brand", "query": "faherty ina slip skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282254212", "source": "brand", "style": "exact", "query": "faherty stretch silk velvet ina slip skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282182693", "source": "brand", "style": "brand", "query": "babaton contour romper", "generator": "deepseek-4.1-flash"}
+{"product_id": "282182693", "source": "brand", "style": "exact", "query": "babaton contour squareneck longsleeve romper", "generator": "deepseek-4.1-flash"}
+{"product_id": "281548413", "source": "brand", "style": "brand", "query": "gap crewneck sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281548413", "source": "brand", "style": "exact", "query": "gap 24/7 split-hem crewneck sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281992652", "source": "brand", "style": "brand", "query": "coravin wine preservation system", "generator": "deepseek-4.1-flash"}
+{"product_id": "281992652", "source": "brand", "style": "exact", "query": "coravin pivot plus", "generator": "deepseek-4.1-flash"}
+{"product_id": "281874415", "source": "brand", "style": "brand", "query": "asos design tote bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "281874415", "source": "brand", "style": "exact", "query": "asos design tote bag with removeable laptop compartment", "generator": "deepseek-4.1-flash"}
+{"product_id": "281952193", "source": "brand", "style": "brand", "query": "banana republic merino socks", "generator": "deepseek-4.1-flash"}
+{"product_id": "281952193", "source": "brand", "style": "exact", "query": "banana republic breathe merino sock 3-pack", "generator": "deepseek-4.1-flash"}
+{"product_id": "281989113", "source": "brand", "style": "brand", "query": "mainstays sherpa throw blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281989113", "source": "brand", "style": "exact", "query": "mainstays black red plaid waffle knit sherpa throw", "generator": "deepseek-4.1-flash"}
+{"product_id": "281919012", "source": "brand", "style": "brand", "query": "plutus faux fur throw blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281919012", "source": "brand", "style": "exact", "query": "plutus fureal faux fur throw blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281561289", "source": "brand", "style": "brand", "query": "julie vos pearl hoop earrings", "generator": "deepseek-4.1-flash"}
+{"product_id": "281561289", "source": "brand", "style": "exact", "query": "julie vos marbella pearl hoop charm earring", "generator": "deepseek-4.1-flash"}
+{"product_id": "282205210", "source": "brand", "style": "brand", "query": "schutz ankle boots", "generator": "deepseek-4.1-flash"}
+{"product_id": "282205210", "source": "brand", "style": "exact", "query": "schutz maeve zip ankle boots", "generator": "deepseek-4.1-flash"}
+{"product_id": "282216012", "source": "brand", "style": "brand", "query": "lilly pulitzer silk dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282216012", "source": "brand", "style": "exact", "query": "lilly pulitzer cleme silk dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281433405", "source": "brand", "style": "brand", "query": "fralda baby premium protection", "generator": "deepseek-4.1-flash"}
+{"product_id": "281433405", "source": "brand", "style": "exact", "query": "fralda baby premium protection grande 62 pads", "generator": "deepseek-4.1-flash"}
+{"product_id": "281953771", "source": "brand", "style": "brand", "query": "free assembly ruffle wrap top", "generator": "deepseek-4.1-flash"}
+{"product_id": "281953771", "source": "brand", "style": "exact", "query": "free assembly ruffle wrap top", "generator": "deepseek-4.1-flash"}
+{"product_id": "282086264", "source": "brand", "style": "brand", "query": "swingball tennis pro", "generator": "deepseek-4.1-flash"}
+{"product_id": "282086264", "source": "brand", "style": "exact", "query": "swingball reflex tennis pro", "generator": "deepseek-4.1-flash"}
+{"product_id": "282267766", "source": "brand", "style": "brand", "query": "native hand and body lotion", "generator": "deepseek-4.1-flash"}
+{"product_id": "282267766", "source": "brand", "style": "exact", "query": "native sugar cookie lotion", "generator": "deepseek-4.1-flash"}
+{"product_id": "281845699", "source": "brand", "style": "brand", "query": "our legacy parka", "generator": "deepseek-4.1-flash"}
+{"product_id": "281845699", "source": "brand", "style": "exact", "query": "our legacy fenrir parka", "generator": "deepseek-4.1-flash"}
+{"product_id": "281797012", "source": "brand", "style": "brand", "query": "simone rocha hairband", "generator": "deepseek-4.1-flash"}
+{"product_id": "281797012", "source": "brand", "style": "exact", "query": "simone rocha bow ribbon daisy chain hairband", "generator": "deepseek-4.1-flash"}
+{"product_id": "281994355", "source": "brand", "style": "brand", "query": "unique bargains block heel sandals", "generator": "deepseek-4.1-flash"}
+{"product_id": "281994355", "source": "brand", "style": "exact", "query": "unique bargains rhinestone ankle strap sandals", "generator": "deepseek-4.1-flash"}
+{"product_id": "281346220", "source": "brand", "style": "brand", "query": "the north face vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "281346220", "source": "brand", "style": "exact", "query": "the north face lhotse reversible vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "282117364", "source": "brand", "style": "brand", "query": "uttermost ceramic table lamp", "generator": "deepseek-4.1-flash"}
+{"product_id": "282117364", "source": "brand", "style": "exact", "query": "uttermost rila table lamp", "generator": "deepseek-4.1-flash"}
+{"product_id": "281346450", "source": "brand", "style": "brand", "query": "brandon maxwell trousers", "generator": "deepseek-4.1-flash"}
+{"product_id": "281346450", "source": "brand", "style": "exact", "query": "brandon maxwell mid rise pleated wide leg trousers", "generator": "deepseek-4.1-flash"}
+{"product_id": "281798693", "source": "brand", "style": "brand", "query": "yankee candle balsam cedar candle", "generator": "deepseek-4.1-flash"}
+{"product_id": "281798693", "source": "brand", "style": "exact", "query": "yankee candle balsam & cedar 22oz large tumbler", "generator": "deepseek-4.1-flash"}
+{"product_id": "281761140", "source": "brand", "style": "brand", "query": "athleta downtown puffer vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "281761140", "source": "brand", "style": "exact", "query": "athleta downtown puffer vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "281898601", "source": "brand", "style": "brand", "query": "caraa tennis sling", "generator": "deepseek-4.1-flash"}
+{"product_id": "281898601", "source": "brand", "style": "exact", "query": "caraa quilted tennis sling", "generator": "deepseek-4.1-flash"}
+{"product_id": "281472839", "source": "brand", "style": "brand", "query": "signwin framed canvas wall art", "generator": "deepseek-4.1-flash"}
+{"product_id": "281472839", "source": "brand", "style": "exact", "query": "signwin 3 piece flower canvas prints", "generator": "deepseek-4.1-flash"}
+{"product_id": "281480245", "source": "brand", "style": "brand", "query": "aleumdr flared leggings", "generator": "deepseek-4.1-flash"}
+{"product_id": "281480245", "source": "brand", "style": "exact", "query": "aleumdr bell bootcut yoga pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "282198961", "source": "brand", "style": "brand", "query": "itouch smartwatch", "generator": "deepseek-4.1-flash"}
+{"product_id": "282198961", "source": "brand", "style": "exact", "query": "itouch air 4 smartwatch", "generator": "deepseek-4.1-flash"}
+{"product_id": "281351279", "source": "brand", "style": "brand", "query": "a new day crewneck sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281351279", "source": "brand", "style": "exact", "query": "a new day women's crewneck pullover sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281677713", "source": "brand", "style": "brand", "query": "prettygarden cardigan sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "281677713", "source": "brand", "style": "exact", "query": "prettygarden open front cable knit cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281890723", "source": "brand", "style": "brand", "query": "theory puffer coat", "generator": "deepseek-4.1-flash"}
+{"product_id": "281890723", "source": "brand", "style": "exact", "query": "theory city poly puffer coat", "generator": "deepseek-4.1-flash"}
+{"product_id": "281855947", "source": "brand", "style": "brand", "query": "mcgee and co woven cane box", "generator": "deepseek-4.1-flash"}
+{"product_id": "282169137", "source": "brand", "style": "brand", "query": "our place always pan", "generator": "deepseek-4.1-flash"}
+{"product_id": "282169137", "source": "brand", "style": "exact", "query": "our place mini always pan 2.0", "generator": "deepseek-4.1-flash"}
+{"product_id": "281555738", "source": "brand", "style": "brand", "query": "lane bryant fair isle cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281555738", "source": "brand", "style": "exact", "query": "lane bryant lurex open-front fair isle cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281958331", "source": "brand", "style": "brand", "query": "miron crosby cowboy boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "281958331", "source": "brand", "style": "exact", "query": "miron crosby molly midi cowboy boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "282060384", "source": "brand", "style": "brand", "query": "janie and jack baby dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282060384", "source": "brand", "style": "exact", "query": "janie and jack holiday tartan baby dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281840844", "source": "brand", "style": "brand", "query": "beach riot leggings", "generator": "deepseek-4.1-flash"}
+{"product_id": "281840844", "source": "brand", "style": "exact", "query": "beach riot piper legging merry plaid", "generator": "deepseek-4.1-flash"}
+{"product_id": "281546523", "source": "brand", "style": "brand", "query": "north valley black spruce christmas tree", "generator": "deepseek-4.1-flash"}
+{"product_id": "281546523", "source": "brand", "style": "exact", "query": "north valley black spruce 7 ft unlit artificial christmas tree", "generator": "deepseek-4.1-flash"}
+{"product_id": "281483043", "source": "brand", "style": "brand", "query": "free people plaid scarf", "generator": "deepseek-4.1-flash"}
+{"product_id": "281483043", "source": "brand", "style": "exact", "query": "free people falling for you brushed scarf", "generator": "deepseek-4.1-flash"}
+{"product_id": "281427077", "source": "brand", "style": "brand", "query": "fay berry velvet maxi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281427077", "source": "brand", "style": "exact", "query": "fay berry velvet corset knot maxi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281834926", "source": "brand", "style": "brand", "query": "fancy sprinkles decorating kit", "generator": "deepseek-4.1-flash"}
+{"product_id": "281834926", "source": "brand", "style": "exact", "query": "fancy sprinkles what the elf kit", "generator": "deepseek-4.1-flash"}
+{"product_id": "282067056", "source": "brand", "style": "brand", "query": "art class girls skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282067056", "source": "brand", "style": "exact", "query": "art class checkered denim jean skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281414969", "source": "brand", "style": "brand", "query": "nobull gum trainer", "generator": "deepseek-4.1-flash"}
+{"product_id": "281414969", "source": "brand", "style": "exact", "query": "nobull gum trainer", "generator": "deepseek-4.1-flash"}
+{"product_id": "282061961", "source": "brand", "style": "brand", "query": "cozy earth knit blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "282061961", "source": "brand", "style": "exact", "query": "cozy earth cloud knit blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "282237867", "source": "brand", "style": "brand", "query": "acne studios shearling jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "282237867", "source": "brand", "style": "exact", "query": "acne studios shearling jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "282202062", "source": "brand", "style": "brand", "query": "pottery barn bay leaf branch", "generator": "deepseek-4.1-flash"}
+{"product_id": "282202062", "source": "brand", "style": "exact", "query": "pottery barn faux green bay leaf branch", "generator": "deepseek-4.1-flash"}
+{"product_id": "281575735", "source": "brand", "style": "brand", "query": "vuori elevation bootcut", "generator": "deepseek-4.1-flash"}
+{"product_id": "281575735", "source": "brand", "style": "exact", "query": "vuori mid rise elevation slim bootcut", "generator": "deepseek-4.1-flash"}
+{"product_id": "282321563", "source": "brand", "style": "brand", "query": "louis vuitton jewelry box", "generator": "deepseek-4.1-flash"}
+{"product_id": "282321563", "source": "brand", "style": "exact", "query": "louis vuitton plexiglass box scott", "generator": "deepseek-4.1-flash"}
+{"product_id": "281738798", "source": "brand", "style": "brand", "query": "paige coated pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "281738798", "source": "brand", "style": "exact", "query": "paige jolie coated straight-leg crop pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "282073032", "source": "brand", "style": "brand", "query": "l.l. bean toddler rain bunting", "generator": "deepseek-4.1-flash"}
+{"product_id": "282073032", "source": "brand", "style": "exact", "query": "l.l. bean toddlers' rain bunting", "generator": "deepseek-4.1-flash"}
+{"product_id": "281902024", "source": "brand", "style": "brand", "query": "travis mathew pullover", "generator": "deepseek-4.1-flash"}
+{"product_id": "281902024", "source": "brand", "style": "exact", "query": "travis mathew iceland high stripe pullover", "generator": "deepseek-4.1-flash"}
+{"product_id": "281652305", "source": "brand", "style": "brand", "query": "show me your mumu mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281652305", "source": "brand", "style": "exact", "query": "show me your mumu fran mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282199731", "source": "brand", "style": "brand", "query": "markle glass floor mirror", "generator": "deepseek-4.1-flash"}
+{"product_id": "282199731", "source": "brand", "style": "exact", "query": "markle antique glass floor mirror", "generator": "deepseek-4.1-flash"}
+{"product_id": "282074201", "source": "brand", "style": "brand", "query": "free people pullover", "generator": "deepseek-4.1-flash"}
+{"product_id": "282074201", "source": "brand", "style": "exact", "query": "free people get cozy pullover", "generator": "deepseek-4.1-flash"}
+{"product_id": "281377212", "source": "brand", "style": "brand", "query": "nike air force 1", "generator": "deepseek-4.1-flash"}
+{"product_id": "281377212", "source": "brand", "style": "exact", "query": "nike air force 1 shadow damenschuhe", "generator": "deepseek-4.1-flash"}
+{"product_id": "282340042", "source": "brand", "style": "brand", "query": "apple airtag key ring", "generator": "deepseek-4.1-flash"}
+{"product_id": "282340042", "source": "brand", "style": "exact", "query": "apple airtag finewoven key ring taupe", "generator": "deepseek-4.1-flash"}
+{"product_id": "282000556", "source": "brand", "style": "brand", "query": "maison kitsune long sleeve t-shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282000556", "source": "brand", "style": "exact", "query": "maison kitsune tricolour fox stripe t-shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282116284", "source": "brand", "style": "brand", "query": "recess pickleball paddle", "generator": "deepseek-4.1-flash"}
+{"product_id": "282116284", "source": "brand", "style": "exact", "query": "recess nantucket pickleball paddle", "generator": "deepseek-4.1-flash"}
+{"product_id": "281750925", "source": "brand", "style": "brand", "query": "ebmore wool socks", "generator": "deepseek-4.1-flash"}
+{"product_id": "281750925", "source": "brand", "style": "exact", "query": "ebmore wool socks light color e", "generator": "deepseek-4.1-flash"}
+{"product_id": "282276715", "source": "brand", "style": "brand", "query": "wild fable sweatshirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282276715", "source": "brand", "style": "exact", "query": "wild fable oversized sweatshirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281375724", "source": "brand", "style": "brand", "query": "yeokou puffer jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281375724", "source": "brand", "style": "exact", "query": "yeokou cropped puffer jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281810816", "source": "brand", "style": "brand", "query": "2mamabees playhouse", "generator": "deepseek-4.1-flash"}
+{"product_id": "281810816", "source": "brand", "style": "exact", "query": "2mamabees reign two story playhouse", "generator": "deepseek-4.1-flash"}
+{"product_id": "282096916", "source": "brand", "style": "brand", "query": "bloomingdale's diamond two stone ring", "generator": "deepseek-4.1-flash"}
+{"product_id": "282096916", "source": "brand", "style": "exact", "query": "bloomingdale's pear shape round diamond ring 14k yellow gold", "generator": "deepseek-4.1-flash"}
+{"product_id": "281997970", "source": "brand", "style": "brand", "query": "citizen garrison watch", "generator": "deepseek-4.1-flash"}
+{"product_id": "281997970", "source": "brand", "style": "exact", "query": "citizen bm8180-03e", "generator": "deepseek-4.1-flash"}
+{"product_id": "281540269", "source": "brand", "style": "brand", "query": "duncan hines cake mix", "generator": "deepseek-4.1-flash"}
+{"product_id": "281540269", "source": "brand", "style": "exact", "query": "duncan hines signature swiss chocolate cake mix", "generator": "deepseek-4.1-flash"}
+{"product_id": "281883923", "source": "brand", "style": "brand", "query": "aoysky cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281883923", "source": "brand", "style": "exact", "query": "aoysky cable knit hooded cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "282206188", "source": "brand", "style": "brand", "query": "moon river off shoulder sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "282206188", "source": "brand", "style": "exact", "query": "moon river long sleeve off shoulder sweater top", "generator": "deepseek-4.1-flash"}
+{"product_id": "281501433", "source": "brand", "style": "brand", "query": "nicholas turtleneck midi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281501433", "source": "brand", "style": "exact", "query": "nicholas kiandra sleeveless turtleneck midi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282196408", "source": "brand", "style": "brand", "query": "run the show vegan leather pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "282196408", "source": "brand", "style": "exact", "query": "run the show studded pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "282371174", "source": "brand", "style": "brand", "query": "tony bianco sandal", "generator": "deepseek-4.1-flash"}
+{"product_id": "282371174", "source": "brand", "style": "exact", "query": "tony bianco feliz sandal", "generator": "deepseek-4.1-flash"}
+{"product_id": "282137006", "source": "brand", "style": "brand", "query": "emily and meritt mirror", "generator": "deepseek-4.1-flash"}
+{"product_id": "282137006", "source": "brand", "style": "exact", "query": "emily and meritt bow mirror", "generator": "deepseek-4.1-flash"}
+{"product_id": "281825563", "source": "brand", "style": "brand", "query": "shein baby girl two piece set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281825563", "source": "brand", "style": "exact", "query": "shein knitted flare sleeve top long pants set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281395033", "source": "brand", "style": "brand", "query": "varley betsy sweat", "generator": "deepseek-4.1-flash"}
+{"product_id": "281395033", "source": "brand", "style": "exact", "query": "varley betsy cowl neck sweat", "generator": "deepseek-4.1-flash"}
+{"product_id": "281409875", "source": "brand", "style": "brand", "query": "gola trainers", "generator": "deepseek-4.1-flash"}
+{"product_id": "281409875", "source": "brand", "style": "exact", "query": "gola grandslam quadrant pearl pink", "generator": "deepseek-4.1-flash"}
+{"product_id": "282098082", "source": "brand", "style": "brand", "query": "carhartt vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "282098082", "source": "brand", "style": "exact", "query": "carhartt sherpa-lined mock neck vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "281921423", "source": "brand", "style": "brand", "query": "toteme teddy shearling jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281921423", "source": "brand", "style": "exact", "query": "toteme teddy shearling jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "282179730", "source": "brand", "style": "brand", "query": "glassons high neck mesh top", "generator": "deepseek-4.1-flash"}
+{"product_id": "282179730", "source": "brand", "style": "exact", "query": "glassons layered mesh top", "generator": "deepseek-4.1-flash"}
+{"product_id": "282238434", "source": "brand", "style": "brand", "query": "joyspun sleep shirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282238434", "source": "brand", "style": "exact", "query": "joyspun short sleeve sleep shirt 2-pack", "generator": "deepseek-4.1-flash"}
+{"product_id": "281380708", "source": "brand", "style": "brand", "query": "mango croco effect bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "281380708", "source": "brand", "style": "exact", "query": "mango chain croco bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "281461269", "source": "brand", "style": "brand", "query": "marks and spencer kitten heel court shoes", "generator": "deepseek-4.1-flash"}
+{"product_id": "281461269", "source": "brand", "style": "exact", "query": "marks and spencer insolia flex court shoes", "generator": "deepseek-4.1-flash"}
+{"product_id": "281863078", "source": "brand", "style": "brand", "query": "dion off white knit vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "281863078", "source": "brand", "style": "exact", "query": "dion boucle knit vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "282053788", "source": "brand", "style": "brand", "query": "h&m minikleid", "generator": "deepseek-4.1-flash"}
+{"product_id": "282053788", "source": "brand", "style": "exact", "query": "h&m bella minikleid", "generator": "deepseek-4.1-flash"}
+{"product_id": "281401251", "source": "brand", "style": "brand", "query": "jaipur living oakley area rug", "generator": "deepseek-4.1-flash"}
+{"product_id": "281401251", "source": "brand", "style": "exact", "query": "jaipur living oakley medallion area rug", "generator": "deepseek-4.1-flash"}
+{"product_id": "281526000", "source": "brand", "style": "brand", "query": "winirina wine aerator", "generator": "deepseek-4.1-flash"}
+{"product_id": "281526000", "source": "brand", "style": "exact", "query": "winirina electric wine aerator dispenser", "generator": "deepseek-4.1-flash"}
+{"product_id": "281463359", "source": "brand", "style": "brand", "query": "creative co-op bottle brush tree", "generator": "deepseek-4.1-flash"}
+{"product_id": "281463359", "source": "brand", "style": "exact", "query": "creative co-op champagne bottle brush tree", "generator": "deepseek-4.1-flash"}
+{"product_id": "281873896", "source": "brand", "style": "brand", "query": "x revolve mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281873896", "source": "brand", "style": "exact", "query": "x revolve vicky mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281548273", "source": "brand", "style": "brand", "query": "kids preferred harry potter rattle", "generator": "deepseek-4.1-flash"}
+{"product_id": "281548273", "source": "brand", "style": "exact", "query": "kids preferred harry potter dobby rattle socks", "generator": "deepseek-4.1-flash"}
+{"product_id": "281476969", "source": "brand", "style": "brand", "query": "spooktacular creations lion costume", "generator": "deepseek-4.1-flash"}
+{"product_id": "281476969", "source": "brand", "style": "exact", "query": "spooktacular creations realistic lion costume with toy zebra", "generator": "deepseek-4.1-flash"}
+{"product_id": "281734841", "source": "brand", "style": "brand", "query": "grlfrnd jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "281734841", "source": "brand", "style": "exact", "query": "grlfrnd hailey low rise slim boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "282038444", "source": "brand", "style": "brand", "query": "gap babygap dresser", "generator": "deepseek-4.1-flash"}
+{"product_id": "282038444", "source": "brand", "style": "exact", "query": "gap babygap legacy 6 drawer dresser", "generator": "deepseek-4.1-flash"}
+{"product_id": "281678049", "source": "brand", "style": "brand", "query": "teva flatform sandal", "generator": "deepseek-4.1-flash"}
+{"product_id": "281678049", "source": "brand", "style": "exact", "query": "teva flatform mevia sandal", "generator": "deepseek-4.1-flash"}
+{"product_id": "281431093", "source": "brand", "style": "brand", "query": "robert barakett long sleeve polo", "generator": "deepseek-4.1-flash"}
+{"product_id": "281431093", "source": "brand", "style": "exact", "query": "robert barakett georgia long sleeve polo", "generator": "deepseek-4.1-flash"}
+{"product_id": "281862087", "source": "brand", "style": "brand", "query": "dr scholls combat boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "281862087", "source": "brand", "style": "exact", "query": "dr scholls headstart combat boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "282071203", "source": "brand", "style": "brand", "query": "kenneth jay lane necklace", "generator": "deepseek-4.1-flash"}
+{"product_id": "282071203", "source": "brand", "style": "exact", "query": "kenneth jay lane crystal curb link necklace", "generator": "deepseek-4.1-flash"}
+{"product_id": "281948865", "source": "brand", "style": "brand", "query": "manolo blahnik mule", "generator": "deepseek-4.1-flash"}
+{"product_id": "281948865", "source": "brand", "style": "exact", "query": "manolo blahnik jadifa 70 mule", "generator": "deepseek-4.1-flash"}
+{"product_id": "282373567", "source": "brand", "style": "brand", "query": "dresstells tulle skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282373567", "source": "brand", "style": "exact", "query": "dresstells wedding long tulle maxi skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282265540", "source": "brand", "style": "brand", "query": "de'longhi espresso machine", "generator": "deepseek-4.1-flash"}
+{"product_id": "282265540", "source": "brand", "style": "exact", "query": "de'longhi magnifica evo", "generator": "deepseek-4.1-flash"}
+{"product_id": "281996453", "source": "brand", "style": "brand", "query": "farah cuban link bracelet", "generator": "deepseek-4.1-flash"}
+{"product_id": "281996453", "source": "brand", "style": "exact", "query": "farah cuban link chain bracelet gold plating", "generator": "deepseek-4.1-flash"}
+{"product_id": "282346371", "source": "brand", "style": "brand", "query": "ashland disco ball", "generator": "deepseek-4.1-flash"}
+{"product_id": "282346371", "source": "brand", "style": "exact", "query": "ashland silver disco ball tabletop accent", "generator": "deepseek-4.1-flash"}
+{"product_id": "281926809", "source": "brand", "style": "brand", "query": "wonder nation baby boys romper", "generator": "deepseek-4.1-flash"}
+{"product_id": "281926809", "source": "brand", "style": "exact", "query": "wonder nation holiday sweater romper", "generator": "deepseek-4.1-flash"}
+{"product_id": "281426312", "source": "brand", "style": "brand", "query": "cookeez makery plush", "generator": "deepseek-4.1-flash"}
+{"product_id": "281426312", "source": "brand", "style": "exact", "query": "cookeez makery cinnamon baked treatz", "generator": "deepseek-4.1-flash"}
+{"product_id": "281604779", "source": "brand", "style": "brand", "query": "h&m veste teddy bear", "generator": "deepseek-4.1-flash"}
+{"product_id": "281604779", "source": "brand", "style": "exact", "query": "h&m veste courte teddy bear noir", "generator": "deepseek-4.1-flash"}
+{"product_id": "282298421", "source": "brand", "style": "brand", "query": "ina garten ornament", "generator": "deepseek-4.1-flash"}
+{"product_id": "282298421", "source": "brand", "style": "exact", "query": "ina garten glass ornament", "generator": "deepseek-4.1-flash"}
+{"product_id": "281845486", "source": "brand", "style": "brand", "query": "dhwani bansal riva choker", "generator": "deepseek-4.1-flash"}
+{"product_id": "281845486", "source": "brand", "style": "exact", "query": "dhwani bansal riva choker 22k gold plated", "generator": "deepseek-4.1-flash"}
+{"product_id": "282330902", "source": "brand", "style": "brand", "query": "dii wire wall basket", "generator": "deepseek-4.1-flash"}
+{"product_id": "282330902", "source": "brand", "style": "exact", "query": "dii farmhouse vintage decor wire wall basket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281362020", "source": "brand", "style": "brand", "query": "apple airpods pro", "generator": "deepseek-4.1-flash"}
+{"product_id": "281362020", "source": "brand", "style": "exact", "query": "apple airpods pro 2nd generation usb-c", "generator": "deepseek-4.1-flash"}
+{"product_id": "281519915", "source": "brand", "style": "brand", "query": "ozs christmas lights", "generator": "deepseek-4.1-flash"}
+{"product_id": "281519915", "source": "brand", "style": "exact", "query": "ozs 164ft 400 led warm white string lights", "generator": "deepseek-4.1-flash"}
+{"product_id": "281612089", "source": "brand", "style": "brand", "query": "54 thrones body cream", "generator": "deepseek-4.1-flash"}
+{"product_id": "281612089", "source": "brand", "style": "exact", "query": "54 thrones barrier repair cloud cream", "generator": "deepseek-4.1-flash"}
+{"product_id": "282360725", "source": "brand", "style": "brand", "query": "btfbm sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "282360725", "source": "brand", "style": "exact", "query": "btfbm ruffle knit pullover sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "282262102", "source": "brand", "style": "brand", "query": "le toy van train set", "generator": "deepseek-4.1-flash"}
+{"product_id": "282262102", "source": "brand", "style": "exact", "query": "le toy van london train set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281789590", "source": "brand", "style": "brand", "query": "rms beauty cream eyeshadow", "generator": "deepseek-4.1-flash"}
+{"product_id": "281789590", "source": "brand", "style": "exact", "query": "rms beauty eyelights", "generator": "deepseek-4.1-flash"}
+{"product_id": "281887872", "source": "brand", "style": "brand", "query": "phase eight knit dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281887872", "source": "brand", "style": "exact", "query": "phase eight ellie knit dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281791101", "source": "brand", "style": "brand", "query": "moncler down jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281791101", "source": "brand", "style": "exact", "query": "moncler droniers down jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281917944", "source": "brand", "style": "brand", "query": "altuzarra ribbed merino skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281917944", "source": "brand", "style": "exact", "query": "altuzarra milton side-tie skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281988957", "source": "brand", "style": "brand", "query": "yousify cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281988957", "source": "brand", "style": "exact", "query": "yousify open front knit cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "282031453", "source": "brand", "style": "brand", "query": "anrabess half zip sweatshirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282031453", "source": "brand", "style": "exact", "query": "anrabess 1050xiuhong-m", "generator": "deepseek-4.1-flash"}
+{"product_id": "282161646", "source": "brand", "style": "brand", "query": "anker magnetic wireless charger", "generator": "deepseek-4.1-flash"}
+{"product_id": "282161646", "source": "brand", "style": "exact", "query": "anker maggo 613 car charging mount", "generator": "deepseek-4.1-flash"}
+{"product_id": "281775696", "source": "brand", "style": "brand", "query": "cody foster christmas house", "generator": "deepseek-4.1-flash"}
+{"product_id": "281775696", "source": "brand", "style": "exact", "query": "cody foster holly jolly christmas house", "generator": "deepseek-4.1-flash"}
+{"product_id": "281788670", "source": "brand", "style": "brand", "query": "disney minnie mouse headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "281788670", "source": "brand", "style": "exact", "query": "disney minnie mouse christmas headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "282281004", "source": "brand", "style": "brand", "query": "isabel marant sweatshirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282281004", "source": "brand", "style": "exact", "query": "isabel marant houston sweatshirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "282233010", "source": "brand", "style": "brand", "query": "salomon t1 boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "282233010", "source": "brand", "style": "exact", "query": "salomon t1 kids boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "281845492", "source": "brand", "style": "brand", "query": "public desire clutch bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "281845492", "source": "brand", "style": "exact", "query": "public desire alessia jewel clutch", "generator": "deepseek-4.1-flash"}
+{"product_id": "282007520", "source": "brand", "style": "brand", "query": "lulus tie-strap midi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "282007520", "source": "brand", "style": "exact", "query": "lulus effortlessly simple midi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281379136", "source": "brand", "style": "brand", "query": "williams sonoma maple rolling pin", "generator": "deepseek-4.1-flash"}
+{"product_id": "281379136", "source": "brand", "style": "exact", "query": "williams sonoma straight maple rolling pin", "generator": "deepseek-4.1-flash"}
+{"product_id": "282052338", "source": "brand", "style": "brand", "query": "khaite straight-leg jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "282052338", "source": "brand", "style": "exact", "query": "khaite bacall jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "282120560", "source": "brand", "style": "brand", "query": "mainstays flannel sheet set", "generator": "deepseek-4.1-flash"}
+{"product_id": "282120560", "source": "brand", "style": "exact", "query": "mainstays fair isle flannel sheet set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281581974", "source": "brand", "style": "brand", "query": "mulac cosmetics fixing spray", "generator": "deepseek-4.1-flash"}
+{"product_id": "281581974", "source": "brand", "style": "exact", "query": "mulac fix the chaos", "generator": "deepseek-4.1-flash"}
+{"product_id": "278202143", "source": "brand", "style": "brand", "query": "meri meri fairy wings", "generator": "deepseek-4.1-flash"}
+{"product_id": "278202143", "source": "brand", "style": "exact", "query": "meri meri fairy wings costume", "generator": "deepseek-4.1-flash"}
+{"product_id": "278055817", "source": "brand", "style": "brand", "query": "samsung the frame tv", "generator": "deepseek-4.1-flash"}
+{"product_id": "278055817", "source": "brand", "style": "exact", "query": "samsung the frame 55 inch tv white bezel", "generator": "deepseek-4.1-flash"}
+{"product_id": "282071442", "source": "brand", "style": "brand", "query": "saint laurent square sunglasses", "generator": "deepseek-4.1-flash"}
+{"product_id": "282071442", "source": "brand", "style": "exact", "query": "saint laurent 53mm best square sunglasses", "generator": "deepseek-4.1-flash"}
+{"product_id": "282220538", "source": "brand", "style": "brand", "query": "gigi pip hat", "generator": "deepseek-4.1-flash"}
+{"product_id": "282220538", "source": "brand", "style": "exact", "query": "gigi pip rue open crown", "generator": "deepseek-4.1-flash"}
+{"product_id": "278366806", "source": "brand", "style": "brand", "query": "hihuos glass carafe", "generator": "deepseek-4.1-flash"}
+{"product_id": "278366806", "source": "brand", "style": "exact", "query": "hihuos 34oz water carafe set", "generator": "deepseek-4.1-flash"}
+{"product_id": "279602462", "source": "brand", "style": "brand", "query": "lwr crafts hang tags", "generator": "deepseek-4.1-flash"}
+{"product_id": "279602462", "source": "brand", "style": "exact", "query": "lwr crafts holly jolly stocking hang tags", "generator": "deepseek-4.1-flash"}
+{"product_id": "278464276", "source": "brand", "style": "brand", "query": "pieaary velvet ribbon", "generator": "deepseek-4.1-flash"}
+{"product_id": "278464276", "source": "brand", "style": "exact", "query": "pieaary coffee velvet ribbon 1-1/2\" x 20yd", "generator": "deepseek-4.1-flash"}
+{"product_id": "281590061", "source": "brand", "style": "brand", "query": "h&m braided hair elastics", "generator": "deepseek-4.1-flash"}
+{"product_id": "281590061", "source": "brand", "style": "exact", "query": "h&m braided hair elastics cream light pink dusty pink 3-pack", "generator": "deepseek-4.1-flash"}
+{"product_id": "281231631", "source": "brand", "style": "brand", "query": "nvenf thanksgiving headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "281231631", "source": "brand", "style": "exact", "query": "nvenf turkey 4 headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "277825630", "source": "brand", "style": "brand", "query": "momeni anatolia area rug", "generator": "deepseek-4.1-flash"}
+{"product_id": "277825630", "source": "brand", "style": "exact", "query": "momeni anatolia wool nylon area rug", "generator": "deepseek-4.1-flash"}
+{"product_id": "280703424", "source": "brand", "style": "brand", "query": "gap toddler moto boots", "generator": "deepseek-4.1-flash"}
+{"product_id": "280703424", "source": "brand", "style": "exact", "query": "gap moto ankle boots 771858", "generator": "deepseek-4.1-flash"}
+{"product_id": "278070105", "source": "brand", "style": "brand", "query": "laura geller new york eyeshadow palette", "generator": "deepseek-4.1-flash"}
+{"product_id": "278070105", "source": "brand", "style": "exact", "query": "laura geller the delectables baked eyeshadows champagne cheers", "generator": "deepseek-4.1-flash"}
+{"product_id": "279361788", "source": "brand", "style": "brand", "query": "lmvvc pet grooming kit", "generator": "deepseek-4.1-flash"}
+{"product_id": "279361788", "source": "brand", "style": "exact", "query": "lmvvc dog grooming clippers vacuum", "generator": "deepseek-4.1-flash"}
+{"product_id": "278907428", "source": "brand", "style": "brand", "query": "aforoeoa belt organizer", "generator": "deepseek-4.1-flash"}
+{"product_id": "278907428", "source": "brand", "style": "exact", "query": "aforoeoa 2pack acrylic belt organizer", "generator": "deepseek-4.1-flash"}
+{"product_id": "280346088", "source": "brand", "style": "brand", "query": "show me your mumu mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "280346088", "source": "brand", "style": "exact", "query": "show me your mumu taylor tube dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281238644", "source": "brand", "style": "brand", "query": "vinterfint christmas tree", "generator": "deepseek-4.1-flash"}
+{"product_id": "281238644", "source": "brand", "style": "exact", "query": "vinterfint 505.272.50 christmas tree", "generator": "deepseek-4.1-flash"}
+{"product_id": "278709427", "source": "brand", "style": "brand", "query": "automet waffle knit shacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "278709427", "source": "brand", "style": "exact", "query": "automet waffle knit oversized button down shacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "278883982", "source": "brand", "style": "brand", "query": "justice kids grinch antler headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "278883982", "source": "brand", "style": "exact", "query": "justice kids the grinch max reindeer antler headband", "generator": "deepseek-4.1-flash"}
+{"product_id": "277760807", "source": "brand", "style": "brand", "query": "holiday time gingerbread chef ornament", "generator": "deepseek-4.1-flash"}
+{"product_id": "277760807", "source": "brand", "style": "exact", "query": "holiday time gingerbread chef with tray ornament", "generator": "deepseek-4.1-flash"}
+{"product_id": "278298866", "source": "brand", "style": "brand", "query": "dyshayen clear zipper pouch", "generator": "deepseek-4.1-flash"}
+{"product_id": "278298866", "source": "brand", "style": "exact", "query": "dyshayen chenille letter clear pouch", "generator": "deepseek-4.1-flash"}
+{"product_id": "280215537", "source": "brand", "style": "brand", "query": "scoop women's cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "280215537", "source": "brand", "style": "exact", "query": "scoop long sleeve party cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "279980745", "source": "brand", "style": "brand", "query": "crocs flip flops", "generator": "deepseek-4.1-flash"}
+{"product_id": "279980745", "source": "brand", "style": "exact", "query": "crocs crocband flip sandals", "generator": "deepseek-4.1-flash"}
+{"product_id": "278026183", "source": "brand", "style": "brand", "query": "family feeling boxer briefs", "generator": "deepseek-4.1-flash"}
+{"product_id": "278026183", "source": "brand", "style": "exact", "query": "family feeling little boys cotton boxer briefs", "generator": "deepseek-4.1-flash"}
+{"product_id": "280607044", "source": "brand", "style": "brand", "query": "yan dream wig", "generator": "deepseek-4.1-flash"}
+{"product_id": "280607044", "source": "brand", "style": "exact", "query": "yan dream old lady silver grey wig", "generator": "deepseek-4.1-flash"}
+{"product_id": "280792609", "source": "brand", "style": "brand", "query": "kate kasin pleated skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "280792609", "source": "brand", "style": "exact", "query": "kate kasin kk659 skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "277530473", "source": "brand", "style": "brand", "query": "homedant shelving unit", "generator": "deepseek-4.1-flash"}
+{"product_id": "277530473", "source": "brand", "style": "exact", "query": "homedant 5 tier laminated white metal shelving unit", "generator": "deepseek-4.1-flash"}
+{"product_id": "279659701", "source": "brand", "style": "brand", "query": "simon miller dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279659701", "source": "brand", "style": "exact", "query": "simon miller axon dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "280211722", "source": "brand", "style": "brand", "query": "crocs", "generator": "deepseek-4.1-flash"}
+{"product_id": "281233087", "source": "brand", "style": "brand", "query": "wernies no show socks", "generator": "deepseek-4.1-flash"}
+{"product_id": "281233087", "source": "brand", "style": "exact", "query": "wernies non slip flat boat line socks", "generator": "deepseek-4.1-flash"}
+{"product_id": "279839567", "source": "brand", "style": "brand", "query": "aisansty choker necklace", "generator": "deepseek-4.1-flash"}
+{"product_id": "279839567", "source": "brand", "style": "exact", "query": "aisansty layered disc bar necklace", "generator": "deepseek-4.1-flash"}
+{"product_id": "277403395", "source": "brand", "style": "brand", "query": "hudson valley lighting table lamp", "generator": "deepseek-4.1-flash"}
+{"product_id": "277403395", "source": "brand", "style": "exact", "query": "hudson valley lighting flare table lamp", "generator": "deepseek-4.1-flash"}
+{"product_id": "277443311", "source": "brand", "style": "brand", "query": "taxcaix winter socks", "generator": "deepseek-4.1-flash"}
+{"product_id": "277443311", "source": "brand", "style": "exact", "query": "taxcaix 5 pack winter socks", "generator": "deepseek-4.1-flash"}
+{"product_id": "278918696", "source": "brand", "style": "brand", "query": "spanx faux leather leggings", "generator": "deepseek-4.1-flash"}
+{"product_id": "278918696", "source": "brand", "style": "exact", "query": "spanx 2437 faux leather leggings", "generator": "deepseek-4.1-flash"}
+{"product_id": "280370606", "source": "brand", "style": "brand", "query": "cuttlab measuring cups", "generator": "deepseek-4.1-flash"}
+{"product_id": "280370606", "source": "brand", "style": "exact", "query": "cuttlab measuring cups and spoons set of 14", "generator": "deepseek-4.1-flash"}
+{"product_id": "277852096", "source": "brand", "style": "brand", "query": "ododos", "generator": "deepseek-4.1-flash"}
+{"product_id": "277852096", "source": "brand", "style": "exact", "query": "ododos washed seamless rib-knit crop tank top", "generator": "deepseek-4.1-flash"}
+{"product_id": "279694249", "source": "brand", "style": "brand", "query": "joe boxer women's sock and slippers set", "generator": "deepseek-4.1-flash"}
+{"product_id": "279694249", "source": "brand", "style": "exact", "query": "joe boxer women's sock and slippers set", "generator": "deepseek-4.1-flash"}
+{"product_id": "280934647", "source": "brand", "style": "brand", "query": "journee collection western boots", "generator": "deepseek-4.1-flash"}
+{"product_id": "280934647", "source": "brand", "style": "exact", "query": "journee collection hartly wide calf boots", "generator": "deepseek-4.1-flash"}
+{"product_id": "277430265", "source": "brand", "style": "brand", "query": "witchery knee high boots", "generator": "deepseek-4.1-flash"}
+{"product_id": "277430265", "source": "brand", "style": "exact", "query": "witchery knee high leather boot plum", "generator": "deepseek-4.1-flash"}
+{"product_id": "278085286", "source": "brand", "style": "brand", "query": "boden cashmere jumper", "generator": "deepseek-4.1-flash"}
+{"product_id": "278085286", "source": "brand", "style": "exact", "query": "boden boyfriend crew jumper", "generator": "deepseek-4.1-flash"}
+{"product_id": "279819931", "source": "brand", "style": "brand", "query": "dream pairs ankle booties", "generator": "deepseek-4.1-flash"}
+{"product_id": "279819931", "source": "brand", "style": "exact", "query": "dream pairs chunky block heel booties", "generator": "deepseek-4.1-flash"}
+{"product_id": "280286263", "source": "brand", "style": "brand", "query": "disney store cinderella carriage playset", "generator": "deepseek-4.1-flash"}
+{"product_id": "280286263", "source": "brand", "style": "exact", "query": "disney store cinderella carriage playset", "generator": "deepseek-4.1-flash"}
+{"product_id": "277859067", "source": "brand", "style": "brand", "query": "devils advocate suit trousers", "generator": "deepseek-4.1-flash"}
+{"product_id": "277859067", "source": "brand", "style": "exact", "query": "devils advocate skinny fit floral suit trousers", "generator": "deepseek-4.1-flash"}
+{"product_id": "278871611", "source": "brand", "style": "brand", "query": "la coqueta merino baby gift set", "generator": "deepseek-4.1-flash"}
+{"product_id": "278871611", "source": "brand", "style": "exact", "query": "la coqueta rosauro merino baby gift box set burgundy", "generator": "deepseek-4.1-flash"}
+{"product_id": "278399762", "source": "brand", "style": "brand", "query": "coach wool chester coat", "generator": "deepseek-4.1-flash"}
+{"product_id": "278399762", "source": "brand", "style": "exact", "query": "coach cl279 wool chester coat", "generator": "deepseek-4.1-flash"}
+{"product_id": "279754186", "source": "brand", "style": "brand", "query": "isaac jacobs picture frame", "generator": "deepseek-4.1-flash"}
+{"product_id": "279754186", "source": "brand", "style": "exact", "query": "isaac jacobs antique bronze floating picture frame", "generator": "deepseek-4.1-flash"}
+{"product_id": "277811934", "source": "brand", "style": "brand", "query": "lillusory lounge set", "generator": "deepseek-4.1-flash"}
+{"product_id": "277811934", "source": "brand", "style": "exact", "query": "lillusory knit sweater short sleeve set", "generator": "deepseek-4.1-flash"}
+{"product_id": "279802003", "source": "brand", "style": "brand", "query": "emi jay claw clip", "generator": "deepseek-4.1-flash"}
+{"product_id": "279802003", "source": "brand", "style": "exact", "query": "emi jay big effing clip sugar blossom", "generator": "deepseek-4.1-flash"}
+{"product_id": "277722101", "source": "brand", "style": "brand", "query": "urban revivo straight dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "277722101", "source": "brand", "style": "exact", "query": "urban revivo uwg730069 dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "278542594", "source": "brand", "style": "brand", "query": "remain knit maxi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "278542594", "source": "brand", "style": "exact", "query": "remain sheer knit maxi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "278777820", "source": "brand", "style": "brand", "query": "aokoy kids electric motorcycle", "generator": "deepseek-4.1-flash"}
+{"product_id": "278777820", "source": "brand", "style": "exact", "query": "aokoy 12v ride on motorcycle", "generator": "deepseek-4.1-flash"}
+{"product_id": "278235047", "source": "brand", "style": "brand", "query": "strathberry quilt bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "278235047", "source": "brand", "style": "exact", "query": "strathberry east west omni quilt bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "278938687", "source": "brand", "style": "brand", "query": "charlotte tilbury pillow talk kit", "generator": "deepseek-4.1-flash"}
+{"product_id": "278938687", "source": "brand", "style": "exact", "query": "charlotte tilbury pillow talk on the go kit", "generator": "deepseek-4.1-flash"}
+{"product_id": "277577772", "source": "brand", "style": "brand", "query": "uhouse plastic organizer box", "generator": "deepseek-4.1-flash"}
+{"product_id": "277577772", "source": "brand", "style": "exact", "query": "uhouse 18 grids clear organizer", "generator": "deepseek-4.1-flash"}
+{"product_id": "278795271", "source": "brand", "style": "brand", "query": "prettygarden cardigan sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "278795271", "source": "brand", "style": "exact", "query": "prettygarden v neck button-down chunky knit cardigan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281055390", "source": "brand", "style": "brand", "query": "carter's toddler pajama set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281055390", "source": "brand", "style": "exact", "query": "carter's just one you striped santa pajama set", "generator": "deepseek-4.1-flash"}
+{"product_id": "280026473", "source": "brand", "style": "brand", "query": "i-sea polarized sunglasses", "generator": "deepseek-4.1-flash"}
+{"product_id": "280026473", "source": "brand", "style": "exact", "query": "i-sea lana polarized sunglasses", "generator": "deepseek-4.1-flash"}
+{"product_id": "278556638", "source": "brand", "style": "brand", "query": "capri blue volcano candle", "generator": "deepseek-4.1-flash"}
+{"product_id": "278556638", "source": "brand", "style": "exact", "query": "capri blue volcano printed travel tin", "generator": "deepseek-4.1-flash"}
+{"product_id": "281037672", "source": "brand", "style": "brand", "query": "ispring reverse osmosis system", "generator": "deepseek-4.1-flash"}
+{"product_id": "281037672", "source": "brand", "style": "exact", "query": "ispring rcd100", "generator": "deepseek-4.1-flash"}
+{"product_id": "279747791", "source": "brand", "style": "brand", "query": "veehoo elevated dog bed", "generator": "deepseek-4.1-flash"}
+{"product_id": "279747791", "source": "brand", "style": "exact", "query": "veehoo cooling elevated dog bed", "generator": "deepseek-4.1-flash"}
+{"product_id": "277541957", "source": "brand", "style": "brand", "query": "mango man scarf", "generator": "deepseek-4.1-flash"}
+{"product_id": "277541957", "source": "brand", "style": "exact", "query": "mango man foulard", "generator": "deepseek-4.1-flash"}
+{"product_id": "281093890", "source": "brand", "style": "brand", "query": "nathan james flush mount ceiling light", "generator": "deepseek-4.1-flash"}
+{"product_id": "281093890", "source": "brand", "style": "exact", "query": "nathan james argo flush mount", "generator": "deepseek-4.1-flash"}
+{"product_id": "279990979", "source": "brand", "style": "brand", "query": "miss lola cowgirl boot earrings", "generator": "deepseek-4.1-flash"}
+{"product_id": "279990979", "source": "brand", "style": "exact", "query": "miss lola white cowgirl boot dangle earring", "generator": "deepseek-4.1-flash"}
+{"product_id": "281094502", "source": "brand", "style": "brand", "query": "opalhouse mistletoe margarita candle", "generator": "deepseek-4.1-flash"}
+{"product_id": "281094502", "source": "brand", "style": "exact", "query": "opalhouse 15oz glass jar 2-wick bow pattern candle", "generator": "deepseek-4.1-flash"}
+{"product_id": "279837434", "source": "brand", "style": "brand", "query": "the pizza cupcake pepperoni", "generator": "deepseek-4.1-flash"}
+{"product_id": "279837434", "source": "brand", "style": "exact", "query": "the pizza cupcake frozen pepperoni 6ct", "generator": "deepseek-4.1-flash"}
+{"product_id": "277780848", "source": "brand", "style": "brand", "query": "neitooh knitted dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "277780848", "source": "brand", "style": "exact", "query": "neitooh puff sleeve turtleneck dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "281061573", "source": "brand", "style": "brand", "query": "under armour boys hoodie", "generator": "deepseek-4.1-flash"}
+{"product_id": "281061573", "source": "brand", "style": "exact", "query": "under armour ua hustle fleece hoodie", "generator": "deepseek-4.1-flash"}
+{"product_id": "278896002", "source": "brand", "style": "brand", "query": "gaiam cork yoga brick", "generator": "deepseek-4.1-flash"}
+{"product_id": "278896002", "source": "brand", "style": "exact", "query": "gaiam sol natural cork yoga block", "generator": "deepseek-4.1-flash"}
+{"product_id": "279417199", "source": "brand", "style": "brand", "query": "july carry on luggage", "generator": "deepseek-4.1-flash"}
+{"product_id": "279417199", "source": "brand", "style": "exact", "query": "july carry on", "generator": "deepseek-4.1-flash"}
+{"product_id": "278011346", "source": "brand", "style": "brand", "query": "vital proteins collagen peptides", "generator": "deepseek-4.1-flash"}
+{"product_id": "278011346", "source": "brand", "style": "exact", "query": "vital proteins collagen peptides unflavored 20 oz", "generator": "deepseek-4.1-flash"}
+{"product_id": "279882155", "source": "brand", "style": "brand", "query": "asos design cargo jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "279882155", "source": "brand", "style": "exact", "query": "asos design low rise cargo jean mid wash blue", "generator": "deepseek-4.1-flash"}
+{"product_id": "278558441", "source": "brand", "style": "brand", "query": "new york and company knee high boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "278558441", "source": "brand", "style": "exact", "query": "new york and company krystelle knee high boot", "generator": "deepseek-4.1-flash"}
+{"product_id": "278270519", "source": "brand", "style": "brand", "query": "nike training shoes", "generator": "deepseek-4.1-flash"}
+{"product_id": "278270519", "source": "brand", "style": "exact", "query": "nike in-season tr 13", "generator": "deepseek-4.1-flash"}
+{"product_id": "278158509", "source": "brand", "style": "brand", "query": "by malene birger midi skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "278158509", "source": "brand", "style": "exact", "query": "by malene birger wick skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "279790007", "source": "brand", "style": "brand", "query": "farmax removedor de esmalte", "generator": "deepseek-4.1-flash"}
+{"product_id": "279790007", "source": "brand", "style": "exact", "query": "farmax removedor esmalte uva sem acetona", "generator": "deepseek-4.1-flash"}
+{"product_id": "280911072", "source": "brand", "style": "brand", "query": "lululemon sleet street jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "280911072", "source": "brand", "style": "exact", "query": "lululemon stretchseal sleet street long jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "277680283", "source": "brand", "style": "brand", "query": "nécessaire body wash", "generator": "deepseek-4.1-flash"}
+{"product_id": "277680283", "source": "brand", "style": "exact", "query": "nécessaire the body wash sandalwood", "generator": "deepseek-4.1-flash"}
+{"product_id": "277789022", "source": "brand", "style": "brand", "query": "big mo's toys candy cauldron kettles", "generator": "deepseek-4.1-flash"}
+{"product_id": "277789022", "source": "brand", "style": "exact", "query": "big mo's toys candy cauldron kettles 1 dozen", "generator": "deepseek-4.1-flash"}
+{"product_id": "279617970", "source": "brand", "style": "brand", "query": "shein coolane crop top", "generator": "deepseek-4.1-flash"}
+{"product_id": "279617970", "source": "brand", "style": "exact", "query": "shein coolane holographic off shoulder crop top", "generator": "deepseek-4.1-flash"}
+{"product_id": "280539014", "source": "brand", "style": "brand", "query": "vici collection plaid ruffle top", "generator": "deepseek-4.1-flash"}
+{"product_id": "280539014", "source": "brand", "style": "exact", "query": "vici collection clara plaid ruffle top", "generator": "deepseek-4.1-flash"}
+{"product_id": "280411047", "source": "brand", "style": "brand", "query": "berg ride-on", "generator": "deepseek-4.1-flash"}
+{"product_id": "280411047", "source": "brand", "style": "exact", "query": "berg choppy neo ride-on", "generator": "deepseek-4.1-flash"}
+{"product_id": "278636723", "source": "brand", "style": "brand", "query": "universal thread card case", "generator": "deepseek-4.1-flash"}
+{"product_id": "278636723", "source": "brand", "style": "exact", "query": "universal thread chain card case", "generator": "deepseek-4.1-flash"}
+{"product_id": "279764078", "source": "brand", "style": "brand", "query": "susana monaco tube top", "generator": "deepseek-4.1-flash"}
+{"product_id": "279764078", "source": "brand", "style": "exact", "query": "susana monaco crop tube top", "generator": "deepseek-4.1-flash"}
+{"product_id": "279722206", "source": "brand", "style": "brand", "query": "pethur dog blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "279722206", "source": "brand", "style": "exact", "query": "pethur waterproof dog blanket", "generator": "deepseek-4.1-flash"}
+{"product_id": "280244720", "source": "brand", "style": "brand", "query": "faza sally dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "280244720", "source": "brand", "style": "exact", "query": "faza sally cosplay costume", "generator": "deepseek-4.1-flash"}
+{"product_id": "280818322", "source": "brand", "style": "brand", "query": "wondershop christmas tree topper", "generator": "deepseek-4.1-flash"}
+{"product_id": "280818322", "source": "brand", "style": "exact", "query": "wondershop starburst tree topper", "generator": "deepseek-4.1-flash"}
+{"product_id": "279070968", "source": "brand", "style": "brand", "query": "farm rio dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279070968", "source": "brand", "style": "exact", "query": "farm rio macaw bloom yellow dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "280084458", "source": "brand", "style": "brand", "query": "burberry satchel", "generator": "deepseek-4.1-flash"}
+{"product_id": "280084458", "source": "brand", "style": "exact", "query": "burberry chess satchel", "generator": "deepseek-4.1-flash"}
+{"product_id": "280869318", "source": "brand", "style": "brand", "query": "mango short jumpsuit", "generator": "deepseek-4.1-flash"}
+{"product_id": "280869318", "source": "brand", "style": "exact", "query": "mango pleat detail jumpsuit", "generator": "deepseek-4.1-flash"}
+{"product_id": "277580139", "source": "brand", "style": "brand", "query": "yanekop two piece outfit", "generator": "deepseek-4.1-flash"}
+{"product_id": "277580139", "source": "brand", "style": "exact", "query": "yanekop reversible v neck t shirt biker shorts set", "generator": "deepseek-4.1-flash"}
+{"product_id": "280948499", "source": "brand", "style": "brand", "query": "excebet recliner chair", "generator": "deepseek-4.1-flash"}
+{"product_id": "280948499", "source": "brand", "style": "exact", "query": "excebet 270 swivel glider recliner", "generator": "deepseek-4.1-flash"}
+{"product_id": "278986817", "source": "brand", "style": "brand", "query": "vantage apparel polo", "generator": "deepseek-4.1-flash"}
+{"product_id": "278986817", "source": "brand", "style": "exact", "query": "vantage apparel collegiate moisture wicking polo", "generator": "deepseek-4.1-flash"}
+{"product_id": "278019643", "source": "brand", "style": "brand", "query": "for love and lemons midi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "278019643", "source": "brand", "style": "exact", "query": "for love and lemons ruby lace-inset midi dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279444019", "source": "brand", "style": "brand", "query": "billini zonya slide", "generator": "deepseek-4.1-flash"}
+{"product_id": "279444019", "source": "brand", "style": "exact", "query": "billini zonya bone slide", "generator": "deepseek-4.1-flash"}
+{"product_id": "280784513", "source": "brand", "style": "brand", "query": "jacquemus mini bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "280784513", "source": "brand", "style": "exact", "query": "jacquemus le chiquito", "generator": "deepseek-4.1-flash"}
+{"product_id": "280276928", "source": "brand", "style": "brand", "query": "parfums de marly delina", "generator": "deepseek-4.1-flash"}
+{"product_id": "280276928", "source": "brand", "style": "exact", "query": "parfums de marly delina for women", "generator": "deepseek-4.1-flash"}
+{"product_id": "278872074", "source": "brand", "style": "brand", "query": "asos design bikini top", "generator": "deepseek-4.1-flash"}
+{"product_id": "278872074", "source": "brand", "style": "exact", "query": "asos design tie back triangle bikini top", "generator": "deepseek-4.1-flash"}
+{"product_id": "279342559", "source": "brand", "style": "brand", "query": "marina decoration coverlet", "generator": "deepseek-4.1-flash"}
+{"product_id": "279342559", "source": "brand", "style": "exact", "query": "marina decoration embossed pinsonic quilt set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281320547", "source": "brand", "style": "brand", "query": "agolde jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "281320547", "source": "brand", "style": "exact", "query": "agolde riley high-rise straight crop jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "280097570", "source": "brand", "style": "brand", "query": "hue cotton leggings", "generator": "deepseek-4.1-flash"}
+{"product_id": "280097570", "source": "brand", "style": "exact", "query": "hue ultra legging wide waistband", "generator": "deepseek-4.1-flash"}
+{"product_id": "280079377", "source": "brand", "style": "brand", "query": "l'amour shoes mary jane flats", "generator": "deepseek-4.1-flash"}
+{"product_id": "280079377", "source": "brand", "style": "exact", "query": "l'amour shoes rebecca mary jane flats", "generator": "deepseek-4.1-flash"}
+{"product_id": "278908573", "source": "brand", "style": "brand", "query": "unique bargains pleated midi skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "278908573", "source": "brand", "style": "exact", "query": "unique bargains accordion metallic skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "277580677", "source": "brand", "style": "brand", "query": "syntech vr headset case", "generator": "deepseek-4.1-flash"}
+{"product_id": "277580677", "source": "brand", "style": "exact", "query": "syntech hard carrying case oculus quest 3", "generator": "deepseek-4.1-flash"}
+{"product_id": "279106856", "source": "brand", "style": "brand", "query": "nerf teenage mutant ninja turtles blaster", "generator": "deepseek-4.1-flash"}
+{"product_id": "279106856", "source": "brand", "style": "exact", "query": "nerf teenage mutant ninja turtles blaster", "generator": "deepseek-4.1-flash"}
+{"product_id": "278438497", "source": "brand", "style": "brand", "query": "shoe land mules flats", "generator": "deepseek-4.1-flash"}
+{"product_id": "278438497", "source": "brand", "style": "exact", "query": "shoe land cally mules", "generator": "deepseek-4.1-flash"}
+{"product_id": "281226019", "source": "brand", "style": "brand", "query": "cat and jack earrings", "generator": "deepseek-4.1-flash"}
+{"product_id": "281226019", "source": "brand", "style": "exact", "query": "cat and jack butterfly studded earrings", "generator": "deepseek-4.1-flash"}
+{"product_id": "280305732", "source": "brand", "style": "brand", "query": "bershka wide leg trousers", "generator": "deepseek-4.1-flash"}
+{"product_id": "280305732", "source": "brand", "style": "exact", "query": "bershka boxer waistband tailored trousers", "generator": "deepseek-4.1-flash"}
+{"product_id": "280238718", "source": "brand", "style": "brand", "query": "babeyond pearl bracelet", "generator": "deepseek-4.1-flash"}
+{"product_id": "280238718", "source": "brand", "style": "exact", "query": "babeyond great gatsby elastic pearl bracelet", "generator": "deepseek-4.1-flash"}
+{"product_id": "280421412", "source": "brand", "style": "brand", "query": "dearfoams clog slippers", "generator": "deepseek-4.1-flash"}
+{"product_id": "280421412", "source": "brand", "style": "exact", "query": "dearfoams cozy comfort moc toe clog", "generator": "deepseek-4.1-flash"}
+{"product_id": "279478097", "source": "brand", "style": "brand", "query": "hai velvet dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279478097", "source": "brand", "style": "exact", "query": "hai sienna velvet dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279435655", "source": "brand", "style": "brand", "query": "cult gaia gown", "generator": "deepseek-4.1-flash"}
+{"product_id": "279435655", "source": "brand", "style": "exact", "query": "cult gaia alek gown madeira", "generator": "deepseek-4.1-flash"}
+{"product_id": "279555008", "source": "brand", "style": "brand", "query": "nike air force 1", "generator": "deepseek-4.1-flash"}
+{"product_id": "279555008", "source": "brand", "style": "exact", "query": "nike air force 1 shadow", "generator": "deepseek-4.1-flash"}
+{"product_id": "280465946", "source": "brand", "style": "brand", "query": "stoney clover lane duffle bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "280465946", "source": "brand", "style": "exact", "query": "stoney clover lane gilmore girls duffle bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "279310983", "source": "brand", "style": "brand", "query": "organic zoo gingham pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "279310983", "source": "brand", "style": "exact", "query": "organic zoo gingham traveller pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "281107895", "source": "brand", "style": "brand", "query": "h&m pull épaules nues", "generator": "deepseek-4.1-flash"}
+{"product_id": "281107895", "source": "brand", "style": "exact", "query": "h&m pull maille côtelée rouge", "generator": "deepseek-4.1-flash"}
+{"product_id": "280467292", "source": "brand", "style": "brand", "query": "stoney clover lane small pouch", "generator": "deepseek-4.1-flash"}
+{"product_id": "280467292", "source": "brand", "style": "exact", "query": "stoney clover lane gilmore girls small pouch", "generator": "deepseek-4.1-flash"}
+{"product_id": "280327307", "source": "brand", "style": "brand", "query": "derek lam 10 crosby jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "280327307", "source": "brand", "style": "exact", "query": "derek lam 10 crosby rhonda lace-up jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "280759357", "source": "brand", "style": "brand", "query": "crate and barrel organic cotton bedding set", "generator": "deepseek-4.1-flash"}
+{"product_id": "280759357", "source": "brand", "style": "exact", "query": "crate and barrel organic cotton white queen bedding set", "generator": "deepseek-4.1-flash"}
+{"product_id": "280127169", "source": "brand", "style": "brand", "query": "le creuset teakettle", "generator": "deepseek-4.1-flash"}
+{"product_id": "280127169", "source": "brand", "style": "exact", "query": "le creuset classic demi teakettle", "generator": "deepseek-4.1-flash"}
+{"product_id": "280854755", "source": "brand", "style": "brand", "query": "maurices fair isle sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "280854755", "source": "brand", "style": "exact", "query": "maurices fair isle tree sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "279392917", "source": "brand", "style": "brand", "query": "williams sonoma pink grapefruit soap", "generator": "deepseek-4.1-flash"}
+{"product_id": "279392917", "source": "brand", "style": "exact", "query": "williams sonoma pink grapefruit 3-piece set", "generator": "deepseek-4.1-flash"}
+{"product_id": "281335397", "source": "brand", "style": "brand", "query": "rhytsing led candles", "generator": "deepseek-4.1-flash"}
+{"product_id": "281335397", "source": "brand", "style": "exact", "query": "rhytsing slim silver flameless candles", "generator": "deepseek-4.1-flash"}
+{"product_id": "281320756", "source": "brand", "style": "brand", "query": "blue duck puffer jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "281320756", "source": "brand", "style": "exact", "query": "blue duck shearling puffer jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "277796697", "source": "brand", "style": "brand", "query": "baublebar huggie hoops", "generator": "deepseek-4.1-flash"}
+{"product_id": "277796697", "source": "brand", "style": "exact", "query": "baublebar carina huggie hoops", "generator": "deepseek-4.1-flash"}
+{"product_id": "281054782", "source": "brand", "style": "brand", "query": "mimi thorisson baking dish", "generator": "deepseek-4.1-flash"}
+{"product_id": "281054782", "source": "brand", "style": "exact", "query": "mimi thorisson italian hours baking dish", "generator": "deepseek-4.1-flash"}
+{"product_id": "279227154", "source": "brand", "style": "brand", "query": "mango sac femme", "generator": "deepseek-4.1-flash"}
+{"product_id": "279227154", "source": "brand", "style": "exact", "query": "mango sac femme 2023", "generator": "deepseek-4.1-flash"}
+{"product_id": "279757286", "source": "brand", "style": "brand", "query": "ow collection sequin skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "279757286", "source": "brand", "style": "exact", "query": "ow collection glitter sequin skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "279359494", "source": "brand", "style": "brand", "query": "banana republic satin midi skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "279359494", "source": "brand", "style": "exact", "query": "banana republic satin pleated midi skirt 798408", "generator": "deepseek-4.1-flash"}
+{"product_id": "279675175", "source": "brand", "style": "brand", "query": "toms alpargata", "generator": "deepseek-4.1-flash"}
+{"product_id": "279675175", "source": "brand", "style": "exact", "query": "toms pink blue palm leaf alpargata", "generator": "deepseek-4.1-flash"}
+{"product_id": "281065350", "source": "brand", "style": "brand", "query": "wh hostess boxwood gift wrap", "generator": "deepseek-4.1-flash"}
+{"product_id": "281065350", "source": "brand", "style": "exact", "query": "wh hostess boxwood lattice gift wrap sheets", "generator": "deepseek-4.1-flash"}
+{"product_id": "278767368", "source": "brand", "style": "brand", "query": "assouline red sea book", "generator": "deepseek-4.1-flash"}
+{"product_id": "278767368", "source": "brand", "style": "exact", "query": "assouline red sea the saudi coast", "generator": "deepseek-4.1-flash"}
+{"product_id": "279443980", "source": "brand", "style": "brand", "query": "g. label by goop shirtdress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279443980", "source": "brand", "style": "exact", "query": "g. label by goop southampton shirtdress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279628918", "source": "brand", "style": "brand", "query": "the white company sheep sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "279628918", "source": "brand", "style": "exact", "query": "the white company fairisle sheep sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "279270200", "source": "brand", "style": "brand", "query": "oribe thickening spray", "generator": "deepseek-4.1-flash"}
+{"product_id": "279270200", "source": "brand", "style": "exact", "query": "oribe maximista thickening spray", "generator": "deepseek-4.1-flash"}
+{"product_id": "279092858", "source": "brand", "style": "brand", "query": "modway leather armchair", "generator": "deepseek-4.1-flash"}
+{"product_id": "279092858", "source": "brand", "style": "exact", "query": "modway valour armchair eei-5869-tan", "generator": "deepseek-4.1-flash"}
+{"product_id": "281191228", "source": "brand", "style": "brand", "query": "bottega veneta tote bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "281191228", "source": "brand", "style": "exact", "query": "bottega veneta small andiamo", "generator": "deepseek-4.1-flash"}
+{"product_id": "279153246", "source": "brand", "style": "brand", "query": "charles and keith trapeze bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "279153246", "source": "brand", "style": "exact", "query": "charles and keith anwen bag", "generator": "deepseek-4.1-flash"}
+{"product_id": "281171813", "source": "brand", "style": "brand", "query": "asos design mesh maxi skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "281171813", "source": "brand", "style": "exact", "query": "asos design fishtail maxi skirt", "generator": "deepseek-4.1-flash"}
+{"product_id": "280819243", "source": "brand", "style": "brand", "query": "lycy fuzzy pajama set", "generator": "deepseek-4.1-flash"}
+{"product_id": "280819243", "source": "brand", "style": "exact", "query": "lycy bear khaki plush pajama set", "generator": "deepseek-4.1-flash"}
+{"product_id": "278284359", "source": "brand", "style": "brand", "query": "madden girl platform bootie", "generator": "deepseek-4.1-flash"}
+{"product_id": "278284359", "source": "brand", "style": "exact", "query": "madden girl amalie platform bootie", "generator": "deepseek-4.1-flash"}
+{"product_id": "280953583", "source": "brand", "style": "brand", "query": "flygo quilted vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "280953583", "source": "brand", "style": "exact", "query": "flygo lightweight sleeveless quilted vest", "generator": "deepseek-4.1-flash"}
+{"product_id": "280403629", "source": "brand", "style": "brand", "query": "alfred's basic piano library all-in-one course", "generator": "deepseek-4.1-flash"}
+{"product_id": "280403629", "source": "brand", "style": "exact", "query": "alfred's basic piano library all-in-one course book 2", "generator": "deepseek-4.1-flash"}
+{"product_id": "279393196", "source": "brand", "style": "brand", "query": "casual nights house dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279393196", "source": "brand", "style": "exact", "query": "casual nights snap front duster housecoat", "generator": "deepseek-4.1-flash"}
+{"product_id": "277619451", "source": "brand", "style": "brand", "query": "red moose sneaker whitener", "generator": "deepseek-4.1-flash"}
+{"product_id": "277619451", "source": "brand", "style": "exact", "query": "red moose sneaker whitener", "generator": "deepseek-4.1-flash"}
+{"product_id": "280808315", "source": "brand", "style": "brand", "query": "ihuan winter gloves", "generator": "deepseek-4.1-flash"}
+{"product_id": "280808315", "source": "brand", "style": "exact", "query": "ihuan waterproof touch screen gloves", "generator": "deepseek-4.1-flash"}
+{"product_id": "277823984", "source": "brand", "style": "brand", "query": "guichifun male bust statue", "generator": "deepseek-4.1-flash"}
+{"product_id": "277823984", "source": "brand", "style": "exact", "query": "guichifun resin bust sculpture", "generator": "deepseek-4.1-flash"}
+{"product_id": "278636170", "source": "brand", "style": "brand", "query": "viottiset sweater set", "generator": "deepseek-4.1-flash"}
+{"product_id": "278636170", "source": "brand", "style": "exact", "query": "viottiset knit pullover sweater set", "generator": "deepseek-4.1-flash"}
+{"product_id": "279408314", "source": "brand", "style": "brand", "query": "fancy sprinkles edible glitter", "generator": "deepseek-4.1-flash"}
+{"product_id": "279408314", "source": "brand", "style": "exact", "query": "fancy sprinkles prism powder champagne rose gold", "generator": "deepseek-4.1-flash"}
+{"product_id": "278130920", "source": "brand", "style": "brand", "query": "all in motion pleated skort", "generator": "deepseek-4.1-flash"}
+{"product_id": "278130920", "source": "brand", "style": "exact", "query": "all in motion micro pleated skort", "generator": "deepseek-4.1-flash"}
+{"product_id": "279097966", "source": "brand", "style": "brand", "query": "vitalizart velvet ribbon", "generator": "deepseek-4.1-flash"}
+{"product_id": "279097966", "source": "brand", "style": "exact", "query": "vitalizart khaki velvet ribbon 3/8 wooden spool", "generator": "deepseek-4.1-flash"}
+{"product_id": "277597204", "source": "brand", "style": "brand", "query": "le creuset saucepan", "generator": "deepseek-4.1-flash"}
+{"product_id": "277597204", "source": "brand", "style": "exact", "query": "le creuset signature saucepan 1.75 qt", "generator": "deepseek-4.1-flash"}
+{"product_id": "280943817", "source": "brand", "style": "brand", "query": "laura ashley king sheets", "generator": "deepseek-4.1-flash"}
+{"product_id": "280943817", "source": "brand", "style": "exact", "query": "laura ashley chelsie vine flannel sheets", "generator": "deepseek-4.1-flash"}
+{"product_id": "280486728", "source": "brand", "style": "brand", "query": "smilest moissanite engagement ring", "generator": "deepseek-4.1-flash"}
+{"product_id": "280486728", "source": "brand", "style": "exact", "query": "smilest 2ct round moissanite ring", "generator": "deepseek-4.1-flash"}
+{"product_id": "278645635", "source": "brand", "style": "brand", "query": "ydn high heels", "generator": "deepseek-4.1-flash"}
+{"product_id": "278645635", "source": "brand", "style": "exact", "query": "ydn round toe stiletto slingback pumps", "generator": "deepseek-4.1-flash"}
+{"product_id": "279071647", "source": "brand", "style": "brand", "query": "free people mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279071647", "source": "brand", "style": "exact", "query": "free people sunshine of love mini dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "279425981", "source": "brand", "style": "brand", "query": "mango pants women", "generator": "deepseek-4.1-flash"}
+{"product_id": "279425981", "source": "brand", "style": "exact", "query": "mango pants 2023", "generator": "deepseek-4.1-flash"}
+{"product_id": "279402502", "source": "brand", "style": "brand", "query": "democracy petite bootcut jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "279402502", "source": "brand", "style": "exact", "query": "democracy ab solution itty bitty bootcut jeans", "generator": "deepseek-4.1-flash"}
+{"product_id": "280042704", "source": "brand", "style": "brand", "query": "free people tahiti cargo pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "280042704", "source": "brand", "style": "exact", "query": "free people tahiti cargo pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "280543239", "source": "brand", "style": "brand", "query": "bcbg kids faux fur jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "280543239", "source": "brand", "style": "exact", "query": "bcbg kids faux fur jacket", "generator": "deepseek-4.1-flash"}
+{"product_id": "278598892", "source": "brand", "style": "brand", "query": "nike running shoes", "generator": "deepseek-4.1-flash"}
+{"product_id": "278598892", "source": "brand", "style": "exact", "query": "nike infinityrn 4 se", "generator": "deepseek-4.1-flash"}
+{"product_id": "277737412", "source": "brand", "style": "brand", "query": "crown & ivy cable knit sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "277737412", "source": "brand", "style": "exact", "query": "crown & ivy long sleeve cable knit sweater", "generator": "deepseek-4.1-flash"}
+{"product_id": "278758798", "source": "brand", "style": "brand", "query": "codex beauty shaant", "generator": "deepseek-4.1-flash"}
+{"product_id": "278758798", "source": "brand", "style": "exact", "query": "codex beauty shaant spot hero", "generator": "deepseek-4.1-flash"}
+{"product_id": "278599679", "source": "brand", "style": "brand", "query": "sam edelman pointed toe mule", "generator": "deepseek-4.1-flash"}
+{"product_id": "278599679", "source": "brand", "style": "exact", "query": "sam edelman hyland mule", "generator": "deepseek-4.1-flash"}
+{"product_id": "279100261", "source": "brand", "style": "brand", "query": "nike force 1", "generator": "deepseek-4.1-flash"}
+{"product_id": "279100261", "source": "brand", "style": "exact", "query": "nike force 1 lv8 2", "generator": "deepseek-4.1-flash"}
+{"product_id": "277555850", "source": "brand", "style": "brand", "query": "nike fleece sweatpants", "generator": "deepseek-4.1-flash"}
+{"product_id": "277555850", "source": "brand", "style": "exact", "query": "nike sportswear phoenix fleece high-waisted sweatpants", "generator": "deepseek-4.1-flash"}
+{"product_id": "278811838", "source": "brand", "style": "brand", "query": "o boticario cuide-se bem", "generator": "deepseek-4.1-flash"}
+{"product_id": "278811838", "source": "brand", "style": "exact", "query": "o boticario cuide-se bem pessegura kit", "generator": "deepseek-4.1-flash"}
+{"product_id": "279509430", "source": "brand", "style": "brand", "query": "shein ezwear tube top", "generator": "deepseek-4.1-flash"}
+{"product_id": "279509430", "source": "brand", "style": "exact", "query": "shein ezwear solid backless tube top", "generator": "deepseek-4.1-flash"}
+{"product_id": "278865455", "source": "brand", "style": "brand", "query": "marc fisher ltd bootie", "generator": "deepseek-4.1-flash"}
+{"product_id": "278865455", "source": "brand", "style": "exact", "query": "marc fisher ltd mariel bootie", "generator": "deepseek-4.1-flash"}
+{"product_id": "280319818", "source": "brand", "style": "brand", "query": "flikr fire tabletop fireplace", "generator": "deepseek-4.1-flash"}
+{"product_id": "280319818", "source": "brand", "style": "exact", "query": "flikr fire tabletop fireplace with base and snuffer", "generator": "deepseek-4.1-flash"}
+{"product_id": "279422693", "source": "brand", "style": "brand", "query": "shein bizwear leather pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "279422693", "source": "brand", "style": "exact", "query": "shein bizwear high waist pu leather pants", "generator": "deepseek-4.1-flash"}
+{"product_id": "278096744", "source": "brand", "style": "brand", "query": "shein prive satin dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "278096744", "source": "brand", "style": "exact", "query": "shein prive draped collar lantern sleeve satin dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "278037494", "source": "brand", "style": "brand", "query": "glowmode jumpsuit", "generator": "deepseek-4.1-flash"}
+{"product_id": "278037494", "source": "brand", "style": "exact", "query": "glowmode featherfit scoop neck jumpsuit", "generator": "deepseek-4.1-flash"}
+{"product_id": "281322764", "source": "brand", "style": "brand", "query": "shein baby boy hoodie", "generator": "deepseek-4.1-flash"}
+{"product_id": "281322764", "source": "brand", "style": "exact", "query": "shein cartoon graphic hoodie", "generator": "deepseek-4.1-flash"}
+{"product_id": "279707151", "source": "brand", "style": "brand", "query": "golden goose sneakers", "generator": "deepseek-4.1-flash"}
+{"product_id": "279707151", "source": "brand", "style": "exact", "query": "golden goose super-star classic", "generator": "deepseek-4.1-flash"}
+{"product_id": "279542037", "source": "brand", "style": "brand", "query": "alex and ani charm bangle", "generator": "deepseek-4.1-flash"}
+{"product_id": "279542037", "source": "brand", "style": "exact", "query": "alex and ani take it sleazy charm bangle", "generator": "deepseek-4.1-flash"}
+{"product_id": "278126730", "source": "brand", "style": "brand", "query": "amazon echo show 8", "generator": "deepseek-4.1-flash"}
+{"product_id": "278126730", "source": "brand", "style": "exact", "query": "echo show 8 2nd gen charcoal", "generator": "deepseek-4.1-flash"}
+{"product_id": "277972615", "source": "brand", "style": "brand", "query": "shein prive tubo dress", "generator": "deepseek-4.1-flash"}
+{"product_id": "277972615", "source": "brand", "style": "exact", "query": "shein prive side cord split thigh dress", "generator": "deepseek-4.1-flash"}

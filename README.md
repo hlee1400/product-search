@@ -38,10 +38,25 @@ Warm queries take about 110 ms end to end on a laptop GPU (RTX 5050).
 ## Image search
 
 [`image_search/`](image_search/README.md) adds search by text or photo over the 23.8k
-products with images. It compares one shared image-text model (CLIP, SigLIP, SigLIP 2)
-with separate models per modality (DINOv2 for images, MiniLM for text) across six search types.
-SigLIP is far ahead of CLIP B/32 for text → image (MRR@10 0.71 vs 0.28), and fusing MiniLM
-titles with SigLIP photos gives the best text search (R@10 0.91).
+products with images. Its README walks through how the design changed as the measurements
+improved:
+
+1. **First,** I compared one shared image-text model (CLIP, SigLIP, SigLIP 2) with separate
+   models per modality (MiniLM for text, DINOv2 for images). SigLIP beat CLIP by a wide
+   margin, and fusing MiniLM title matches with SigLIP photo matches by rank (RRF) looked best.
+2. **Then** I tested with realistic LLM-written shopper queries, and found that rank fusion
+   **collapses on queries that describe the photo** ("white star sneakers with green accents").
+   Title search guesses badly on those, and RRF gives its guesses equal say.
+3. **To rule out the benchmark,** I had one model write all the queries, offloading generation
+   to the LunaRoute LLM gateway (2 minutes instead of over an hour on my laptop). The failure
+   held.
+4. **So I changed the fusion.** Weighting ranks didn't help. Blending normalized similarity
+   *scores* (70% photo, 30% title) did, because it keeps each side's confidence.
+5. **Finally,** brand / model-number queries confirmed the title side is worth keeping. The
+   blend beats both sides on those too.
+
+**Where it ended up:** on held-out products, mean MRR@10 rose from 0.527 (equal-weight RRF) to
+0.624 (score blend), with no query type where it collapses.
 
 ## Repo layout
 

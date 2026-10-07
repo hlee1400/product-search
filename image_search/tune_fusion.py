@@ -36,15 +36,12 @@ import torch
 from benchmark_queries import load_queries
 from encoders import MODELS, Encoder, device
 from evaluate import RRF_K, metrics
+from fusion import PHOTO_WEIGHT, zscore
 from generate_queries import QUERIES_DIR
 from settings import GALLERY_PARQUET, RESULTS_DIR, emb_path
 
 WEIGHTS = np.round(np.arange(0, 1.01, 0.1), 2)
 RECALL_K = 100
-
-
-def zscore(s: torch.Tensor) -> torch.Tensor:
-    return (s - s.mean(1, keepdim=True)) / s.std(1, keepdim=True)
 
 
 def fused_ranks(q_title: np.ndarray, q_photo: np.ndarray, titles: np.ndarray, photos: np.ndarray,
@@ -129,10 +126,12 @@ def main() -> None:
     rows = [
         (f"title only ({title_label})", "blend@0.0"),
         (f"photo only ({photo_label})", "blend@1.0"),
-        ("equal-weight RRF (current app)", "rrf@0.5"),
+        ("equal-weight RRF (old app)", "rrf@0.5"),
         (f"weighted RRF, w={best['rrf'].split('@')[1]}", best["rrf"]),
-        (f"score blend, w={best['blend'].split('@')[1]}", best["blend"]),
+        (f"score blend, w={best['blend'].split('@')[1]} (best on tune half)", best["blend"]),
     ]
+    if f"blend@{PHOTO_WEIGHT}" != best["blend"]:
+        rows.append((f"score blend, w={PHOTO_WEIGHT} (fusion.PHOTO_WEIGHT)", f"blend@{PHOTO_WEIGHT}"))
     test = {name: score(key, "test") for name, key in rows}
 
     md = [f"Title model: {title_label}. Photo model: {photo_label}. "

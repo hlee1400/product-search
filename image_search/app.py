@@ -9,7 +9,8 @@ which of the six search types answers it:
     image -> text                              image -> image  (DINOv2)
     text  -> text
     image -> image
-  plus text -> product: MiniLM titles + shared-model images, fused with RRF.
+  plus text -> product: MiniLM titles + shared-model photos, score-blended
+  (70% photo, see fusion.py and IMPROVEMENTS.md).
 
 Usage:
     python image_search/build_index.py   # once
@@ -32,12 +33,12 @@ from flask import Flask, abort, jsonify, request, send_from_directory
 from PIL import Image
 
 from encoders import IMAGE_MODELS, MODELS, SHARED_MODELS, TEXT_MODELS, Encoder, device
+from fusion import PHOTO_WEIGHT, blend
 from settings import GALLERY_PARQUET, IMAGE_SEARCH_DIR, IMAGES_DIR, emb_path
 
 TOP_K = 48
 # Best shared model in evaluate.py (results/results.md).
 DEFAULT_SHARED = "siglip2-b16"
-RRF_K = 60
 RECALL_K = 100
 
 # search type -> (query modality, target modality, model family, label)
@@ -114,21 +115,21 @@ class ImageSearchEngine:
                 idx, scores = self._scores(key, target, q, TOP_K + 1)
                 return {"model": MODELS[key][2], "hits": list(zip(idx, scores))}
 
-            # Separate text model over titles + shared model over images.
+            # Separate text model over titles + shared model over photos, score-blended.
             if self.text_model is None:
                 abort(400, "no text-only model is indexed")
-            t_idx, _ = self._scores(self.text_model, "title",
-                                    self._embed_query(self.text_model, text, None, None, "text"), RECALL_K)
-            i_idx, _ = self._scores(key, "image", self._embed_query(key, text, None, None, "text"), RECALL_K)
-        fused: dict[int, float] = {}
-        for lst in (t_idx, i_idx):
-            for r, i in enumerate(lst):
-                fused[i] = fused.get(i, 0.0) + 1.0 / (RRF_K + r + 1)
-        order = sorted(fused, key=fused.get, reverse=True)[:TOP_K + 1]
+            s_title = (self._embed_query(self.text_model, text, None, None, "text")
+                       @ self.emb[(self.text_model, "title")].T)[0]
+            s_photo = (self._embed_query(key, text, None, None, "text") @ self.emb[(key, "image")].T)[0]
+            top = blend(s_title, s_photo).topk(TOP_K + 1)
+            # TXT / IMG tags: which side alone would have ranked the product in its top RECALL_K.
+            strong = {"text": set(s_title.topk(RECALL_K).indices.tolist()),
+                      "image": set(s_photo.topk(RECALL_K).indices.tolist())}
+        order = top.indices.tolist()
         return {
             "model": f"{MODELS[self.text_model][2]} + {MODELS[key][2]}",
-            "hits": [(i, fused[i]) for i in order],
-            "sources": {i: [s for s, lst in (("text", t_idx), ("image", i_idx)) if i in lst] for i in order},
+            "hits": list(zip(order, top.values.tolist())),
+            "sources": {i: [s for s, ids in strong.items() if i in ids] for i in order},
         }
 
     def product(self, i: int) -> dict:
@@ -172,6 +173,7 @@ def status():
         "default_model": engine.default_shared,
         "text_model": engine.text_model and MODELS[engine.text_model][2],
         "image_model": engine.image_model and MODELS[engine.image_model][2],
+        "photo_weight": PHOTO_WEIGHT,
         "search_types": {k: {"query": v[0], "family": v[2], "label": v[3]} for k, v in SEARCH_TYPES.items()},
     })
 
