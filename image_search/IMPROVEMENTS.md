@@ -20,9 +20,9 @@ This branch works on all three:
 
 | # | Change | Status |
 | --- | --- | --- |
-| 1 | Tune a **weighted** combination of title search and photo search | First results below; to re-run on the clean query set |
-| 2 | Have **one model (Qwen2.5-VL) write both halves** of the benchmark | Generator ready; waiting on the remote setup |
-| 3 | Move query generation **off the laptop**, through LunaRoute | `--backend api` built and tested; needs the LunaRoute/provider details |
+| 1 | Tune a **weighted** combination of title search and photo search | Done: a score blend at w = 0.8 beats the app's equal-weight RRF |
+| 2 | Have **one model write both halves** of the benchmark | Done: `deepseek-4.1-flash` wrote both (Qwen isn't on LunaRoute) |
+| 3 | Move query generation **off the laptop**, through LunaRoute | Done: 1,000 requests in 2 min 10 s, versus over an hour locally |
 
 ## 1. Weighted fusion
 
@@ -46,7 +46,7 @@ to test:
   both query types**, by their mean MRR@10.
 
 **First results** (Gemma from text + Qwen from image, so the confound still applies;
-held-out half, MRR@10 [R@10]):
+held-out half, MRR@10 [R@10]; the clean re-run is in [Final results](#final-results-one-writer)):
 
 | Method | from image | from text | mean |
 | --- | --- | --- | --- |
@@ -66,55 +66,113 @@ What this says so far:
 - The tune-half sweep is smooth and peaks at 0.7–0.8 (see [results/fusion.md](results/fusion.md)),
   so the choice isn't a lucky spike.
 
-These numbers are **provisional** until step 2 removes the writer confound. If they hold, the
-app's fused search should move from equal-weight RRF to the score blend.
+These numbers were **provisional** until step 2 removed the writer confound. They held; see
+[Final results](#final-results-one-writer).
 
 ## 2. One writer for both halves
 
-Qwen2.5-VL can see images (Gemma can't in this Ollama install), so it can write both halves.
-`generate_queries.py` now tracks progress per writer, so a Qwen run doesn't skip products
-just because Gemma already covered them. Every query row records its writer, and
-`benchmark_queries.py` / `tune_fusion.py --generator <model>` can score one writer's
-queries alone.
+The plan was to have Qwen2.5-VL write both halves, since it can see images and Gemma can't in
+this Ollama install. But LunaRoute doesn't offer Qwen. What the benchmark needs is that **one
+model writes both halves**, not that the model is Qwen. So both halves were regenerated
+remotely with **`deepseek-4.1-flash`**, which supports images and JSON output. Using the
+remote model for both halves, rather than adding remote text queries to the local Qwen image
+queries, also keeps local and hosted versions of a model from mixing.
 
-The plan is to regenerate **both** halves with the same remote Qwen model, rather than adding
-remote text queries to the local image ones. The local model is a 4-bit Ollama build and a
-hosted one usually isn't, so mixing them would bring back a small version of the same confound.
+`generate_queries.py` tracks progress per writer, so a new writer doesn't skip products
+another model already covered. Every query row records its writer, and
+`benchmark_queries.py` / `tune_fusion.py --generator <model>` can score one writer's queries
+alone.
 
 ## 3. Offloading with LunaRoute
 
-**What LunaRoute is.** [LunaRoute](https://deepwiki.com/erans/lunaroute) is a local proxy
-for LLM API calls, written in Rust. Clients send it OpenAI- or Anthropic-format requests, and
-it forwards them to the configured provider. It adds routing and fallbacks, session recording
-and PII redaction, with very little added latency. It doesn't run models itself.
+**What LunaRoute is here.** A hosted, OpenAI-compatible LLM gateway at
+`https://gw.lunaroute.com/v1`. `GET /v1/models` lists what it serves: DeepSeek 4.1 Flash, GLM
+5.x (including vision variants), and others. Requests use a bearer key, kept in the
+`LUNAROUTE_API_KEY` user environment variable and never written to the repo.
 
-**What that means for this project:**
-- **Query generation (the expensive part)** can move off the laptop. With
-  `--backend api`, requests go to LunaRoute, which forwards them to a hosted provider running
-  Qwen2.5-VL. The laptop only sends requests, so there's no GPU or memory load, and 8 run in
-  parallel. LunaRoute adds one place to change provider or model, a record of every request
-  for reproducibility, and fallback if a provider fails.
-- **The benchmark scoring stays local.** Embedding 3,000 queries and ranking them against the
-  23.8k-product index takes about a minute on the GPU, and it needs the local embedding indexes
-  anyway. It also isn't an LLM call, so LunaRoute couldn't route it.
-- **What's needed to run it:** LunaRoute installed and running, an upstream provider that
-  hosts Qwen2.5-VL 7B (e.g. OpenRouter), and that provider's API key in LunaRoute's config.
-  Then:
+**What was offloaded, and what wasn't:**
+
+- **Query generation (the expensive part) moved off the laptop.** `--backend api` (default
+  endpoint: LunaRoute, default model: `deepseek-4.1-flash`, `reasoning_effort: none` since the
+  task needs no reasoning) sends 8 requests at a time. The laptop only sends requests, with no
+  GPU or memory load.
+
+  | | Local (Ollama, 8 GB laptop GPU) | LunaRoute (`deepseek-4.1-flash`) |
+  | --- | --- | --- |
+  | 1,000 requests (500 products × text + image) | over 1 hour (~3 s each, one at a time) | **2 min 10 s** |
+  | Vision | Gemma: broken; Qwen 7B: works | works |
+  | Laptop load | GPU full, memory pressure | none |
+
+- **The benchmark scoring stays local.** Embedding a few thousand queries and ranking them
+  against the 23.8k-product index takes about a minute on the GPU, and it needs the local
+  embedding indexes. It also isn't an LLM call, so the gateway couldn't serve it.
 
 ```powershell
-python image_search/generate_queries.py --backend api --sources text image `
-    --api-model <provider's Qwen2.5-VL 7B name> --api-base-url <LunaRoute URL>/v1
-python image_search/benchmark_queries.py
-python image_search/tune_fusion.py --generator <provider's Qwen2.5-VL 7B name>
+# once: [Environment]::SetEnvironmentVariable('LUNAROUTE_API_KEY', '<key>', 'User')
+python image_search/generate_queries.py --backend api        # both halves, LunaRoute
+python image_search/benchmark_queries.py                     # every writer, side by side
+python image_search/tune_fusion.py --generator deepseek-4.1-flash
 ```
 
-`--backend api` works with any OpenAI-compatible endpoint. It was tested end to end against
-Ollama's own `/v1` endpoint: parallel requests, the image check and resume all work.
+Before an image run, the script still checks that the remote model can see images (it
+answered "Red" for the red test square).
+
+## Final results (one writer)
+
+2,993 queries for the same 500 products, all written by `deepseek-4.1-flash`
+([results/generated_queries.md](results/generated_queries.md)).
+
+**The writer confound was real, but the conclusions hold.** DeepSeek's queries are sharper
+than the local models', so every score is higher. Photo search on image-written queries goes
+from 0.377 (Qwen) to 0.594 (DeepSeek), so part of the old gap came from the writer. The
+pattern is the same, though:
+
+| MRR@10 | from text | from image |
+| --- | --- | --- |
+| title search (MiniLM) | 0.443 | 0.150 |
+| photo search (SigLIP 2) | 0.441 | **0.594** |
+| equal-weight RRF (current app) | **0.516** | 0.309 |
+
+With one writer, the effect of the input is clear: queries written from the photo hardly work
+with title search, and equal-weight RRF still falls far below photo search alone on them.
+
+**Fusion tuning** ([results/fusion_deepseek-4.1-flash.md](results/fusion_deepseek-4.1-flash.md);
+weight chosen on 250 products, scored on the other 250; MRR@10 [R@10]):
+
+| Method | from image | from text | mean |
+| --- | --- | --- | --- |
+| title only (MiniLM) | 0.162 [0.29] | 0.438 [0.60] | 0.300 |
+| photo only (SigLIP 2) | 0.599 [0.79] | 0.457 [0.69] | 0.528 |
+| equal-weight RRF (current app) | 0.310 [0.52] | 0.511 [0.70] | 0.411 |
+| weighted RRF, best w = 1.0 | 0.600 [0.79] | 0.459 [0.69] | 0.529 |
+| **score blend, w = 0.8** | 0.536 [0.75] | **0.536 [0.73]** | **0.536** |
+
+Conclusions:
+
+- **Replace equal-weight RRF with the score blend at w = 0.8.** The mean MRR@10 goes from 0.411
+  to 0.536, and the blend scores the same on both query types instead of failing on one.
+- **w = 0.8 was chosen independently on both query sets** (mixed writers and DeepSeek), and
+  the tune-half sweep is smooth around it, so it's a stable choice rather than a lucky one.
+- **Weighted RRF is a dead end.** On both query sets its best weight is 1.0, which is photo
+  search alone.
+- **Blend vs photo search alone is close on average** (0.536 vs 0.528). The blend trades some
+  accuracy on image-written queries for better text-written ones. It's still the better
+  default because these queries leave out brands and model numbers by design, and that's
+  exactly where title search is strongest in real traffic.
+
+**Next:** switch the app's fused search to the score blend, and add a brand / model-number
+query set so the title side's real value is measured too.
 
 ## Log
 
 - **2026-10-07:** Committed the `image-search` findings and created this branch.
-  - Added `tune_fusion.py` and ran it on the existing queries (results above).
+  - Added `tune_fusion.py` and ran it on the existing queries.
   - Added `--backend api` and per-writer resume to `generate_queries.py`.
   - LunaRoute: the repo link from search results returns 404 and the docs mirror was
-    rate-limited, so the exact install and config steps aren't confirmed yet.
+    rate-limited, so the install and config steps weren't confirmed.
+- **2026-10-07:** Got the LunaRoute gateway details: hosted at `gw.lunaroute.com`,
+  OpenAI-compatible, bearer key.
+  - Stored the key as the `LUNAROUTE_API_KEY` user environment variable.
+  - Listed its models. No Qwen, so `deepseek-4.1-flash` became the single writer.
+  - Made LunaRoute the default for `--backend api`, generated 2,993 queries in 2 min 10 s,
+    and re-ran the benchmark and fusion tuning (results above).

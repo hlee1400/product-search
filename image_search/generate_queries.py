@@ -13,9 +13,10 @@ Two backends:
   claude  Claude via the Message Batches API (50% price, usually < 1 hour).
           Needs ANTHROPIC_API_KEY (or an `ant auth login` profile).
   ollama  a local vision model through Ollama (free, slower).
-  api     any OpenAI-compatible endpoint: a hosted provider running the model
-          (e.g. Qwen2.5-VL on OpenRouter), optionally through a local LunaRoute
-          proxy that forwards and records the requests. Runs 8 requests at once.
+  api     any OpenAI-compatible endpoint; defaults to the LunaRoute gateway
+          (https://gw.lunaroute.com/v1, key in LUNAROUTE_API_KEY) with
+          deepseek-4.1-flash. The model runs remotely, so the laptop does no
+          inference. Runs 8 requests at once.
 The ollama and api backends are resumable: re-running skips products this
 model has already written.
 
@@ -26,8 +27,7 @@ Usage:
     python image_search/generate_queries.py --backend ollama
     python image_search/generate_queries.py --backend claude
     python image_search/generate_queries.py --backend claude --batch-id msgbatch_...   # resume polling
-    python image_search/generate_queries.py --backend api --api-model qwen/qwen2.5-vl-7b-instruct \
-        --api-base-url <LunaRoute or provider URL>/v1
+    python image_search/generate_queries.py --backend api      # LunaRoute gateway, deepseek-4.1-flash
 """
 from __future__ import annotations
 
@@ -199,14 +199,16 @@ def ollama_caller(model: str, host: str):
     return call
 
 
-def api_caller(model: str, base_url: str, key_env: str):
+def api_caller(model: str, base_url: str, key_env: str, reasoning_effort: str | None = None):
     """Same interface over any OpenAI-compatible /chat/completions endpoint: a hosted
     provider (OpenRouter, Together, ...) or a local LunaRoute proxy in front of one."""
     import os
     import requests
 
     key = os.environ.get(key_env, "")
-    headers = {"Authorization": f"Bearer {key}"} if key else {}
+    if not key:
+        raise SystemExit(f"Set the {key_env} environment variable to your API key.")
+    headers = {"Authorization": f"Bearer {key}"}
 
     def call(prompt: str, image: str | None, schema: dict | None = SCHEMA) -> dict | str:
         content = [{"type": "text", "text": prompt}]
@@ -215,6 +217,8 @@ def api_caller(model: str, base_url: str, key_env: str):
                                "image_url": {"url": f"data:image/jpeg;base64,{image}"}})
         body = {"model": model, "messages": [{"role": "user", "content": content}],
                 "temperature": 0.7, "max_tokens": 400}
+        if reasoning_effort:
+            body["reasoning_effort"] = reasoning_effort
         if schema:
             body["response_format"] = {"type": "json_schema", "json_schema": {
                 "name": "queries", "strict": True, "schema": schema}}
@@ -294,10 +298,13 @@ def main() -> None:
     ap.add_argument("--claude-model", default="claude-opus-5-5")
     ap.add_argument("--ollama-model", default="gemma4:e4b")
     ap.add_argument("--ollama-host", default="http://localhost:11434")
-    ap.add_argument("--api-model", help="model name at the API endpoint, e.g. qwen/qwen2.5-vl-7b-instruct")
-    ap.add_argument("--api-base-url",
-                    help="OpenAI-compatible base URL: your LunaRoute proxy's address, or the provider's")
-    ap.add_argument("--api-key-env", default="OPENAI_API_KEY",
+    ap.add_argument("--api-model", default="deepseek-4.1-flash",
+                    help="model name at the API endpoint (needs vision for --sources image)")
+    ap.add_argument("--api-base-url", default="https://gw.lunaroute.com/v1",
+                    help="OpenAI-compatible base URL (default: the LunaRoute gateway)")
+    ap.add_argument("--api-reasoning-effort", default="none",
+                    help="reasoning_effort sent to the API; 'none' skips reasoning tokens (pass '' to omit)")
+    ap.add_argument("--api-key-env", default="LUNAROUTE_API_KEY",
                     help="environment variable holding the API key, if the endpoint needs one")
     ap.add_argument("--workers", type=int, default=None,
                     help="parallel requests (default: 1 for ollama, 8 for api)")
@@ -316,10 +323,9 @@ def main() -> None:
         run_requests(products, out, args.ollama_model, ollama_caller(args.ollama_model, args.ollama_host),
                      args.sources, args.workers or 1)
     else:
-        if not (args.api_model and args.api_base_url):
-            raise SystemExit("--backend api needs --api-model and --api-base-url")
         run_requests(products, out, args.api_model,
-                     api_caller(args.api_model, args.api_base_url, args.api_key_env),
+                     api_caller(args.api_model, args.api_base_url, args.api_key_env,
+                                args.api_reasoning_effort or None),
                      args.sources, args.workers or 8)
 
 
