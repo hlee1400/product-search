@@ -12,8 +12,12 @@ probably written from the photo.
 Two backends:
   claude  Claude via the Message Batches API (50% price, usually < 1 hour).
           Needs ANTHROPIC_API_KEY (or an `ant auth login` profile).
-  ollama  a local vision model through Ollama (free, slower). Resumable:
-          re-running skips products already written.
+  ollama  a local vision model through Ollama (free, slower).
+  api     any OpenAI-compatible endpoint: a hosted provider running the model
+          (e.g. Qwen2.5-VL on OpenRouter), optionally through a local LunaRoute
+          proxy that forwards and records the requests. Runs 8 requests at once.
+The ollama and api backends are resumable: re-running skips products this
+model has already written.
 
 Output: image_search/queries/queries_<backend>.jsonl, one row per query.
 Score it with `python image_search/benchmark_queries.py`.
@@ -22,6 +26,8 @@ Usage:
     python image_search/generate_queries.py --backend ollama
     python image_search/generate_queries.py --backend claude
     python image_search/generate_queries.py --backend claude --batch-id msgbatch_...   # resume polling
+    python image_search/generate_queries.py --backend api --api-model qwen/qwen2.5-vl-7b-instruct \
+        --api-base-url <LunaRoute or provider URL>/v1
 """
 from __future__ import annotations
 
@@ -174,77 +180,127 @@ def run_claude(products: pd.DataFrame, out: Path, model: str, batch_id: str | No
         print(f"{len(failed)} requests failed:\n  " + "\n  ".join(failed[:20]))
 
 
-# ---------------------------------------------------------------- ollama
+# ---------------------------------------------------------------- ollama / API
 
-def ollama_sees_images(model: str, host: str) -> bool:
-    """Some Ollama builds silently drop images; check with a plain red square."""
+def ollama_caller(model: str, host: str):
+    """Returns call(prompt, image_b64 or None) -> parsed JSON, via Ollama's chat API."""
     import requests
+
+    def call(prompt: str, image: str | None, schema: dict | None = SCHEMA) -> dict | str:
+        msg = {"role": "user", "content": prompt, **({"images": [image]} if image else {})}
+        body = {"model": model, "messages": [msg], "stream": False, "think": False,
+                "options": {"temperature": 0.7}}
+        if schema:
+            body["format"] = schema
+        r = requests.post(f"{host}/api/chat", timeout=300, json=body)
+        r.raise_for_status()
+        text = r.json()["message"]["content"]
+        return json.loads(text) if schema else text
+    return call
+
+
+def api_caller(model: str, base_url: str, key_env: str):
+    """Same interface over any OpenAI-compatible /chat/completions endpoint: a hosted
+    provider (OpenRouter, Together, ...) or a local LunaRoute proxy in front of one."""
+    import os
+    import requests
+
+    key = os.environ.get(key_env, "")
+    headers = {"Authorization": f"Bearer {key}"} if key else {}
+
+    def call(prompt: str, image: str | None, schema: dict | None = SCHEMA) -> dict | str:
+        content = [{"type": "text", "text": prompt}]
+        if image:
+            content.insert(0, {"type": "image_url",
+                               "image_url": {"url": f"data:image/jpeg;base64,{image}"}})
+        body = {"model": model, "messages": [{"role": "user", "content": content}],
+                "temperature": 0.7, "max_tokens": 400}
+        if schema:
+            body["response_format"] = {"type": "json_schema", "json_schema": {
+                "name": "queries", "strict": True, "schema": schema}}
+        r = requests.post(f"{base_url.rstrip('/')}/chat/completions", headers=headers,
+                          timeout=300, json=body)
+        r.raise_for_status()
+        text = r.json()["choices"][0]["message"]["content"]
+        if not schema:
+            return text
+        # Not every provider enforces the schema; fall back to the first {...} in the reply.
+        return json.loads(text[text.index("{"): text.rindex("}") + 1])
+    return call
+
+
+def sees_images(call) -> bool:
+    """Some setups silently drop images; check with a plain red square."""
     buf = io.BytesIO()
     Image.new("RGB", (224, 224), (220, 20, 20)).save(buf, format="JPEG")
-    r = requests.post(f"{host}/api/chat", timeout=300, json={
-        "model": model, "stream": False, "think": False,
-        "messages": [{"role": "user", "content": "What color is this image? Answer with one word.",
-                      "images": [base64.standard_b64encode(buf.getvalue()).decode()]}],
-    })
-    r.raise_for_status()
-    answer = r.json()["message"]["content"]
+    answer = call("What color is this image? Answer with one word.",
+                  base64.standard_b64encode(buf.getvalue()).decode(), schema=None)
     print(f"vision check: {answer.strip()[:80]!r}")
     return "red" in answer.lower()
 
 
-def run_ollama(products: pd.DataFrame, out: Path, model: str, host: str, sources: list[str]) -> None:
-    import requests
+def run_requests(products: pd.DataFrame, out: Path, generator: str, call, sources: list[str],
+                 workers: int) -> None:
+    """Writes queries for every (product, source) not already in `out` for this generator."""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
-    if "image" in sources and not ollama_sees_images(model, host):
-        raise SystemExit(f"{model} can't see images in this Ollama install (it answered without "
-                         "looking at the test image). Use --sources text, another vision model, "
-                         "or --backend claude.")
+    if "image" in sources and not sees_images(call):
+        raise SystemExit(f"{generator} can't see images here (it answered without looking at the "
+                         "test image). Use --sources text, another vision model, or another backend.")
 
     done = set()
     if out.exists():
         for line in out.open(encoding="utf-8"):
             r = json.loads(line)
-            done.add((r["product_id"], r["source"]))
+            if r["generator"] == generator:
+                done.add((r["product_id"], r["source"]))
 
     todo = [(row, src) for _, row in products.iterrows() for src in sources
             if (row["product_id"], src) not in done]
-    print(f"{len(done)} requests already done, {len(todo)} to go with {model}")
+    print(f"{len(done)} requests already done, {len(todo)} to go with {generator} ({workers} at a time)")
 
-    t0 = time.time()
-    with out.open("a", encoding="utf-8") as f:
-        for i, (row, source) in enumerate(todo, 1):
-            if source == "text":
-                msg = {"role": "user", "content": TEXT_PROMPT.format(
-                    title=row["title"], merchant=row["merchant"], description=description_for(row))}
-            else:
-                msg = {"role": "user", "content": IMAGE_PROMPT, "images": [jpeg_b64(row["local_image"])]}
+    def one(row, source):
+        if source == "text":
+            prompt = TEXT_PROMPT.format(title=row["title"], merchant=row["merchant"],
+                                        description=description_for(row))
+            return call(prompt, None)
+        return call(IMAGE_PROMPT, jpeg_b64(row["local_image"]))
+
+    t0, skipped = time.time(), 0
+    with out.open("a", encoding="utf-8") as f, ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(one, row, src): (row["product_id"], src) for row, src in todo}
+        for i, fut in enumerate(as_completed(futures), 1):
+            pid, source = futures[fut]
             try:
-                r = requests.post(f"{host}/api/chat", timeout=300, json={
-                    "model": model, "messages": [msg], "format": SCHEMA, "stream": False,
-                    "think": False, "options": {"temperature": 0.7},
-                })
-                r.raise_for_status()
-                data = json.loads(r.json()["message"]["content"])
-            except Exception as e:  # one bad response shouldn't stop an hour-long run
-                print(f"  skip {row['product_id']}-{source}: {e}")
+                rows = rows_for(pid, source, fut.result(), generator)
+            except Exception as e:  # one bad response shouldn't stop a long run
+                skipped += 1
+                print(f"  skip {pid}-{source}: {e}")
                 continue
-            for q in rows_for(row["product_id"], source, data, model):
+            for q in rows:
                 f.write(json.dumps(q, ensure_ascii=False) + "\n")
             f.flush()
             if i % 25 == 0 or i == len(todo):
                 rate = (time.time() - t0) / i
                 print(f"  {i}/{len(todo)}  ({rate:.1f}s each, ~{rate*(len(todo)-i)/60:.0f} min left)", flush=True)
-    print(f"done -> {out}")
+    print(f"done -> {out}" + (f" ({skipped} skipped; re-run to retry them)" if skipped else ""))
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--backend", choices=("claude", "ollama"), required=True)
+    ap.add_argument("--backend", choices=("claude", "ollama", "api"), required=True)
     ap.add_argument("--n", type=int, default=500, help="number of products")
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--claude-model", default="claude-opus-5-5")
     ap.add_argument("--ollama-model", default="gemma4:e4b")
     ap.add_argument("--ollama-host", default="http://localhost:11434")
+    ap.add_argument("--api-model", help="model name at the API endpoint, e.g. qwen/qwen2.5-vl-7b-instruct")
+    ap.add_argument("--api-base-url",
+                    help="OpenAI-compatible base URL: your LunaRoute proxy's address, or the provider's")
+    ap.add_argument("--api-key-env", default="OPENAI_API_KEY",
+                    help="environment variable holding the API key, if the endpoint needs one")
+    ap.add_argument("--workers", type=int, default=None,
+                    help="parallel requests (default: 1 for ollama, 8 for api)")
     ap.add_argument("--sources", nargs="+", choices=("text", "image"), default=["text", "image"])
     ap.add_argument("--batch-id", help="resume polling an already-submitted Claude batch")
     args = ap.parse_args()
@@ -256,8 +312,15 @@ def main() -> None:
 
     if args.backend == "claude":
         run_claude(products, out, args.claude_model, args.batch_id, args.sources)
+    elif args.backend == "ollama":
+        run_requests(products, out, args.ollama_model, ollama_caller(args.ollama_model, args.ollama_host),
+                     args.sources, args.workers or 1)
     else:
-        run_ollama(products, out, args.ollama_model, args.ollama_host, args.sources)
+        if not (args.api_model and args.api_base_url):
+            raise SystemExit("--backend api needs --api-model and --api-base-url")
+        run_requests(products, out, args.api_model,
+                     api_caller(args.api_model, args.api_base_url, args.api_key_env),
+                     args.sources, args.workers or 8)
 
 
 if __name__ == "__main__":
