@@ -29,7 +29,7 @@
 
   header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .bar { max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-  .brand { font-weight: 700; letter-spacing: -.02em; font-size: 18px; white-space: nowrap; }
+  .brand { font-weight: 700; letter-spacing: -.02em; font-size: 18px; white-space: nowrap; text-decoration: none; color: inherit; }
   .brand span { color: var(--img); }
 
   form.search { flex: 1 1 420px; display: flex; align-items: center; gap: 8px; position: relative;
@@ -59,6 +59,17 @@
   .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
   .chip small { opacity: .7; margin-left: 4px; }
   .chip.compare[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
+
+  .filters { display: flex; gap: 10px 16px; flex-wrap: wrap; align-items: center; margin: -4px 0 16px; }
+  .filters .gl { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  .swatches { display: flex; gap: 6px; flex-wrap: wrap; }
+  .sw { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--border); cursor: pointer; padding: 0; position: relative; }
+  .sw[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .sw.multicolor, .attr i.multicolor { background: conic-gradient(#e33, #fb3, #3b5, #39f, #a4e, #e33); }
+  .sw.clear, .attr i.clear { background: repeating-conic-gradient(#ddd 0 25%, #fff 0 50%) 0 0 / 8px 8px; }
+  .clearf { border: 0; background: none; color: var(--accent); cursor: pointer; font-size: 13px; padding: 0; }
+  .attr { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .attr i { width: 9px; height: 9px; border-radius: 50%; flex: none; border: 1px solid var(--border); }
 
   .meta { color: var(--muted); font-size: 14px; margin-bottom: 14px; min-height: 22px; }
   .meta b { color: var(--text); font-weight: 600; }
@@ -103,7 +114,7 @@
 <body>
 <header>
   <div class="bar">
-    <div class="brand">Image<span>Search</span></div>
+    <a class="brand" href="/" title="Back to start">Image<span>Search</span></a>
     <form class="search" id="form" autocomplete="off">
       <span class="qimg" id="qimg"><img id="qimgThumb" alt=""><span id="qimgName">image</span><button type="button" id="clearImg" aria-label="Clear image">×</button></span>
       <input type="text" id="q" placeholder="Describe a product, or drop / paste a photo…" aria-label="Search">
@@ -119,6 +130,7 @@
 
 <main>
   <div class="types" id="types"></div>
+  <div class="filters" id="filters"></div>
   <div id="qprod"></div>
   <div class="meta" id="meta"></div>
   <div id="out"></div>
@@ -128,7 +140,11 @@
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-const state = { status: null, kind: "text", type: "t2i", compare: false, file: null, pid: null };
+const state = { status: null, kind: "text", type: "t2i", compare: false, file: null, pid: null, color: "", category: "" };
+const SWATCH = { black: "#111", white: "#fff", gray: "#8a8a8a", beige: "#d9c7a7", brown: "#7b4f2c", red: "#d22",
+  pink: "#f29bb8", orange: "#f28c28", yellow: "#f4d03f", green: "#3a9d5d", blue: "#2f6fd6", purple: "#8e5cc4",
+  gold: "linear-gradient(135deg,#f6dd8a,#c49a2c)", silver: "linear-gradient(135deg,#f2f2f2,#9da3a8)" };
+const swatchStyle = c => SWATCH[c] ? `background:${SWATCH[c]}` : "";
 const DEFAULT = { text: "t2i", image: "i2i" };
 
 async function init() {
@@ -139,6 +155,9 @@ async function init() {
   if (url.get("model")) $("#model").value = url.get("model");
   if (isTextType(url.get("type"))) state.type = url.get("type");
   state.compare = url.get("compare") === "1";
+  state.color = url.get("color") || "";
+  state.category = url.get("category") || "";
+  renderFilters();
   renderTypes();
   if (url.get("q")) { $("#q").value = url.get("q"); run(); } else renderEmpty();
 }
@@ -168,6 +187,26 @@ $("#types").addEventListener("click", e => {
   renderTypes(); run();
 });
 $("#model").addEventListener("change", run);
+
+function renderFilters() {
+  const f = state.status.facets;
+  if (!Object.keys(f.colors).length) { $("#filters").innerHTML = ""; return; }
+  const sw = state.status.palette.filter(c => f.colors[c]).map(c =>
+    `<button class="sw ${c}" style="${swatchStyle(c)}" data-color="${c}" title="${c} (${f.colors[c].toLocaleString()})" aria-label="${c}" aria-pressed="${state.color === c}"></button>`).join("");
+  const cats = Object.entries(f.categories).map(([c, n]) =>
+    `<option value="${esc(c)}" ${state.category === c ? "selected" : ""}>${esc(c)} (${n.toLocaleString()})</option>`).join("");
+  $("#filters").innerHTML = `
+    <span class="gl">Color</span><div class="swatches">${sw}</div>
+    <span class="gl">Category</span><select id="cat"><option value="">All categories</option>${cats}</select>
+    ${state.color || state.category ? `<button class="clearf" id="clearf">Clear filters</button>` : ""}`;
+}
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.id === "clearf") { state.color = ""; state.category = ""; }
+  else state.color = state.color === b.dataset.color ? "" : b.dataset.color;
+  renderFilters(); run();
+});
+$("#filters").addEventListener("change", e => { if (e.target.id === "cat") { state.category = e.target.value; renderFilters(); run(); } });
 
 function setImageQuery(file, pid, thumb, name) {
   state.file = file; state.pid = pid; state.kind = "image";
@@ -202,6 +241,8 @@ for (const ev of ["dragover", "dragleave", "drop"]) document.addEventListener(ev
 async function query(type) {
   const fd = new FormData();
   fd.append("type", type); fd.append("model", $("#model").value);
+  if (state.color) fd.append("color", state.color);
+  if (state.category) fd.append("category", state.category);
   if (state.kind === "text") fd.append("q", $("#q").value.trim());
   else if (state.pid) fd.append("pid", state.pid);
   else fd.append("image", state.file);
@@ -249,6 +290,7 @@ function card(p, i) {
     <div class="img"><img loading="lazy" src="${esc(p.image)}" alt=""><span class="rank">${i + 1}</span>
       <button class="sim" data-pid="${esc(p.id)}" data-img="${esc(p.image)}">More like this</button></div>
     <div class="body"><div class="merchant">${esc(p.merchant)}</div>
+      ${p.color ? `<div class="attr" title="${esc(p.category)}"><i class="${p.color}" style="${swatchStyle(p.color)}"></i>${esc(p.color_name || p.color)} · ${esc((p.category || "").split(" > ").pop())}</div>` : ""}
       <a class="title" href="${esc(p.url)}" target="_blank" rel="noopener" title="${esc(p.ai_description)}">${esc(p.title)}</a>
       <div class="foot"><span class="price">${price}</span><span class="score">${right}</span></div></div>
   </article>`;
