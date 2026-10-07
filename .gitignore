@@ -4,6 +4,7 @@ search_pipeline/esci-data/
 
 # Generated indexes and caches
 search_app/artifacts/
+image_search/artifacts/
 search_pipeline/data/artifacts/bm25_us/
 search_pipeline/data/artifacts/*.npy
 search_pipeline/data/processed/
