@@ -1,0 +1,42 @@
+# Fly.io config for the product search API (api/).
+app = "hlee-product-search"
+primary_region = "ord"
+
+[build]
+  dockerfile = "api/Dockerfile"
+
+[env]
+  # Public Tigris bucket holding the product photos (api/upload_photos.py).
+  PHOTO_BASE_URL = "https://hlee-product-photos.fly.storage.tigris.dev"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  # Sleep when idle by *suspending*: the machine's memory (models already loaded and
+  # warmed up) is snapshotted and resumes in a few hundred ms. With "stop", a wake-up
+  # re-ran the ~65 s model load and warm-up, and the first request got a 502.
+  # Fly's docs discourage suspend above 2 GB, but at 2 GB the model weights were evicted
+  # and the first photo query after a wake-up took ~16 s; at 4 GB they stay in memory.
+  # Each deploy discards the snapshot (the next start is cold).
+  auto_stop_machines = "suspend"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 8
+    hard_limit = 16
+
+  [[http_service.checks]]
+    method = "GET"
+    path = "/health"
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "90s"   # models + index load before /health answers
+
+[[vm]]
+  # The process uses ~1.8 GB (0.95 GB own memory + 0.87 GB of model weights paged in from
+  # disk). 4 GB keeps every weight in memory; 2 GB caused evictions and slow wake-ups.
+  memory = "4gb"
+  cpus = 2
+  cpu_kind = "shared"

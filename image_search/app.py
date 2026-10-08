@@ -201,6 +201,7 @@ def status():
         "text_model": engine.text_model and MODELS[engine.text_model][2],
         "image_model": engine.image_model and MODELS[engine.image_model][2],
         "photo_weight": PHOTO_WEIGHT,
+        "default_type": "t2p-fused",   # the tuned blend (see README, steps 4-5)
         "palette": list(PALETTE),
         "facets": engine.facets(),
         "search_types": {k: {"query": v[0], "family": v[2], "label": v[3]} for k, v in SEARCH_TYPES.items()},

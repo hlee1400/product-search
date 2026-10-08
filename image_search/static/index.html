@@ -69,6 +69,7 @@
   .sw.clear, .attr i.clear { background: repeating-conic-gradient(#ddd 0 25%, #fff 0 50%) 0 0 / 8px 8px; }
   .clearf { border: 0; background: none; color: var(--accent); cursor: pointer; font-size: 13px; padding: 0; }
   .attr { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  a.ctl { text-decoration: none; } a.ctl:hover { color: var(--text); }
   .attr i { width: 9px; height: 9px; border-radius: 50%; flex: none; border: 1px solid var(--border); }
 
   .meta { color: var(--muted); font-size: 14px; margin-bottom: 14px; min-height: 22px; }
@@ -148,9 +149,14 @@ const swatchStyle = c => SWATCH[c] ? `background:${SWATCH[c]}` : "";
 const DEFAULT = { text: "t2i", image: "i2i" };
 
 async function init() {
-  state.status = await (await fetch("/api/status")).json();
+  const res = await fetch("/api/status");
+  if (res.status === 401) { location.href = "/login"; return; }   // hosted: session expired
+  state.status = await res.json();
   $("#model").innerHTML = state.status.shared_models.map(m => `<option value="${m.key}">${esc(m.label)}</option>`).join("");
   $("#model").value = state.status.default_model;
+  if (state.status.shared_models.length < 2) $("#model").closest("label").style.display = "none";
+  if (state.status.default_type) state.type = DEFAULT.text = state.status.default_type;
+  if (state.status.logout) $(".bar").insertAdjacentHTML("beforeend", `<a class="ctl" href="${esc(state.status.logout)}">Log out</a>`);
   const url = new URLSearchParams(location.search);
   if (url.get("model")) $("#model").value = url.get("model");
   if (isTextType(url.get("type"))) state.type = url.get("type");
@@ -247,6 +253,7 @@ async function query(type) {
   else if (state.pid) fd.append("pid", state.pid);
   else fd.append("image", state.file);
   const r = await fetch("/api/search", { method: "POST", body: fd });
+  if (r.status === 401) { location.href = "/login"; throw new Error("Session expired"); }
   if (!r.ok) throw new Error((await r.text()).replace(/<[^>]+>/g, " ").trim().slice(0, 200));
   return r.json();
 }

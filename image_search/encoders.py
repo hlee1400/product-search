@@ -56,21 +56,33 @@ def _normalize(x: torch.Tensor) -> np.ndarray:
     return x.cpu().numpy().astype(np.float32)
 
 
+def _quantize(model: torch.nn.Module) -> torch.nn.Module:
+    """int8 weights for every Linear layer (CPU only). ~4x smaller and usually faster on
+    CPU; the vectors in the index stay full precision. See api/README.md for the
+    accuracy check."""
+    from torch.ao.quantization import quantize_dynamic
+    return quantize_dynamic(model, {torch.nn.Linear}, dtype=torch.qint8)
+
+
 class Encoder:
-    def __init__(self, key: str) -> None:
+    def __init__(self, key: str, quantize: bool = False) -> None:
         self.key = key
         self.model_id, self.kind, self.label = MODELS[key]
-        self.device = device()
+        self.device = "cpu" if quantize else device()
         self.dtype = torch.float16 if self.device == "cuda" else torch.float32
 
         if self.kind == "text":
             from sentence_transformers import SentenceTransformer
             self.model = SentenceTransformer(self.model_id, device=self.device)
+            if quantize:
+                self.model = _quantize(self.model)
             return
 
         from transformers import AutoModel, AutoProcessor
         self.processor = AutoProcessor.from_pretrained(self.model_id)
         self.model = AutoModel.from_pretrained(self.model_id, dtype=self.dtype).to(self.device).eval()
+        if quantize:
+            self.model = _quantize(self.model)
         # SigLIP was trained on text padded to a fixed 64 tokens and needs
         # the same padding at inference; CLIP uses ordinary padding.
         self.text_kwargs = (
