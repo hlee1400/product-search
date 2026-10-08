@@ -1,0 +1,11 @@
+# Allowlist: send the Docker build only what api/Dockerfile copies
+# (keeps data/ and the local embedding caches out of the build context).
+*
+!api/requirements.txt
+!api/download_models.py
+!api/server.py
+!api/web.py
+!image_search/static/index.html
+!api/bundle/
+!image_search/encoders.py
+!image_search/fusion.py

@@ -1,0 +1,13 @@
+# Pinned to the versions the index was built and benchmarked with.
+# torch is installed separately in the Dockerfile from the CPU-only wheel index.
+transformers==5.5.4
+sentence-transformers==5.5.0
+sentencepiece==0.2.2
+protobuf==5.29.3
+numpy==2.3.5
+pandas==2.3.3
+pyarrow==21.0.0
+pillow==12.0.0
+fastapi==0.142.3
+uvicorn==0.54.0
+python-multipart==0.0.32

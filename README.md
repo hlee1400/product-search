@@ -52,11 +52,20 @@ improved:
    held.
 4. **So I changed the fusion.** Weighting ranks didn't help. Blending normalized similarity
    *scores* (70% photo, 30% title) did, because it keeps each side's confidence.
-5. **Finally,** brand / model-number queries confirmed the title side is worth keeping. The
+5. **Next,** brand / model-number queries confirmed the title side is worth keeping. The
    blend beats both sides on those too.
 
+6. **Then I added color and Google-taxonomy category labels** for every product, via a vision
+   model on LunaRoute. A pilot showed fixed-choice labels beat free-form ones. A test showed
+   that boosting products by the query's color *doesn't* improve ranking, because SigLIP
+   already sees color. So color became a filter the user chooses, not an automatic boost.
+7. **Finally I deployed it as an API on Fly.io** ([`api/`](api/README.md)). The 60 MB read-only
+   index ships inside the Docker image and is searched in memory, and photos live in object
+   storage.
+
 **Where it ended up:** on held-out products, mean MRR@10 rose from 0.527 (equal-weight RRF) to
-0.624 (score blend), with no query type where it collapses.
+0.624 (score blend), with no query type where it collapses. The API answers text queries in
+~100 ms on 2 CPUs.
 
 ## Repo layout
 
@@ -70,6 +79,7 @@ search_app/                    web UI over a product catalog, built on the pipel
   app.py                       Flask API server
   static/index.html            search page
 image_search/                  text + photo search with CLIP / SigLIP / DINOv2, and their evaluation
+api/                           hosted search API (FastAPI, Docker, Fly.io)
 ```
 
 ## Running it
